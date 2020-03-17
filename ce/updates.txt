@@ -1,3 +1,10 @@
+Post Submission A1 Updates
+    - Add avatar.png (Profile picture)
+    - Add RMIT logo
+    - Add link to lecture slides
+    - Add personal info
+    - Delete lines that contain deprecated code
+    - Edit footer
 Post Submission A2 Updates 
 
 
