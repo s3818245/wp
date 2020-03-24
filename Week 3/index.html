@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>User-Agent Example</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="mystyle.css">
+</head>
+
+<body>
+    <h1>H1</h1>
+    <h2>H2</h2>
+    <h3>H3</h3>
+    <h4>H4</h4>
+    <h5>H5</h5>
+    <h6>H6</h6>
+
+    <p>Paragraph with a <a href=''>hyperlink</a> in it.</p>
+
+    <p>This is another Paragraph</p>
+
+    <p id='s1234567'>"Your" paragraph will have red text. Property was overwritten twice (p & id)</p>
+
+    <p class='strike'>This paragraph will be struck out.</p>
+
+    <p class='strike' id='s1234567'>This paragraph will be struck out.</p>
+    <!-- The more specific one will overwrite. ID is more specific than class (class changes more properties)-->
+
+    <ol>
+        example for specific styling
+        <li>Ordered list element</li>
+        <li>Ordered list element</li>
+        <li>Ordered list element</li>
+        <li>Ordered list element</li>
+    </ol>
+
+    <ul>
+        <li>Unordered list element</li>
+        <li>Unordered list element</li>
+        <li>Unordered list element</li>
+        <em><li>This won't change to purple because of the direct decendant selector in css</li></em>
+    </ul>
+
+    <section>
+        <p>This is an example for</p>
+        <em>sibling selections </em>
+    </section>
+    
+</body>
+
+</html>
