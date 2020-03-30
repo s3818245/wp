@@ -1,0 +1,70 @@
+/* Adjacent */
+p + p { 
+    color: purple; 
+    }
+p + p + p {
+     color: red;
+}
+
+/* States */
+a:link  {
+    color: blue;
+}
+a:visited {
+    color: pink
+}
+a:hover  {
+    color: green;
+}
+a:active{
+    color:red;
+}
+
+/* Pseudo class */
+
+ol li:first-child {
+    color: red;
+}
+ol li:last-child{
+    color: green;
+}
+ol li:nth-child(2n){
+    color: blue;
+}
+ol li:nth-child(4){
+    color: cyan;
+}
+
+table{
+    border-collapse: collapse;
+}
+table, td, th{
+    border: 1px solid;
+}
+tr:first-child{
+    background-color: yellow;
+}
+tr:nth-child(even){
+    background-color: green;
+}
+td:nth-child(even){
+    background-color: pink;
+}
+
+p::first-line {
+    color: darkcyan;
+    font-style: italic;
+    font-size: 120%;
+}
+p::first-letter{
+    font-size: 200%;
+}
+p::selection {
+    color: hotpink;
+}
+p::before,p::after { 
+    content: " \2764 "; 
+    color: cyan;
+    font-weight: bold;
+    font-size: 130%;
+}
