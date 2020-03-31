@@ -7,7 +7,7 @@
     
     <!-- Keep wireframe.css for debugging, add your css to style.css -->
     <link id='wireframecss' type="text/css" rel="stylesheet" href="../wireframe.css" disabled> 
-    <link id='stylecss' type="text/css" rel="stylesheet" href="../style.css">
+    <link id='stylecss' type="text/css" rel="stylesheet" href="style.css">
 
     <script src='../wireframe.js'></script>
   </head>
@@ -15,24 +15,69 @@
   <body>
 
     <header>
-      <div>Put company logo and name here</div>
+      <div>Cinemax</div>
     </header>
 
     <nav>
-      <div>Put website navigation links here</div>
+      <ul>
+        <li><a href="#one">Now Showing</a></li>
+        <li><a href="#two">Pricing</a></li>
+        <li><a href="#three">About us</a></li>
+      </ul>
     </nav>
 
     <main>
-      <article id='Website Under Construction'>
-    <!-- Creative Commons image sourced from https://pixabay.com/en/maintenance-under-construction-2422173/ and used for educational purposes only -->
-        <img src='../../media/website-under-construction.png' alt='Website Under Construction' />
-      </article>
+      <section id="one" >
+        <div>About us <br>
+          The renovated Cinemax now offer Dolby
+        </div>
+        <div class="parallax"> </div>
+      </section>
+      <br>
+      <!--Now showing section-->
+      <section id="two" class = "now-showing-container">
+
+        <div class = "now-showing-item">
+          <div class="poster">poster section</div>
+          <div class="title">Avengers: Endgame</div>
+          <div class="rating">rating section</div>
+          <div class="time">time section</div>
+        </div>
+
+        <div class = "now-showing-item">
+          <div class="poster">poster section</div>
+          <div class="title">Top End Wedding</div>
+          <div class="rating">rating section</div>
+          <div class="time">time section</div>
+        </div>
+
+
+        <div class = "now-showing-item">
+          <div class="poster">poster section</div>
+          <div class="title">Dumbo</div>
+          <div class="rating">rating section</div>
+          <div class="time">time section</div>
+        </div>
+
+        <div class = "now-showing-item">
+          <div class="poster">poster section</div>
+          <div class="title">The Happy Prince</div>
+          <div class="rating">rating section</div>
+          <div class="time">time section</div>
+        </div>
+
+        
+      </section>
+
+      <section id="thee">
+        <h1>Pricing</h1>
+      </section>
     </main>
 
     <footer>
       <div>&copy;<script>
         document.write(new Date().getFullYear());
-      </script> Put your name(s), student number(s) and group name here. Last modified <?= date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME'])); ?>.</div>
+      </script> Phan Truong Quynh Anh (s3818245), Nguyen Thi Nha Uyen (s3819293). Last modified <?= date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME'])); ?>.</div>
       <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web Programming course at RMIT University in Melbourne, Australia.</div>
       <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
     </footer>
