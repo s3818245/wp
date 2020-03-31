@@ -6,6 +6,10 @@ Post Submission A1 Updates
     - Delete lines that contain deprecated code
     - Edit footer
 Post Submission A2 Updates 
+    - Add parallax
+    - Modify footer
+    - Add Bootstrap
+    - Create movie panels
 
 
 
