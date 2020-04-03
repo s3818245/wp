@@ -25,26 +25,39 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
 
   <header>
     <div>Cinemax</div>
   </header>
 
-  <nav>
-    <ul>
-      <li><a href="#one">Now Showing</a></li>
-      <li><a href="#two">Pricing</a></li>
-      <li><a href="#three">About us</a></li>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <a class="navbar-brand">Cinemax</a>
+
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#one">About us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#two">Now Showing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#three">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#four">Contact us</a>
+      </li>
+      
     </ul>
   </nav>
 
-  <main>
+  <main class="main_content">
     <section id="one">
-      <div>About us <br>
-        The renovated Cinemax now offer Dolby
+      <div class="parallax"> 
+        <div class="jumbotron"> <h1>About us</h1>
+          <p>The renovated Cinemax now offer Dolby</p>
+        </div>
       </div>
-      <div class="parallax"> </div>
     </section>
     <br>
     
@@ -98,8 +111,10 @@
     </section>
   </main>
 
+
+
   <footer>
-    <div>&copy;
+    <div id="four">&copy;
       <script>
         document.write(new Date().getFullYear());
       </script> Phan Truong Quynh Anh (s3818245), Nguyen Thi Nha Uyen (s3819293). Last modified
