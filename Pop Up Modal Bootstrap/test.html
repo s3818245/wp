@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop Up</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <table>
+            <tr>
+                <th><img src="Photo/Cover AMN.jpg" alt="A Mother's Nightmare" width="300px">
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <button data-modal-target="#modal">More Info</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-header">
+            <div class="title">A Mother's Nightmare (2012)</div>
+            <button data-close-button class="close-button">&times;</button>
+        </div>
+
+        <div class="modal-body">
+            <table>
+                <tr>
+                    <th rowspan="2"><img src="Photo/Cover AMN.jpg" alt="Cover" width="300px"></th>
+                    <td class="showcase">
+                            <p>Director: Vic Sarin</p>
+                            <p>Writer: Shelley Gillen</p>
+                            <p>Starting: Annabeth Gish, Jessica Lowndes, Grant Gustin </p>
+                            <p>Genres: Crime, Mystery, Thriller </p>
+                            <p>Date release: September 29, 2012</p>
+                            <p>Time: 85 min</li>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="showcase">
+                        <p>A seductive teen becomes vindictive when her boyfriend tries to end the
+                            relationship.</p>
+                        <p style="text-align: justify;">Vanessa moves fast to claim Chris for her own,
+                            taking his time away and distancing him from
+                            his
+                            family and friends. His mom, Maddie, is disturbed by their sudden relationship and when she
+                            discovers a secret of Vanessa's and she uses all her resources to convince Chris to end it.
+                            Angered and vengeful, Vanessa accuses Chris of a heinous act that turns the school against
+                            him
+                            and sparks an online attack. When things get violent, Vanessa plans her next move and Maddie
+                            must find out Vanessa's game before she loses her son forever.</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div id="overlay"></div>
+</body>
+
+</html>
