@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Assignment 2</title>
+
+  <!-- Keep wireframe.css for debugging, add your css to style.css -->
+  <link id='wireframecss' type="text/css" rel="stylesheet" href="wireframe.css" disabled>
+  <link id='stylecss' type="text/css" rel="stylesheet" href="style.css">
+
+  <script src='wireframe.js'></script>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+  <header>
+    <div>Cinemax</div>
+  </header>
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <a class="navbar-brand">Cinemax</a>
+
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#one">About us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#two">Now Showing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#three">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#four">Contact us</a>
+      </li>
+
+    </ul>
+  </nav>
+
+  <main class="main_content">
+    <section id="one">
+      <div class="parallax">
+        <div class="jumbotron">
+          <h1>About us</h1>
+          <p>The renovated Cinemax now offer Dolby</p>
+        </div>
+      </div>
+    </section>
+    <br>
+
+    <!--Now showing section-->
+    <section id="two">
+
+      <div class="row">
+
+        <div class="col-md-3">
+          <div class="now-showing-item">
+            <div class="poster"><img src="Photo/Cover AMN.jpg" class="img-fluid" alt="Poster"></div>
+            <div class="title">A Mother's Nightmare</div> <br>
+            <div class="buttonInfo">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                More Info
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+          aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <p class="title1" id="exampleModalLongTitle">A Mother's Nightmare</p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div id="demo" class="carousel slide" data-ride="carousel">
+
+                  <!-- Indicators -->
+                  <ul class="carousel-indicators">
+                    <li data-target="#demo" data-slide-to="0" class="active"></li>
+                    <li data-target="#demo" data-slide-to="1"></li>
+                  </ul>
+
+                  <!-- The slideshow -->
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <div class="table-responsive-sm">
+                        <table class="table table-borderless">
+                          <tr>
+                            <th rowspan="2"><img src="Photo/Cover AMN.jpg" alt="Poster Art"></th>
+                            <td>
+                              <p class="title1">Info</p>
+                              <p>Director: Vic Sarin</p>
+                              <p>Writer: Shelley Gillen</p>
+                              <p>Starting: Annabeth Gish, Jessica Lowndes, Grant Gustin </p>
+                              <p>Rating: Emotional unstable ;)))) </p>
+                              <p>Genres: Crime, Mystery, Thriller </p>
+                              <p>Date release: September 29, 2012</p>
+                              <p>Time: 85 minutes</li>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p class="title1">Plot Description</p>
+                              <p>A seductive teen becomes vindictive when her boyfriend tries to end
+                                the
+                                relationship.</p>
+                              <p style="text-align: justify;">Vanessa moves fast to claim Chris for
+                                her own,
+                                taking his time away and distancing him from
+                                his
+                                family and friends. His mom, Maddie, is disturbed by their sudden
+                                relationship and when she
+                                discovers a secret of Vanessa's and she uses all her resources to
+                                convince Chris to end it.
+                                Angered and vengeful, Vanessa accuses Chris of a heinous act that
+                                turns the school against
+                                him
+                                and sparks an online attack. When things get violent, Vanessa plans
+                                her next move and Maddie
+                                must find out Vanessa's game before she loses her son forever.</p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="top-border">
+                              <p>Booking</p>
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                        <iframe width="853" height="480" class="embed-responsive-item"
+                          src="https://www.youtube.com/embed/1Fm-Z48mC-o" frameborder="0"
+                          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                          allowfullscreen></iframe>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Left and right controls -->
+                  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                  </a>
+                  <a class="carousel-control-next" href="#demo" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                  </a>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="now-showing-item">
+            <div class="poster">poster section</div>
+            <div class="title">Movie title</div>
+            <div class="rating">rating section</div>
+            <div class="time">time section</div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="now-showing-item">
+            <div class="poster">poster section</div>
+            <div class="title">Movie title</div>
+            <div class="rating">rating section</div>
+            <div class="time">time section</div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="now-showing-item">
+            <div class="poster">poster section</div>
+            <div class="title">Movie title</div>
+            <div class="rating">rating section</div>
+            <div class="time">time section</div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="thee">
+      <h1>Pricing</h1>
+    </section>
+  </main>
+
+
+
+  <footer>
+    <div id="four">&copy;
+      <script>
+        document.write(new Date().getFullYear());
+      </script> Phan Truong Quynh Anh (s3818245), Nguyen Thi Nha Uyen (s3819293). Last modified
+      <?= date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME'])); ?>.</div>
+    <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web
+      Programming course at RMIT University in Melbourne, Australia.</div>
+    <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
+  </footer>
+
+</body>
+
+</html>

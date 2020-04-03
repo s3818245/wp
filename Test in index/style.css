@@ -1,0 +1,85 @@
+/* Insert your styles here */
+.parallax { 
+    /* The image used */
+    background-image: url("dolby_cinema.jpeg");
+  
+    /* Set a specific height */
+    height: 500px; 
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+    /*Movie board*/
+.main_content{
+    margin-top:80px;
+}
+.poster{
+    grid-area: poster;
+    border: 1px solid;
+}
+.title{
+    grid-area: title;
+    border: 1px solid;
+}
+.rating{
+    grid-area: rating;
+    border: 1px solid;
+}
+.time{
+    grid-area: time;
+    border: 1px solid;
+}
+
+.buttonInfo{
+    grid-area: more info;
+}
+
+.now-showing-item{
+    display: grid;
+    border: 1px solid blue;
+    grid-template-areas:
+      'poster poster title rating'
+      'poster poster time time'
+      'poster poster time time'
+      'poster poster time time'
+      'poster poster time time';
+    grid-gap: 5px;
+    background-color: rgb(201, 219, 235);
+    padding: 5px;
+}
+
+.modal-content {
+    background-color: lightblue;
+}
+
+.modal-header .title {
+    font-size: 2rem;
+    font-weight: bold;
+    font-style: italic;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.title1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.modal-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+/*Hide the scrollbar*/
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
