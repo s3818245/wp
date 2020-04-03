@@ -20,12 +20,20 @@
     font-weight: bold;
 }
 
-.top-border {
-    border-top: 1px black solid;
+#top-border {
+    border-top: 1px lightgray solid;
 }
 
 /*Hide the scrollbar*/
 ::-webkit-scrollbar {
     width: 0px;
     background: transparent;
+}
+
+.modal-body .row {
+    padding: 15px 0 15px 0;
+}
+
+.modal-header, .modal-body, .modal-footer {
+    background-color: lightblue;
 }

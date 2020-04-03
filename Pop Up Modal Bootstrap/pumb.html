@@ -25,13 +25,13 @@
 
 <body>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AMotherNightmare">
         Movie Title
     </button>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="AMotherNightmare" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -41,60 +41,67 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div id="demo" class="carousel slide" data-ride="carousel">
+                    <div id="AMN" class="carousel slide" data-ride="carousel">
 
                         <!-- Indicators -->
                         <ul class="carousel-indicators">
-                            <li data-target="#demo" data-slide-to="0" class="active"></li>
-                            <li data-target="#demo" data-slide-to="1"></li>
+                            <li data-target="#AMN" data-slide-to="0" class="active"></li>
+                            <li data-target="#AMN" data-slide-to="1"></li>
                         </ul>
 
                         <!-- The slideshow -->
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <div class="table-responsive-sm">
-                                    <table class="table table-borderless">
-                                        <tr>
-                                            <th rowspan="2"><img src="Photo/Cover AMN.jpg" alt="Poster Art"></th>
-                                            <td>
-                                                <p class="title">Info</p>
-                                                <p>Director: Vic Sarin</p>
-                                                <p>Writer: Shelley Gillen</p>
-                                                <p>Starting: Annabeth Gish, Jessica Lowndes, Grant Gustin </p>
-                                                <p>Rating: Emotional unstable ;)))) </p>
-                                                <p>Genres: Crime, Mystery, Thriller </p>
-                                                <p>Date release: September 29, 2012</p>
-                                                <p>Time: 85 minutes</li>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p class="title">Plot Description</p>
-                                                <p>A seductive teen becomes vindictive when her boyfriend tries to end
-                                                    the
-                                                    relationship.</p>
-                                                <p style="text-align: justify;">Vanessa moves fast to claim Chris for
-                                                    her own,
-                                                    taking his time away and distancing him from
-                                                    his
-                                                    family and friends. His mom, Maddie, is disturbed by their sudden
-                                                    relationship and when she
-                                                    discovers a secret of Vanessa's and she uses all her resources to
-                                                    convince Chris to end it.
-                                                    Angered and vengeful, Vanessa accuses Chris of a heinous act that
-                                                    turns the school against
-                                                    him
-                                                    and sparks an online attack. When things get violent, Vanessa plans
-                                                    her next move and Maddie
-                                                    must find out Vanessa's game before she loses her son forever.</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="top-border">
-                                                <p>Booking</p>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="Photo/Cover AMN.jpg" class="img-fluid z-depth-1" alt="Poster Art">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p class="title">Info</p>
+                                                    <p>Director: Vic Sarin</p>
+                                                    <p>Writer: Shelley Gillen</p>
+                                                    <p>Starting: Annabeth Gish, Jessica Lowndes, Grant Gustin </p>
+                                                    <p>Rating: Emotional unstable ;)))) </p>
+                                                    <p>Genres: Crime, Mystery, Thriller </p>
+                                                    <p>Date release: September 29, 2012</p>
+                                                    <p>Time: 85 minutes</li>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <p class="title">Plot Description</p>
+                                                    <p>A seductive teen becomes vindictive when her boyfriend tries to
+                                                        end
+                                                        the
+                                                        relationship.</p>
+                                                    <p style="text-align: justify;">Vanessa moves fast to claim Chris
+                                                        for
+                                                        her own,
+                                                        taking his time away and distancing him from
+                                                        his
+                                                        family and friends. His mom, Maddie, is disturbed by their
+                                                        sudden
+                                                        relationship and when she
+                                                        discovers a secret of Vanessa's and she uses all her resources
+                                                        to
+                                                        convince Chris to end it.
+                                                        Angered and vengeful, Vanessa accuses Chris of a heinous act
+                                                        that
+                                                        turns the school against
+                                                        him
+                                                        and sparks an online attack. When things get violent, Vanessa
+                                                        plans
+                                                        her next move and Maddie
+                                                        must find out Vanessa's game before she loses her son forever.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="top-border">
+                                        <div>Booking</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="carousel-item">
@@ -107,13 +114,109 @@
                             </div>
                         </div>
                         <!-- Left and right controls -->
-                        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                        <a class="carousel-control-prev" href="#AMN" data-slide="prev">
                             <span class="carousel-control-prev-icon"></span>
                         </a>
-                        <a class="carousel-control-next" href="#demo" data-slide="next">
+                        <a class="carousel-control-next" href="#AMN" data-slide="next">
                             <span class="carousel-control-next-icon"></span>
                         </a>
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AmericanCrimeStoryS2">
+        Movie Title
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="AmericanCrimeStoryS2" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p class="title" id="exampleModalLongTitle">The Assassination of Gianni Versace: American Crime
+                        Story</p>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="TAoGV" class="carousel slide" data-ride="carousel">
+
+                        <!-- Indicators -->
+                        <ul class="carousel-inner" style="list-style-type: none;">
+                            <li data-target="#TAoGV" data-slide-to="0" class="active"></li>
+                            <li data-target="#TAoGV" data-slide-to="1"></li>
+                        </ul>
+
+                        <!-- The slideshow -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <img src="Photo/Cover TAoGV.jpg" class="img-fluid rounded mx-auto d-block z-depth-1" alt="Poster Art">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="col-sm-12">
+                                                <p class="title">Info</p>
+                                                <p>Director: Ryan Murphy</p>
+                                                <p>Writer: Tom Rob Smith</p>
+                                                <p>Starting: Edgar Ramírez, Darren Criss, Ricky Martin</p>
+                                                <p>Rating: Emotional unstable ;)))) </p>
+                                                <p>Genres: Biography, Crime, Drama </p>
+                                                <p>Date release: January 17, 2018</p>
+                                                <p>Time: Roughly 9 * 45 minutes</li>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <p class="title">Plot Description</p>
+                                                <p style="text-align: justify;">San Francisco, 1990. Gianni Versace
+                                                    enjoys ultimate VIP status and is approached by divine-looking
+                                                    mythomaniac Andrew Cunanan, whose claim to be a Como lake
+                                                    acquaintance of Italian descent gets him access to a gay VIP club
+                                                    lounge and an opera invitation and the master's blessing for his
+                                                    novelist ambition. in his grand beach mansion.\On the morning of
+                                                    July 15, 1997, fashion designer Gianni Versace is shot and killed
+                                                    outside his Miami Beach mansion by wanted spree killer Andrew
+                                                    Cunanan. Seven years earlier, he shoots and fatally wounds Gianni in
+                                                    his grand Miamia beach mansion, fleeing Versace's gay life partner
+                                                    Antonio D'Amico. As FBI and local police start to investigate,
+                                                    Versace's sister Donatella and brother Santo plan the future of the
+                                                    decapitated business empire, opting out of going public. Cunanan
+                                                    purchases newspapers covering Versace's death with a remorseless
+                                                    expression.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="embed-responsive embed-responsive-16by9 z-depth-10">
+                                    <iframe width="853" height="480" src="https://www.youtube.com/embed/Kos2EtBdg_M"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Left and right controls -->
+                        <div>
+                            <a class="carousel-control-prev" href="#TAoGV" data-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#TAoGV" data-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-left">Booking</div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

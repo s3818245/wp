@@ -5,90 +5,201 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link id='stylecss' type="text/css" rel="stylesheet" href="style.css">
+    <script src='wireframe.js'></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-    <div class="col-6 movie-detail">
-        <h1 class="movie-title"><span class="title-1"><a class="title-1" href="phim/tieng-goi-noi-hoang-da-9985/">Tiếng
-                    Gọi Nơi Hoang Dã</a></span><span class="title-2">The Call of the Wild</span><span
-                class="title-year"> (2020)</span></h1>
-        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 270px;">
-            <div class="movie-meta-info" style="overflow: hidden; width: auto; height: 270px;">
-                <dl class="movie-dl">
-                    <dt class="movie-dt">Trạng thái:</dt>
-                    <dd class="movie-dd status">Hoàn tất </dd><br>
-                    <dt class="movie-dt">Điểm IMDb:</dt>
-                    <dd class="movie-dd imdb">6.8</dd>
-                    <dt class="movie-dt hidden">Số người đánh giá:</dt>
-                    <dd class="movie-dd">(8,817 votes)</dd><br>
-                    <dt class="movie-dt">Đạo diễn:</dt>
-                    <dd class="movie-dd dd-director"><a class="director" href="ho-so/chris-sanders-1129/"
-                            title="Chris Sanders">Chris Sanders</a>, </dd><br>
-                    <dt class="movie-dt">Quốc gia:</dt>
-                    <dd class="movie-dd dd-country"><a class="country" href="quoc-gia/us/" title="Phim Mỹ">Mỹ</a>, <a
-                            class="country" href="quoc-gia/ca/" title="Phim Canada">Canada</a>, </dd><br>
-                    <dt class="movie-dt">Năm:</dt>
-                    <dd class="movie-dd"><a title="Phim mới 2020" href="phim-2020/">2020</a></dd><br>
-                    <dt class="movie-dt">Ngày ra rạp:</dt>
-                    <dd class="movie-dd">19/2/2020</dd><br>
-                    <dt class="movie-dt">Thời lượng:</dt>
-                    <dd class="movie-dd">100 phút</dd><br>
-                    <dt class="movie-dt">Chất lượng:</dt>
-                    <dd class="movie-dd">Bản đẹp</dd><br>
-                    <dt class="movie-dt">Độ phân giải:</dt>
-                    <dd class="movie-dd">Full HD</dd><br>
-                    <dt class="movie-dt">Ngôn ngữ:</dt>
-                    <dd class="movie-dd">Phụ đề việt + Thuyết minh</dd><br>
-                    <dt class="movie-dt">Thể loại:</dt>
-                    <dd class="movie-dd dd-cat"><a class="category" href="the-loai/phim-phieu-luu/"
-                            title="Phim phiêu lưu">Phim phiêu lưu</a>, <a class="category"
-                            href="the-loai/phim-chinh-kich-drama/" title="Phim chính kịch - Drama">Phim chính kịch -
-                            Drama</a>, <a class="category" href="the-loai/phim-gia-dinh/" title="Phim gia đình">Phim gia
-                            đình</a>, <a class="category" href="phim-chieu-rap/" title="Phim chiếu rạp">Phim chiếu
-                            rạp</a>, <a class="category" href="phim-thuyet-minh/" title="Phim thuyết minh">Phim thuyết
-                            minh</a>, <a class="category" href="phim-le/" title="Phim lẻ mới">Phim lẻ</a></dd><br>
-                    <dt class="movie-dt">Công ty SX:</dt>
-                    <dd class="movie-dd">3 Arts Entertainment, TSG Entertainment, Twentieth Century Fox Animation</dd>
-                    <br><!-- dt class="movie-dt">Lượt xem:</dt><dd class="movie-dd"> 48</dd -->
-                </dl>
-                <div class="clear"></div>
-            </div>
-            <div class="slimScrollBar ui-draggable"
-                style="background: rgb(85, 85, 85); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px; height: 197.561px;">
-            </div>
-            <div class="slimScrollRail"
-                style="width: 7px; height: 100%; position: absolute; top: 0px; display: block; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AMotherNightmare">
+        Movie Title
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="AMotherNightmare" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p class="title" id="exampleModalLongTitle">A Mother's Nightmare</p>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="AMN" class="carousel slide" data-ride="carousel">
+
+                        <!-- Indicators -->
+                        <ul class="carousel-indicators">
+                            <li data-target="#AMN" data-slide-to="0" class="active"></li>
+                            <li data-target="#AMN" data-slide-to="1"></li>
+                        </ul>
+
+                        <!-- The slideshow -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="table-responsive-sm">
+                                    <table class="table table-borderless">
+                                        <tr>
+                                            <th rowspan="2"><img src="Photo/Cover AMN.jpg" alt="Poster Art"></th>
+                                            <td>
+                                                <p class="title">Info</p>
+                                                <p>Director: Vic Sarin</p>
+                                                <p>Writer: Shelley Gillen</p>
+                                                <p>Starting: Annabeth Gish, Jessica Lowndes, Grant Gustin </p>
+                                                <p>Rating: Emotional unstable ;)))) </p>
+                                                <p>Genres: Crime, Mystery, Thriller </p>
+                                                <p>Date release: September 29, 2012</p>
+                                                <p>Time: 85 minutes</li>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p class="title">Plot Description</p>
+                                                <p>A seductive teen becomes vindictive when her boyfriend tries to end
+                                                    the
+                                                    relationship.</p>
+                                                <p style="text-align: justify;">Vanessa moves fast to claim Chris for
+                                                    her own,
+                                                    taking his time away and distancing him from
+                                                    his
+                                                    family and friends. His mom, Maddie, is disturbed by their sudden
+                                                    relationship and when she
+                                                    discovers a secret of Vanessa's and she uses all her resources to
+                                                    convince Chris to end it.
+                                                    Angered and vengeful, Vanessa accuses Chris of a heinous act that
+                                                    turns the school against
+                                                    him
+                                                    and sparks an online attack. When things get violent, Vanessa plans
+                                                    her next move and Maddie
+                                                    must find out Vanessa's game before she loses her son forever.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="top-border">
+                                                <p>Booking</p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                                    <iframe width="853" height="480" class="embed-responsive-item"
+                                        src="https://www.youtube.com/embed/1Fm-Z48mC-o" frameborder="0"
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Left and right controls -->
+                        <a class="carousel-control-prev" href="#AMN" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#AMN" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
-        <div class="box-rating" itemscope="" itemtype="https://schema.org/Movie "><input id="hint_current" type="hidden"
-                value=""><input id="score_current" type="hidden" value="9.78">
-            <p>Đánh giá phim <span class="num-rating">(9 lượt)</span></p>
-            <div id="star" data-score="9.78" style="cursor: pointer; width: 200px;"><img
-                    src="styles/vtlai/movie/img/star-on.png" alt="1" title="Dở tệ">&nbsp;<img
-                    src="styles/vtlai/movie/img/star-on.png" alt="2" title="Dở">&nbsp;<img
-                    src="styles/vtlai/movie/img/star-on.png" alt="3" title="Không hay">&nbsp;<img
-                    src="styles/vtlai/movie/img/star-on.png" alt="4" title="Không hay lắm">&nbsp;<img
-                    src="styles/vtlai/movie/img/star-on.png" alt="5" title="Bình thường">&nbsp;<img
-                    src="styles/vtlai/movie/img/star-on.png" alt="6" title="Xem được">&nbsp;<img
-                    src="styles/vtlai/movie/img/star-on.png" alt="7" title="Có vẻ hay">&nbsp;<img
-                    src="styles/vtlai/movie/img/star-on.png" alt="8" title="Hay">&nbsp;<img
-                    src="styles/vtlai/movie/img/star-on.png" alt="9" title="Rất hay">&nbsp;<img
-                    src="styles/vtlai/movie/img/star-on.png" alt="10" title="Tuyệt hay"><input type="hidden"
-                    name="score" value="9.78"></div><span id="hint" style="font-size: 12px;"></span>
-            <!-- <span class="hidden" itemprop="count">9</span> --><span class="hidden" itemprop="name">Tiếng Gọi Nơi
-                Hoang Dã - The Call of the Wild (2020)</span> <span class="hidden" itemprop="description">Bộ phim dựa
-                trên tác phẩm văn học nổi tiếng cùng tên của Jack London kể về một con chó tên Buck đã được thuần hóa,
-                cưng chiều. Nhưng một loạt các sự kiện xảy ra khi Buck bị bắt khỏi trang trại để trở</span> <img
-                class="hidden" itemprop="thumbnailUrl" src="http://image.phimmoi.net/film/9985/poster.medium.jpg"><img
-                class="hidden" itemprop="image" src="http://image.phimmoi.net/film/9985/poster.medium.jpg"><span
-                class="hidden" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
-                <span itemprop="ratingValue">9.78</span>
-                <meta itemprop="bestRating" content="10">
-                <meta itemprop="ratingCount" content="9"> </span>
-            <div class="like-at-rating" data-href="" data-width="68" data-layout="box_count" data-action=""
-                data-show-faces="false" data-share="false" fb-xfbml-state="rendered"><iframe id="fbplugin-like-0"
-                    scrolling="no" frameborder="0" allowtransparency="true"
-                    style="border: 0px; margin: 0px; padding: 0px; overflow: hidden; display: block; width: 68px; height: 40px;"></iframe>
+    </div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AmericanCrimeStoryS2">
+        Movie Title
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="AmericanCrimeStoryS2" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p class="title" id="exampleModalLongTitle">The Assassination of Gianni Versace: American Crime
+                        Story</p>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="demo" class="carousel slide" data-ride="carousel">
+
+                        <!-- Indicators -->
+                        <ul class="carousel-indicators">
+                            <li data-target="#demo" data-slide-to="0" class="active"></li>
+                            <li data-target="#demo" data-slide-to="1"></li>
+                        </ul>
+
+
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="Photo/Cover AMN.jpg" class="img-fluid" alt="Poster Art">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p class="title">Info</p>
+                                                    <p>Director: Vic Sarin</p>
+                                                    <p>Writer: Shelley Gillen</p>
+                                                    <p>Starting: Annabeth Gish, Jessica Lowndes, Grant Gustin </p>
+                                                    <p>Rating: Emotional unstable ;)))) </p>
+                                                    <p>Genres: Crime, Mystery, Thriller </p>
+                                                    <p>Date release: September 29, 2012</p>
+                                                    <p>Time: 85 minutes</li>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <p class="title">Plot Description</p>
+                                                    <p>A seductive teen becomes vindictive when her boyfriend tries to
+                                                        end
+                                                        the
+                                                        relationship.</p>
+                                                    <p style="text-align: justify;">Vanessa moves fast to claim Chris
+                                                        for
+                                                        her own,
+                                                        taking his time away and distancing him from
+                                                        his
+                                                        family and friends. His mom, Maddie, is disturbed by their
+                                                        sudden
+                                                        relationship and when she
+                                                        discovers a secret of Vanessa's and she uses all her resources
+                                                        to
+                                                        convince Chris to end it.
+                                                        Angered and vengeful, Vanessa accuses Chris of a heinous act
+                                                        that
+                                                        turns the school against
+                                                        him
+                                                        and sparks an online attack. When things get violent, Vanessa
+                                                        plans
+                                                        her next move and Maddie
+                                                        must find out Vanessa's game before she loses her son forever.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                                    <iframe width="853" height="480" class="embed-responsive-item"
+                                        src="https://www.youtube.com/embed/1Fm-Z48mC-o" frameborder="0"
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
