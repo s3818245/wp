@@ -24,6 +24,7 @@
 .title{
     grid-area: title;
     border: 1px solid;
+    align-content: center;
 }
 .rating{
     grid-area: rating;
@@ -34,16 +35,69 @@
     border: 1px solid;
 }
 
+.moreInfo{
+    grid-area: moreInfo;
+    border: 1px solid;
+}
+
 .now-showing-item{
     display: grid;
     border: 1px solid blue;
     grid-template-areas:
-      'poster poster title rating'
-      'poster poster time time'
-      'poster poster time time'
-      'poster poster time time'
-      'poster poster time time';
+      'poster title title rating'
+      'poster title title rating'
+      'poster time time time'
+      'poster time time time'
+      'poster time time time'
+      'poster time time time'
+      'poster time time time'
+      'poster time time time'
+      'poster time time time'
+      'poster time time time'
+      'poster time time time'
+      'poster time time time'
+      'poster moreInfo moreInfo moreInfo';
     grid-gap: 5px;
     background-color: rgb(201, 219, 235);
     padding: 5px;
+}
+
+/*Hide the scrollbar*/
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+/*Display of the modal's header*/
+.modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header > .title0 {
+    font-size: 3rem;
+    font-weight: bold;
+    font-style: italic;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.modal-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 10px 15px;
+}
+
+.title1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-style: italic;
 }
