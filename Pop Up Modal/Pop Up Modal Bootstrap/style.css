@@ -26,9 +26,10 @@
 }
 
 .modal-header .title {
-    font-size: 1.5rem;
+    font-size: 3rem;
     font-weight: bold;
     font-style: italic;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .modal-header .close-button {
@@ -42,4 +43,10 @@
 
 .modal-body {
     padding: 10px 15px;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-style: italic;
 }

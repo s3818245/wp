@@ -8,7 +8,7 @@
 
     <link id='stylecss' type="text/css" rel="stylesheet" href="style.css">
 
-    <script src='wireframe.js'></script>
+    <script defer src='script.js'></script>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -60,7 +60,7 @@
                                         <div class="col-md-6">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <p class="title">Info</p>
+                                                    <p class="title" id="title">Info</p>
                                                     <p>Director: Vic Sarin</p>
                                                     <p>Writer: Shelley Gillen</p>
                                                     <p>Starting: Annabeth Gish, Jessica Lowndes, Grant Gustin </p>
@@ -70,7 +70,7 @@
                                                     <p>Time: 85 minutes</li>
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <p class="title">Plot Description</p>
+                                                    <p class="title" id="title">Plot Description</p>
                                                     <p>A seductive teen becomes vindictive when her boyfriend tries to
                                                         end
                                                         the
@@ -147,24 +147,18 @@
                 </div>
                 <div class="modal-body">
                     <div id="TAoGV" class="carousel slide" data-ride="carousel">
-
-                        <!-- Indicators -->
-                        <ul class="carousel-inner" style="list-style-type: none;">
-                            <li data-target="#TAoGV" data-slide-to="0" class="active"></li>
-                            <li data-target="#TAoGV" data-slide-to="1"></li>
-                        </ul>
-
                         <!-- The slideshow -->
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <img src="Photo/Cover TAoGV.jpg" class="img-fluid rounded mx-auto d-block z-depth-1" alt="Poster Art">
+                                            <img src="Photo/Cover TAoGV.jpg"
+                                                class="img-fluid rounded mx-auto d-block z-depth-1" alt="Poster Art">
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="col-sm-12">
-                                                <p class="title">Info</p>
+                                                <p class="title1">Info</p>
                                                 <p>Director: Ryan Murphy</p>
                                                 <p>Writer: Tom Rob Smith</p>
                                                 <p>Starting: Edgar Ramírez, Darren Criss, Ricky Martin</p>
@@ -174,7 +168,7 @@
                                                 <p>Time: Roughly 9 * 45 minutes</li>
                                             </div>
                                             <div class="col-sm-12">
-                                                <p class="title">Plot Description</p>
+                                                <p class="title1">Plot Description</p>
                                                 <p style="text-align: justify;">San Francisco, 1990. Gianni Versace
                                                     enjoys ultimate VIP status and is approached by divine-looking
                                                     mythomaniac Andrew Cunanan, whose claim to be a Como lake
@@ -224,6 +218,113 @@
             </div>
         </div>
     </div>
+
+    <div id="nowShowingMovies" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" style="background-color: lightblue;">
+            <div class="carousel-item active">
+                <div class="row justify-content-around">
+                    <div class="col-5" style="border: 1px black solid;">
+                        <div class="row">
+                            <div class="col-6" style="border: 1px black solid;">
+                                <img src="Photo/Avengers_Endgame_Poster.jpg" class="img-fluid z-depth-1 mx-auto d-block"
+                                    style="height: 200px; width: auto;" alt="Avengers Endgame">
+                            </div>
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-6" style="border: 1px black solid;">Avengers Endgame</div>
+                                    <div class="col-6" style="border: 1px black solid;">PG-13</div>
+                                </div>
+                                <div class="row" style="border: 1px black solid;">
+                                    <!-- Button trigger Avengers Endgame modal -->
+                                    <button type="button" class="btn btn-primary rounded mx-auto d-block"
+                                        data-toggle="modal" data-target="#AEModal">
+                                        More Info
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-5" style="border: 1px black solid;">
+                        <div class="row">
+                            <div class="col-6" style="border: 1px black solid;">
+                                <img src="Photo/Avengers_Endgame_Poster.jpg" class="img-fluid z-depth-1 mx-auto d-block"
+                                    style="height: 200px; width: auto;" alt="Avengers Endgame">
+                            </div>
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-6" style="border: 1px black solid;">Avengers Endgame</div>
+                                    <div class="col-6" style="border: 1px black solid;">PG-13</div>
+                                </div>
+                                <div class="row" style="border: 1px black solid;">
+                                    <!-- Button trigger Avengers Endgame modal -->
+                                    <button type="button" class="btn btn-primary rounded mx-auto d-block"
+                                        data-toggle="modal" data-target="#AEModal">
+                                        More Info
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row justify-content-around">
+                    <div class="col-5" style="border: 1px black solid;">
+                        <div class="row">
+                            <div class="col-6" style="border: 1px black solid;">
+                                <img src="Photo/Avengers_Endgame_Poster.jpg" class="img-fluid z-depth-1 mx-auto d-block"
+                                    style="height: 200px; width: auto;" alt="Avengers Endgame">
+                            </div>
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-6" style="border: 1px black solid;">Avengers Endgame</div>
+                                    <div class="col-6" style="border: 1px black solid;">PG-13</div>
+                                </div>
+                                <div class="row" style="border: 1px black solid;">
+                                    <!-- Button trigger Avengers Endgame modal -->
+                                    <button type="button" class="btn btn-primary rounded mx-auto d-block"
+                                        data-toggle="modal" data-target="#AEModal">
+                                        More Info
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-5" style="border: 1px black solid;">
+                        <div class="row">
+                            <div class="col-6" style="border: 1px black solid;">
+                                <img src="Photo/Avengers_Endgame_Poster.jpg" class="img-fluid z-depth-1 mx-auto d-block"
+                                    style="height: 200px; width: auto;" alt="Avengers Endgame">
+                            </div>
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-6" style="border: 1px black solid;">Avengers Endgame</div>
+                                    <div class="col-6" style="border: 1px black solid;">PG-13</div>
+                                </div>
+                                <div class="row" style="border: 1px black solid;">
+                                    <!-- Button trigger Avengers Endgame modal -->
+                                    <button type="button" class="btn btn-primary rounded mx-auto d-block"
+                                        data-toggle="modal" data-target="#AEModal">
+                                        More Info
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a class="carousel-control-prev" href="#nowShowingMovies" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#nowShowingMovies" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
 </body>
 
 </html>

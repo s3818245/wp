@@ -35,4 +35,16 @@ function closeModal(modal) {
   modal.classList.remove("active")
   overlay.classList.remove("active")
 }
-  
+
+
+$(document).ready(function(){
+  //Event for pushed the video
+  $('#TAoGV').carousel({
+      pause: true,
+      interval: false
+  });
+});
+
+$('.nowShowingMovies').carousel({
+  interval: 10000
+})
