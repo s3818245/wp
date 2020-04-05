@@ -49,6 +49,7 @@
 .time{
     grid-area: time;
     border: 1px solid;
+    padding: 5px;
 }
 
 .moreInfo{
@@ -118,7 +119,7 @@
 
 .customGutter > [class*='col-'] {
     padding-right:30px;
-    padding-left:30px; 
+    padding-left:30px;
 }
 
 .customGutter > [class*="col-"]:first-child {
@@ -130,7 +131,8 @@
 }
 
 .borderPadding {
-    padding: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .borderBg {
