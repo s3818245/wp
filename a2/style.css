@@ -19,16 +19,20 @@
 }
 .poster{
     grid-area: poster;
-    border: 1px solid;
 }
 .title{
     grid-area: title;
-    border: 1px solid;
-    align-content: center;
+    font-size: 1.75rem;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: left;
 }
 .rating{
     grid-area: rating;
-    border: 1px solid;
+    font-size: 1.75rem;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: right;
 }
 .time{
     grid-area: time;
@@ -37,14 +41,12 @@
 
 .moreInfo{
     grid-area: moreInfo;
-    border: 1px solid;
 }
 
 .now-showing-item{
     display: grid;
     border: 1px solid blue;
     grid-template-areas:
-      'poster title title rating'
       'poster title title rating'
       'poster time time time'
       'poster time time time'
@@ -100,4 +102,26 @@
     font-size: 1.5rem;
     font-weight: bold;
     font-style: italic;
+}
+
+.customGutter > [class*='col-'] {
+    padding-right:30px;
+    padding-left:30px; 
+}
+
+.customGutter > [class*="col-"]:first-child {
+  padding-left:30px;
+}
+  
+.customGutter > [class*="col-"]:last-child {
+  padding-right:30px;
+}
+
+.borderPadding {
+    padding: 5px;
+}
+
+.borderBg {
+    border: 1px solid blue;
+    background-color:  rgb(201, 219, 235);
 }
