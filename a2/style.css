@@ -11,7 +11,7 @@
     background-image: url("dolby_cinema.jpeg");
   
     /* Set a specific height */
-    height: 500px;
+    height: 600px;
 }
 
 .text_on_image{
@@ -22,7 +22,7 @@
 
 .popcorn_image{
     background-image: url("pop_corn.jpeg");
-    height: 648px;
+    height: auto;
 }
 
     /*Movie board*/
