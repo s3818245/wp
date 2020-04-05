@@ -1,21 +1,33 @@
 /* Insert your styles here */
 .parallax { 
-    /* The image used */
-    background-image: url("dolby_cinema.jpeg");
-  
-    /* Set a specific height */
-    height: 500px; 
-  
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
+.dolby_image{
+    /* The image used */
+    background-image: url("dolby_cinema.jpeg");
+  
+    /* Set a specific height */
+    height: 500px;
+}
+
+.text_on_image{
+    font-size: 2.5rem;
+    font-weight: bold;
+    color:rgba(235, 232, 232, 0.795)
+}
+
+.popcorn_image{
+    background-image: url("pop_corn.jpeg");
+    height: 648px;
+}
 
     /*Movie board*/
 .main_content{
-    margin-top:80px;
+    margin-top:30px;
 }
 .poster{
     grid-area: poster;
@@ -124,4 +136,9 @@
 .borderBg {
     border: 1px solid blue;
     background-color:  rgb(201, 219, 235);
+}
+
+.section_title{
+    background-color: rgb(157, 162, 172);
+    font-color:black;
 }
