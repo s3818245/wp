@@ -142,5 +142,16 @@
 
 .section_title{
     background-color: rgb(157, 162, 172);
-    font-color:black;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.seat_type{
+    background-color: rgba(75, 118, 158, 0.897);
+    color: rgb(231, 231, 231);
+}
+
+.seat_type > h1{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: italic;
 }
