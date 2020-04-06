@@ -4,11 +4,11 @@ $(document).ready(function(){
         pause: true,
         interval: false
     });
-    $('#TAoGV').carousel({
+    $('#theHappyPrinceSlide').carousel({
         pause: true,
         interval: false
     });
-    $('#TAoGV').carousel({
+    $('#topEndWeddingSlide').carousel({
         pause: true,
         interval: false
     });
