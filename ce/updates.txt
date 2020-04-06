@@ -10,7 +10,9 @@ Post Submission A2 Updates
     - Modify footer
     - Add Bootstrap
     - Create movie panels
-
+    - Create modals for Synopsis
+    - Update content
+    - Modify section titles
 
 
 Post Submission A3 Updates 
