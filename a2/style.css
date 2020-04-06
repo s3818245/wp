@@ -1,4 +1,11 @@
 /* Insert your styles here */
+.header{
+    background-color: lightslategrey;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 4rem;
+    text-align: center;
+}
 .parallax { 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
