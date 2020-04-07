@@ -117,6 +117,7 @@ header{
 
 .modal-body {
     padding: 10px 15px;
+    background: linear-gradient(270deg, rgba(68, 113, 150, 0.9), rgba(140, 194, 230, 0.719));
 }
 
 .title1 {
