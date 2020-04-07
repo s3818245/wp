@@ -55,7 +55,9 @@ header{
 }
 .time{
     grid-area: time;
+    height: 200px;
     border: 1px solid;
+    box-sizing: border-box;
 }
 
 .moreInfo{
@@ -123,6 +125,13 @@ header{
     font-style: italic;
 }
 
+.title2 {
+    font-style: italic;
+    text-decoration: underline;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.25rem;
+}
+
 .customGutter > [class*='col-'] {
     padding-right:30px;
     padding-left:30px; 
@@ -171,3 +180,15 @@ footer{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     padding: 5px;
 }
+
+.equal {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+  }
+.row .equal > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+  }
