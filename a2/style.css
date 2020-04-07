@@ -41,14 +41,14 @@ header{
 }
 .title{
     grid-area: title;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: bold;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: left;
 }
 .rating{
     grid-area: rating;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: bold;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: right;
@@ -97,6 +97,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #2d98cc;
 }
 
 .modal-header > .title0 {
@@ -117,7 +118,11 @@ header{
 
 .modal-body {
     padding: 10px 15px;
-    background: linear-gradient(270deg, rgba(68, 113, 150, 0.9), rgba(140, 194, 230, 0.719));
+    background: linear-gradient(180deg, #2d98cc, #88d8ff);
+}
+
+.modal-footer {
+    background-color: #88d8ff;
 }
 
 .title1 {
