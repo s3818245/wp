@@ -55,7 +55,7 @@ header{
 }
 .time{
     grid-area: time;
-    height: 200px;
+    height: 205px;
     border: 1px solid;
     box-sizing: border-box;
 }
