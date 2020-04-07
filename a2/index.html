@@ -29,7 +29,7 @@
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
   <header>
-    <div class="container-fluid p-4 header">
+    <div class="container-fluid p-4">
       Cinemax
     </div>
   </header>
@@ -47,20 +47,28 @@
       <li class="nav-item">
         <a class="nav-link" href="#three">Pricing</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#four">Contact us</a>
-      </li>
 
     </ul>
   </nav>
 
   <main class="main_content">
+    <!--About us section-->
     <section id="one">
       <div class="parallax dolby_image">
         <div class="container-fluid p-4 section_title">
           <h1>About us</h1>
         </div>
-        <div class="text_on_image">The renovated Cinemax now offer Dolby</div>
+        <div class="container p-4 my-5 text_on_image">The renovated Cinemax now offers immersive moview experience with 3D Dolby Vision</div>
+      </div>
+      
+      <div class="parallax seat_promo_image">
+        <div class="navbar p-4 " style="background-color: lightslategrey;">
+        
+        </div>
+        <div class="container p-4 mt-5 text_on_image" >
+          Enjoy movies the way you like with Cinemax's variety of seat types to choose from. <br>
+          *(More details in Pricing section)
+        </div>
       </div>
     </section>
 
@@ -70,116 +78,146 @@
       <div class="container-fluid p-4 section_title">
         <h1>Now showing</h1>
       </div>
-      <div class="parallax popcorn_image">
+      <div class="now_showing_section">
         <div class="row customGutter">
-          <div class="col-lg-6 py-3">
+          <div class="col-lg-6">
             <div class="row borderBg">
               <div class="col-xl-4 borderPadding">
                 <img src="Photo/Avengers_Endgame_Poster.jpg" class="img-responsive mx-auto d-block"
                   style="height: 300px; width: 200px;" alt="Avengers Endgame">
               </div>
               <div class="col-xl-8 borderPadding">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-xl-8 title">Avengers Endgame</div>
-                    <div class="col-xl-4 rating">PG-13</div>
+                <div class="row">
+                  <div class="col-xl-8 title">Avengers Endgame</div>
+                  <div class="col-xl-4 rating">PG-13</div>
+                </div>
+                <div class="row borderPadding">
+                  <div class="col-xl-12 time">
+                    <ul>
+                      <li>Movie ID: ACT</li>
+                      <li>Wednesday - 9pm (T21) </li>
+                      <li>Thursday - 9pm (T21) </li>
+                      <li>Friday - 9pm (T21)</li>
+                      <li>Saturday - 6pm (T18)</li>
+                      <li>Sunday - 6pm (T18)</li>
+                    </ul>
                   </div>
-                  <div class="row borderPadding">
-                    <div class="col-xl-12 time">times</div>
-                  </div>
-                  <div class="row borderPadding">
-                    <!-- Button trigger Avengers Endgame modal -->
-                    <button type="button" class="btn btn-primary rounded" data-toggle="modal"
-                      data-target="#avengersEndgameModal">
-                      More Info
-                    </button>
-                  </div>
+                </div>
+                <div class="row borderPadding">
+                  <!-- Button trigger Avengers Endgame modal -->
+                  <button type="button" class="btn btn-primary rounded" data-toggle="modal"
+                    data-target="#avengersEndgameModal">
+                    More Info
+                  </button>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-6 py-3">
+          <div class="col-lg-6">
             <div class="row borderBg">
               <div class="col-xl-4 borderPadding">
                 <img src="Photo/the-happy-prince-poster.jpg" class="img-responsive mx-auto d-block"
                   style="height: 300px; width: 200px;" alt="The Happy Prince">
               </div>
               <div class="col-xl-8 borderPadding">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-xl-8 title">The Happy Prince</div>
-                    <div class="col-xl-4 rating">R</div>
+                <div class="row">
+                  <div class="col-xl-8 title">The Happy Prince</div>
+                  <div class="col-xl-4 rating">R</div>
+                </div>
+                <div class="row borderPadding">
+                  <div class="col-xl-12 time">
+                    <ul>
+                      <li>Movie ID: AHF</li>
+                      <li>Wednesday - 12pm (T12)</li>
+                      <li>Thursday - 12pm (T12)</li>
+                      <li>Friday - 12pm (T12)</li>
+                      <li>Saturday - 9pm (T21)</li>
+                      <li>Sunday - 9pm (T21)</li>
+                    </ul>
                   </div>
-                  <div class="row borderPadding">
-                    <div class="col-xl-12 time">times</div>
-                  </div>
-                  <div class="row borderPadding">
-                    <!-- Button trigger The Happy Prince modal -->
-                    <button type="button" class="btn btn-primary rounded" data-toggle="modal"
-                      data-target="#theHappyPrinceModal">
-                      More Info
-                    </button>
-                  </div>
+                </div>  
+                <div class="row borderPadding">
+                  <!-- Button trigger The Happy Prince modal -->
+                  <button type="button" class="btn btn-primary rounded" data-toggle="modal"
+                    data-target="#theHappyPrinceModal">
+                    More Info
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <br>
         <div class="row customGutter">
-          <div class="col-lg-6 py-3">
+          <div class="col-lg-6">
             <div class="row borderBg">
               <div class="col-xl-4 borderPadding">
                 <img src="Photo/top-end-wedding-poster.jpg" class="img-responsive mx-auto d-block"
                   style="height: 300px; width: 200px;" alt="Top End Wedding">
               </div>
               <div class="col-xl-8 borderPadding">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-xl-8 title">Top End Wedding</div>
-                    <div class="col-xl-4 rating">NR</div>
+                <div class="row">
+                  <div class="col-xl-8 title">Top End Wedding</div>
+                  <div class="col-xl-4 rating">NR</div>
+                </div>
+                <div class="row borderPadding">
+                  <div class="col-xl-12 time">
+                    <ul>
+                      <li>Movie ID: RMC</li>
+                      <li>Monday - 6pm (T18)</li>
+                      <li>Tuesday - 6pm (T18)</li>
+                      <li>Saturday - 3pm (T15)</li>
+                      <li>Sunday - 3pm (T15)</li>
+                    </ul>
                   </div>
-                  <div class="row borderPadding">
-                    <div class="col-xl-12 time">times</div>
-                  </div>
-                  <div class="row borderPadding">
-                    <!-- Button trigger Top End Wedding modal -->
-                    <button type="button" class="btn btn-primary rounded" data-toggle="modal"
-                      data-target="#topEndWeddingModal">
-                      More Info
-                    </button>
-                  </div>
+                </div>
+                <div class="row borderPadding">
+                  <!-- Button trigger Top End Wedding modal -->
+                  <button type="button" class="btn btn-primary rounded" data-toggle="modal"
+                    data-target="#topEndWeddingModal">
+                    More Info
+                  </button>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-6 py-3">
+          <div class="col-lg-6">
             <div class="row borderBg">
               <div class="col-xl-4 borderPadding">
                 <img src="Photo/dumbo-poster.jpg" class="img-responsive mx-auto d-block"
                   style="height: 300px; width: 200px;" alt="Dumbo">
               </div>
               <div class="col-xl-8 borderPadding">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-xl-8 title">Dumbo</div>
-                    <div class="col-xl-4 rating">PG</div>
+                <div class="row">
+                  <div class="col-xl-8 title">Dumbo</div>
+                  <div class="col-xl-4 rating">PG</div>
+                </div>
+                <div class="row borderPadding">
+                  <div class="col-xl-12 time">
+                    <ul>
+                      <li>Movie ID: ANM</li>
+                      <li>Monday - 12pm (T12)</li>
+                      <li>Tuesday - 12pm (T12)</li>
+                      <li>Wednesday - 6pm (T18)</li>
+                      <li>Thursday - 6pm (T18)</li>
+                      <li>Friday - 6pm (T18)</li>
+                      <li>Saturday - 12pm (T12)</li>
+                      <li>Sunday - 12pm (T12)</li>
+                    </ul>
                   </div>
-                  <div class="row borderPadding">
-                    <div class="col-xl-12 time">times</div>
-                  </div>
-                  <div class="row borderPadding">
-                    <!-- Button trigger Dumbo modal -->
-                    <button type="button" class="btn btn-primary rounded" data-toggle="modal" data-target="#dumboModal">
-                      More Info
-                    </button>
-                  </div>
+                </div>
+                <div class="row borderPadding">
+                  <!-- Button trigger Dumbo modal -->
+                  <button type="button" class="btn btn-primary rounded" data-toggle="modal" data-target="#dumboModal">
+                    More Info
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </section>  
 
     <section id="three">
 
@@ -201,7 +239,7 @@
                 Normal: 19.80 <br>
                 Discount: 14.00
               </p>
-            </div>
+            </div>  
           </div>
         </div>
         <div class="col-md-4">
@@ -213,7 +251,7 @@
                 Normal: 17.50 <br>
                 Discount: 12.50
               </p>
-            </div>
+            </div>  
           </div>
         </div>
         <div class="col-md-4">
@@ -225,11 +263,11 @@
                 Normal: 15.30 <br>
                 Discount: 11.00
               </p>
-            </div>
+            </div>  
           </div>
         </div>
       </div>
-
+      
 
       <div class="container p-2 my-3 seat_type " style="text-align: center;">
         <h1>First Class Seat </h1><br>
@@ -245,7 +283,7 @@
                 Normal: 30.00 <br>
                 Discount: 24.00
               </p>
-            </div>
+            </div>  
           </div>
         </div>
         <div class="col-md-4">
@@ -257,7 +295,7 @@
                 Normal: 27.00 <br>
                 Discount: 22.50
               </p>
-            </div>
+            </div>  
           </div>
         </div>
         <div class="col-md-4">
@@ -269,13 +307,16 @@
                 Normal: 24.00 <br>
                 Discount: 21.00
               </p>
-            </div>
+            </div>  
           </div>
         </div>
       </div>
-    </section>
+      
+
   </main>
 
+
+<!--SECTION FOR MODALS-->
   <section id="modal">
     <!--Modal for Avengers Endgame-->
     <div class="modal fade" id="avengersEndgameModal" tabindex="-1" role="dialog"
@@ -296,12 +337,12 @@
                 <div class="carousel-item active">
                   <div class="container">
                     <div class="row">
-                      <div class="col-xl-6">
+                      <div class="col-sm-6">
                         <img src="Photo/Avengers_Endgame_Poster.jpg" class="img-responsive mx-auto d-block"
                           style="height: 720px; width: 480px;" alt="Poster Art">
                       </div>
-                      <div class="col-xl-6">
-                        <div class="col-xl-12">
+                      <div class="col-sm-6">
+                        <div class="col-sm-12">
                           <p class="title1">Info</p>
                           <p>Rating: PG-13 (for sequences of sci-fi violence and action, and
                             some
@@ -312,13 +353,12 @@
                           <p>Studio: Marvel Studios</p>
                           <p>Runtime: 182 minutes</p>
                         </div>
-                        <div class="col-xl-12">
+                        <div class="col-sm-12">
                           <p class="title1">Plot Description</p>
                           <p>Adrift in space with no food or water, Tony Stark sends a message to Pepper Potts as his
                             oxygen supply starts to dwindle. Meanwhile, the remaining Avengers -- Thor, Black Widow,
                             Captain America and Bruce Banner -- must figure out a way to bring back their vanquished
-                            allies for an epic showdown with Thanos -- the evil demigod who decimated the planet and
-                            the
+                            allies for an epic showdown with Thanos -- the evil demigod who decimated the planet and the
                             universe.</p>
                         </div>
                       </div>
@@ -372,12 +412,12 @@
                 <div class="carousel-item active">
                   <div class="container">
                     <div class="row">
-                      <div class="col-xl-6">
+                      <div class="col-sm-6">
                         <img src="Photo/the-happy-prince-poster.jpg" class="img-responsive mx-auto d-block"
                           style="height: 720px; width: 480px;" alt="Poster Art">
                       </div>
-                      <div class="col-xl-6">
-                        <div class="col-xl-12">
+                      <div class="col-sm-6">
+                        <div class="col-sm-12">
                           <p class="title1">Info</p>
                           <p>Rating: R (for sexual content, graphic nudity, language, and
                             brief
@@ -388,7 +428,7 @@
                           <p>Studio: Sony Pictures Classics</p>
                           <p>Runtime: 105 minutes</p>
                         </div>
-                        <div class="col-xl-12">
+                        <div class="col-sm-12">
                           <p class="title1">Plot Description</p>
                           <p>In a cheap Parisian hotel room Oscar Wilde lies on his death bed. The past floods back,
                             taking him to other times and places. Was he once the most famous man in London? The
@@ -451,12 +491,12 @@
                 <div class="carousel-item active">
                   <div class="container">
                     <div class="row">
-                      <div class="col-xl-6">
+                      <div class="col-sm-6">
                         <img src="Photo/top-end-wedding-poster.jpg" class="img-responsive mx-auto d-block"
                           style="height: 720px; width: 480px;" alt="Poster Art">
                       </div>
-                      <div class="col-xl-6">
-                        <div class="col-xl-12">
+                      <div class="col-sm-6">
+                        <div class="col-sm-12">
                           <p class="title1">Info</p>
                           <p>Rating: NR (Not Rated)</p>
                           <p>Genre: Comedy, Romance</p>
@@ -465,7 +505,7 @@
                           <p>Studio: Goalpost Pictures</p>
                           <p>Runtime: 103 minutes</p>
                         </div>
-                        <div class="col-xl-12">
+                        <div class="col-sm-12">
                           <p class="title1">Plot Description</p>
                           <p>Engaged and in love Lauren and Ned have just 10 days to reunite her newly separated
                             parents and pull off their dream Top End Wedding. But Lauren's mother has gone missing,
@@ -526,12 +566,12 @@
                 <div class="carousel-item active">
                   <div class="container">
                     <div class="row">
-                      <div class="col-xl-6">
+                      <div class="col-sm-6">
                         <img src="Photo/dumbo-poster.jpg" class="img-responsive mx-auto d-block"
                           style="height: 720px; width: 480px;" alt="Poster Art">
                       </div>
-                      <div class="col-xl-6">
-                        <div class="col-xl-12">
+                      <div class="col-sm-6">
+                        <div class="col-sm-12">
                           <p class="title1">Info</p>
                           <p>Rating: PG (for peril/action, some thematic elements, and brief
                             mild
@@ -542,7 +582,7 @@
                           <p>Studio: Walt Disney Pictures</p>
                           <p>Runtime: 112 minutes</p>
                         </div>
-                        <div class="col-xl-12">
+                        <div class="col-sm-12">
                           <p class="title1">Plot Description</p>
                           <p>Circus owner, Max Medici, enlists former star Holt Farrier and his children Milly and Joe
                             to care for a newborn
@@ -556,33 +596,8 @@
                         </div>
                       </div>
                     </div>
-                    <hr>
                     <div class="row" id="top-border">
-                      <div class="col-xl-3">
-                        <p class="title1">Make a booking:</p>
-                      </div>
-                      <div class="col-xl-8">
-                        <button type="button" class="mx-2 my-2 btn btn-secondary" data-toggle="modal"
-                          data-target="#bookingButton">Secondary</button>
-                        <button type="button" class="mx-2 my-2 btn btn-secondary" data-toggle="modal"
-                          data-target="#bookingButton">Secondary</button>
-                        <button type="button" class="mx-2 my-2 btn btn-secondary" data-toggle="modal"
-                          data-target="#bookingButton">Secondary</button>
-                        <button type="button" class="mx-2 my-2 btn btn-secondary" data-toggle="modal"
-                          data-target="#bookingButton">Secondary</button>
-                        <button type="button" class="mx-2 my-2 btn btn-secondary" data-toggle="modal"
-                          data-target="#bookingButton">Secondary</button>
-                        <button type="button" class="mx-2 my-2 btn btn-secondary" data-toggle="modal"
-                          data-target="#bookingButton">Secondary</button>
-                        <button type="button" class="mx-2 my-2 btn btn-secondary" data-toggle="modal"
-                          data-target="#bookingButton">Secondary</button>
-                        <button type="button" class="mx-2 my-2 btn btn-secondary" data-toggle="modal"
-                          data-target="#bookingButton">Secondary</button>
-                        <button type="button" class="mx-2 my-2 btn btn-secondary" data-toggle="modal"
-                          data-target="#bookingButton">Secondary</button>
-                        <button type="button" class="mx-2 my-2 btn btn-secondary" data-toggle="modal"
-                          data-target="#bookingButton">Secondary</button>
-                      </div>
+                      <div>Booking</div>
                     </div>
                   </div>
                 </div>
@@ -610,38 +625,21 @@
         </div>
       </div>
     </div>
-
-    <!--Modal for booking section-->
-    <div class="modal fade" id="bookingButton" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="title0" id="exampleModalLongTitle">Booking Time</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
   </section>
 
   <footer>
-    <div id="four">&copy;
+    <h3>Contact us</h3>
+    <div>
+      Email: contact@cinemax.com <br>
+      Phone: 0909090909 <br>
+      Address: 18 Anonymous, Ho Chi Minh city
+    </div>
+    <div>&copy;
       <script>
         document.write(new Date().getFullYear());
-      </script> Phan Truong Quynh Anh (s3818245), Nguyen Thi Nha Uyen (s3819293). Last modified
-      <?= date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME'])); ?>.</div>
+      </script> Phan Truong Quynh Anh (s3818245), Nguyen Thi Nha Uyen (s3819293). </div>
     <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web
       Programming course at RMIT University in Melbourne, Australia.</div>
-    <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
   </footer>
 
 </body>
