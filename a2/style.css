@@ -41,21 +41,21 @@ header{
 }
 .title{
     grid-area: title;
-    font-size: 1.5rem;
+    font-size: 1.39rem;
     font-weight: bold;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: left;
 }
 .rating{
     grid-area: rating;
-    font-size: 1.5rem;
+    font-size: 1.39rem;
     font-weight: bold;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: right;
 }
 .time{
     grid-area: time;
-    height: 205px;
+    height: 215px;
     border: 1px solid;
     box-sizing: border-box;
 }
@@ -97,6 +97,10 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+}
+
+.modalHeaderBG {
     background-color: #2d98cc;
 }
 
@@ -118,10 +122,13 @@ header{
 
 .modal-body {
     padding: 10px 15px;
+}
+
+.modalBodyBG {
     background: linear-gradient(180deg, #2d98cc, #88d8ff);
 }
 
-.modal-footer {
+.modalFooterBG {
     background-color: #88d8ff;
 }
 
@@ -135,7 +142,7 @@ header{
     font-style: italic;
     text-decoration: underline;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 1.25rem;
+    font-size: 1.21rem;
 }
 
 .customGutter > [class*='col-'] {
