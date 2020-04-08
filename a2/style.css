@@ -100,10 +100,6 @@ header{
 
 }
 
-.modalHeaderBG {
-    background-color: #2d98cc;
-}
-
 .modal-header > .title0 {
     font-size: 3rem;
     font-weight: bold;
@@ -124,12 +120,12 @@ header{
     padding: 10px 15px;
 }
 
-.modalBodyBG {
+.modal-content {
     background: linear-gradient(180deg, #2d98cc, #88d8ff);
 }
 
-.modalFooterBG {
-    background-color: #88d8ff;
+.bookingColor {
+    background: white;
 }
 
 .title1 {
