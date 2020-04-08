@@ -201,3 +201,7 @@ footer{
     display: flex;
     flex-direction: column;
   }
+
+.button_width {
+    width: 150px;
+}
