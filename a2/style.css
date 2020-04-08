@@ -205,3 +205,7 @@ footer{
 .button_width {
     width: 150px;
 }
+
+#avengersEndgameModal, #theHappyPrinceModal, #topEndWeddingModal, #dumboModal {
+    overflow: auto;
+}
