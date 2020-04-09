@@ -28,8 +28,9 @@ header{
 .text_on_image{
     text-align: center;
     font-size: 2.5rem;
-    color: black;
-    background-color: rgba(245, 245, 245, 0.479);
+    color: rgba(255, 255, 255, 0.863);
+    background-color: rgba(69, 73, 82, 0.699);
+    font-family: 'PT Serif', serif;
 }
 
     /*Movie board*/
@@ -159,14 +160,14 @@ header{
 }
 
 .borderBg {
-    border: 2px solid white;
-    background-color:  rgb(151, 174, 197);
+    border: 4px outset rgba(206, 155, 202, 0.856);
+    background-color: rgba(222, 201, 233, 0.685);
 }
 
 .section_title{
     background-color: rgb(157, 162, 172);
     font-weight: bold;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Girassol', cursive;;
 }
 
 .seat_type{
@@ -180,7 +181,8 @@ header{
 }
 
 .now_showing_section{
-    background: radial-gradient( rgba(123, 186, 211, 0.438),rgb(46, 100, 121));
+    background: radial-gradient( rgba(113, 66, 124, 0.767), rgba(65, 12, 78, 0.87)
+    ,rgba(18, 8, 68, 0.911),rgba(3, 1, 14, 0.938));
 }
 
 footer{
