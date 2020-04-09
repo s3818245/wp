@@ -9,11 +9,15 @@ Post Submission A2 Updates
     - Add parallax
     - Modify footer
     - Add Bootstrap
+    - Add navigation bar
     - Create movie panels
     - Create modals for Synopsis
     - Update content
     - Modify section titles
-
+    - Format pricing section's panels
+    - Add images for pricing section
+    - Add styling for fonts, background
+    - Testing and modifying styles
 
 Post Submission A3 Updates 
 
