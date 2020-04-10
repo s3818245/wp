@@ -57,8 +57,7 @@ header{
 .time{
     grid-area: time;
     height: 215px;
-    border: 1px solid;
-    box-sizing: border-box;
+    border-top: 2px solid;
 }
 
 .moreInfo{
