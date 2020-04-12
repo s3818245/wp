@@ -33,6 +33,10 @@ header{
     font-family: 'PT Serif', serif;
 }
 
+#sub_text{
+    font-size: 30px; font-style: italic;
+}
+
     /*Movie board*/
 .main_content{
     margin-top:30px;
@@ -169,6 +173,7 @@ header{
     font-family: 'Girassol', cursive;;
 }
 
+
 .seat_type{
     background-color: rgba(75, 118, 158, 0.897);
     color: rgb(231, 231, 231);
@@ -184,6 +189,9 @@ header{
     ,rgba(18, 8, 68, 0.911),rgba(3, 1, 14, 0.938));
 }
 
+.poster_size{
+    height: auto; max-width: 90%;
+}
 footer{
     background-color: lightslategrey;
     color:white;
