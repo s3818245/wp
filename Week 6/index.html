@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Lecture 1</title>
+
+    <script src="tools.js"></script>
+
+    <script>
+        function clickHandler(){
+            console.log(document.getElementById("date"));
+        }
+    </script>
+
+</head>
+<body>
+    <h1 onclick="clickHandler()">What's the Date</h1>
+
+    <input id="date" onkeypressed="clickHandler();" type="text" value ="Click the button">
+
+    <input onclick="clickHandler1();" type="button" value="Display Date">
+
+    <p>
+        &copy; Copyright Date Awareness Inc 1990 - 
+        <script>
+            var currentDate = new Date();
+            document.write(currentDate.getFullYear())
+        </script>
+        <!--
+            Alternative way
+            document.getElementById('copyright').innerHTML
+            += currentDate.getFullYear()
+            * This can be placed anywhere
+        -->
+    </p>
+    
+    <h6>Ask us about the benefits of dynamic dating</h6>
+</body>
+</html>
