@@ -1,61 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
-  <!-- jQuery library -->
-  <script src="https://ajax.googleapis.com/ajaxbrbs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-  <!-- Popper JS -->
-  <script src="https://cdnjs.cloudflare.com/ajaxbrbs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
-  <!-- Latest compiled JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <script defer src="form_testing.js"></script>
+    
+    <script defer src="form_testing.css"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking form</title>
 </head>
+
 <body>
     <div>
         Movie Title - Day - Time
     </div>
     <div>
-        <form action="">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="container p-3 my-3 border">
-                    <label for="standard">Standard</label>
+        <form action="" >
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="container p-4 my-3 border">
+                        <label for="standard">Standard</label>
+                        <div>
+                            <label for="standard-adult">Adult</label>
+                            <select name="seats[STA]" id="seats-STA" class="custom-select">
+                                <option value="">Please Select</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select> <br>
+                            <label for="standard-concession">Concession</label>
+                            <select name="seats[STP]" id="seats-STP" class="custom-select">
+                                <option value="">Please Select</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select> <br>
+                            <label for="standard-children">Children</label>
+                            <select name="seats[STC]" id="seats-STC" class="custom-select">
+                                <option value="">Please Select</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select> <br>
+                        </div>
+                    </div>
+                    <div class="container p-4 my-3 border">
+                        <label for="firstclass">First class</label>
+                        <div>
+                            <label for="firstclass-adult">Adult</label>
+                            <select name="seats[FCA]" id="seats-FCA" class="custom-select">
+                                <option value="">Please Select</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select> <br>
+                            <label for="firstclass-concession">Concession</label>
+                            <select name="seats[FCP]" id="seats-FCP" class="custom-select">
+                                <option value="">Please Select</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select> <br>
+                            <label for="firstclass-children">Children</label>
+                            <select name="seats[FCC]" id="seats-FCC" class="custom-select">
+                                <option value="">Please Select</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select> <br>
+                        </div>
+                    </div>
                     <div>
-                        Adults <br>
-                        Concession <br>
-                        Children <br>
+                        Total $
                     </div>
                 </div>
-                <div class="container p-3 my-3 border">
-                    <label for="firstclass">First class</label>
-                    <div>
-                        Adults <br>
-                        Concession <br>
-                        Children <br>
+                <div class="col-md-6">
+                    <div class="container my-3">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input name="cust[name]" id="cust-name" type="text" class="form-control"
+                                pattern="^[A-Za-z\-'., ]{1,100}$" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input name="cust[email]" id="cust-email" type="email" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mobile">Mobile:</label>
+                            <input name="cust[mobile]" id="cust-mobile" type="tel" class="form-control"
+                                pattern="^(\(04\)|04|\+614)[ ]?\d{4}[ ]?\d{4}$" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="credit-card">Credit Card:</label>
+                            <input name="cust[card]" id="cust-card" type="text" class="form-control"
+                                pattern="^([\d] ?){14,19}$" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="expiry">Expiry:</label>
+                            <input name="cust[expiry]" id="cust-expiry" type="month" class="form-control" required>
+                        </div>
                     </div>
                 </div>
-                <div>
-                    Total $
-                </div>
             </div>
-            <div class="col-md-6">
-                <div class="container my-3">
-                    Name: <input type="text" > <br> <br>
-                    Email: <input type="email"><br><br>
-                    Mobile: <input type="text"><br> <br>
-                    Credit Card: <input type="text"><br> <br>
-                    Expiry: <input type="month">
-                </div>
-            </div>
-        </div>
-    </form>
+            <button class="form-group" type="submit" value="Order">Order</button>
+        </form>
     </div>
 </body>
+
 </html>
