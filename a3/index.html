@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Assignment 2</title>
+
+  <!-- Keep wireframe.css for debugging, add your css to style.css -->
+  <link id='wireframecss' type="text/css" rel="stylesheet" href="wireframe.css" disabled>
+  <link id='stylecss' type="text/css" rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Girassol&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+
+
+  <script defer src="script.js"></script>
+  <script src='wireframe.js'></script>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+  <header>
+    <div class="container-fluid p-4">
+      <img src="Photo/logo.png" alt="Cinemax" id="logo">
+    </div>
+  </header>
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+    <a class="navbar-brand">Cinemax</a>
+
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#one">About us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#two">Now Showing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#three">Pricing</a>
+      </li>
+
+    </ul>
+  </nav>
+
+  <main class="main_content">
+    <!--About us section-->
+    <section id="one">
+      <div class="parallax dolby_image">
+        <div class="container-fluid p-4 section_title">
+          <h1>About us</h1>
+        </div>
+        <div class="container p-4 my-5 text_on_image">The renovated Cinemax now offers immersive movie experience with
+          3D Dolby Vision</div>
+      </div>
+
+      <div class="parallax seat_promo_image">
+        <div class="navbar p-4 " style="background-color: lightslategrey;">
+
+        </div>
+        <div class="container p-4 mt-5 text_on_image">
+          Enjoy movies the way you like with Cinemax's variety of seat types to choose from. <br>
+          <p id="sub_text">*(More details in Pricing section)</p>
+        </div>
+      </div>
+    </section>
+
+    <!--Now showing section-->
+
+    <section id="two">
+      <div class="container-fluid p-4 section_title">
+        <h1>Now showing</h1>
+      </div>
+      <div class="now_showing_section">
+        <div class="row equal customGutter">
+          <div class="col-lg-6 py-2">
+            <div class="row borderBg">
+              <div class="col-xl-4 borderPadding d-flex align-items-center justify-content-center">
+                <img src="Photo/Avengers_Endgame_Poster.jpg" class="img-responsive mx-auto d-block poster_size"
+                   alt="Avengers Endgame">
+              </div>
+              <div class="col-xl-8 borderPadding">
+                <div class="row">
+                  <div class="col-xl-9 col-md-6 title">Avengers Endgame</div>
+                  <div class="col-xl-3 col-md-6 rating">PG-13</div>
+                </div>
+                <div class="row borderPadding">
+                  <div class="col-xl-12 time">
+                    <ul>
+                      <div class="title2">Movie ID: ACT</div>
+                      <li>Wednesday - 9pm (T21) </li>
+                      <li>Thursday - 9pm (T21) </li>
+                      <li>Friday - 9pm (T21)</li>
+                      <li>Saturday - 6pm (T18)</li>
+                      <li>Sunday - 6pm (T18)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="row borderPadding">
+                  <!-- Button trigger Avengers Endgame modal -->
+                  <button type="button" class="btn btn-primary rounded" data-toggle="modal"
+                    data-target="#avengersEndgameModal">
+                    More Info
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 py-2">
+            <div class="row borderBg">
+              <div class="col-xl-4 borderPadding d-flex align-items-center justify-content-center">
+                <img src="Photo/the-happy-prince-poster.jpg" class="img-responsive mx-auto d-block poster_size"
+                   alt="The Happy Prince">
+              </div>
+              <div class="col-xl-8 borderPadding">
+                <div class="row">
+                  <div class="col-xl-9 col-md-6 title">The Happy Prince</div>
+                  <div class="col-xl-3 col-md-6 rating">R</div>
+                </div>
+                <div class="row borderPadding">
+                  <div class="col-xl-12 time">
+                    <ul>
+                      <div class="title2">Movie ID: AHF</div>
+                      <li>Wednesday - 12pm (T12)</li>
+                      <li>Thursday - 12pm (T12)</li>
+                      <li>Friday - 12pm (T12)</li>
+                      <li>Saturday - 9pm (T21)</li>
+                      <li>Sunday - 9pm (T21)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="row borderPadding">
+                  <!-- Button trigger The Happy Prince modal -->
+                  <button type="button" class="btn btn-primary rounded" data-toggle="modal"
+                    data-target="#theHappyPrinceModal">
+                    More Info
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row equal customGutter">
+          <div class="col-lg-6 py-2">
+            <div class="row borderBg">
+              <div class="col-xl-4 borderPadding d-flex align-items-center justify-content-center">
+                <img src="Photo/top-end-wedding-poster.jpg" class="img-responsive mx-auto d-block poster_size"
+                   alt="Top End Wedding">
+              </div>
+              <div class="col-xl-8 borderPadding">
+                <div class="row">
+                  <div class="col-xl-9 col-md-6 title">Top End Wedding</div>
+                  <div class="col-xl-3 col-md-6 rating">NR</div>
+                </div>
+                <div class="row borderPadding">
+                  <div class="col-xl-12 time">
+                    <ul>
+                      <div class="title2">Movie ID: RMC</div>
+                      <li>Monday - 6pm (T18)</li>
+                      <li>Tuesday - 6pm (T18)</li>
+                      <li>Saturday - 3pm (T15)</li>
+                      <li>Sunday - 3pm (T15)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="row borderPadding">
+                  <!-- Button trigger Top End Wedding modal -->
+                  <button type="button" class="btn btn-primary rounded" data-toggle="modal"
+                    data-target="#topEndWeddingModal">
+                    More Info
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 py-2">
+            <div class="row borderBg">
+              <div class="col-xl-4 borderPadding d-flex align-items-center justify-content-center">
+                <img src="Photo/dumbo-poster.jpg" class="img-responsive mx-auto d-block poster_size"
+                   alt="Dumbo">
+              </div>
+              <div class="col-xl-8 borderPadding">
+                <div class="row">
+                  <div class="col-xl-9 col-md-6 title">Dumbo</div>
+                  <div class="col-xl-3 col-md-6 rating">PG</div>
+                </div>
+                <div class="row borderPadding">
+                  <div class="col-xl-12 time">
+                    <ul>
+                      <div class="title2">Movie ID: ANM</div>
+                      <li>Monday - 12pm (T12)</li>
+                      <li>Tuesday - 12pm (T12)</li>
+                      <li>Wednesday - 6pm (T18)</li>
+                      <li>Thursday - 6pm (T18)</li>
+                      <li>Friday - 6pm (T18)</li>
+                      <li>Saturday - 12pm (T12)</li>
+                      <li>Sunday - 12pm (T12)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="row borderPadding">
+                  <!-- Button trigger Dumbo modal -->
+                  <button type="button" class="btn btn-primary rounded" data-toggle="modal" data-target="#dumboModal">
+                    More Info
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="three">
+
+      <div class="container-fluid p-4 section_title">
+        <h1>Pricing</h1>
+      </div>
+
+      <div class="container p-2 my-3 seat_type " style="text-align: center;">
+        <h1>Standard Seat </h1><br>
+        (Discount time: Monday, Wednesday & at 12pm on weekdays)
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <img class="card-img-top" src="Photo/STA.jpeg" alt="seat type" style="width: auto; height:330px">
+            <div class="card-body">
+              <h5 class="card-title">Standard Adult (STA)</h5>
+              <p>
+                Normal: 19.80 <br>
+                Discount: 14.00
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img class="card-img-top" src="Photo/STP.jpeg" alt="seat type" style="width: auto; height:330px">
+            <div class="card-body">
+              <h5 class="card-title">Standard Concession (STP)</h5>
+              <p>
+                Normal: 17.50 <br>
+                Discount: 12.50
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img class="card-img-top" src="Photo/STC.jpeg" alt="seat type" style="width: auto; height:330px">
+            <div class="card-body">
+              <h5 class="card-title">Standard Child (STC)</h5>
+              <p>
+                Normal: 15.30 <br>
+                Discount: 11.00
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="container p-2 my-3 seat_type " style="text-align: center;">
+        <h1>First Class Seat </h1><br>
+        (Discount time: Monday, Wednesday & at 12pm on weekdays)
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <img class="card-img-top" src="Photo/FCA.jpeg" alt="seat type" style="width: auto; height:330px">
+            <div class="card-body">
+              <h5 class="card-title">First Class Adult (FCA)</h5>
+              <p>
+                Normal: 30.00 <br>
+                Discount: 24.00
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img class="card-img-top" src="Photo/FCP.jpeg" alt="seat type" style="width: auto; height:330px">
+            <div class="card-body">
+              <h5 class="card-title">First Class Concession (FCP)</h5>
+              <p>
+                Normal: 27.00 <br>
+                Discount: 22.50
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img class="card-img-top" src="Photo/FCC.jpeg" alt="seat type" style="width: auto; height:330px">
+            <div class="card-body">
+              <h5 class="card-title">First Class Child (FCC)</h5>
+              <p>
+                Normal: 24.00 <br>
+                Discount: 21.00
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!--SECTION FOR MODALS-->
+  <section id="modal">
+    <!--Modal for Avengers Endgame-->
+    <div class="modal fade" id="avengersEndgameModal" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <p class="title0" id="exampleModalLongTitle">Avengers Endgame</p>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="avengersEndgameSlide" class="carousel slide" data-interval="false" data-ride="carousel">
+              <!-- The slideshow -->
+              <div class="carousel-inner">
+                <!--First slide (Basic Info)-->
+                <div class="carousel-item active">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-xl-6">
+                        <img src="Photo/Avengers_Endgame_Poster.jpg" class="img-responsive mx-auto d-block"
+                          style="height: auto; max-width: 100%;" alt="Poster Art">
+                      </div>
+                      <div class="col-xl-6">
+                        <div class="col-xl-12">
+                          <p class="title1">Info</p>
+                          <p>Rating: PG-13 (for sequences of sci-fi violence and action, and
+                            some
+                            language)</p>
+                          <p>Genre: Action & Adventure, Drama, Science Fiction & Fantasy</p>
+                          <p>Directed By: Joe Russo, Anthony Russo</p>
+                          <p>Written By: Christopher Markus, Stephen McFeely</p>
+                          <p>Studio: Marvel Studios</p>
+                          <p>Runtime: 182 minutes</p>
+                        </div>
+                        <div class="col-xl-12">
+                          <p class="title1">Plot Description</p>
+                          <p>Adrift in space with no food or water, Tony Stark sends a message to Pepper Potts as his
+                            oxygen supply starts to dwindle. Meanwhile, the remaining Avengers -- Thor, Black Widow,
+                            Captain America and Bruce Banner -- must figure out a way to bring back their vanquished
+                            allies for an epic showdown with Thanos -- the evil demigod who decimated the planet and
+                            the
+                            universe.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row" id="top-border">
+                      <div class="col-xl-3">
+                        <p class="title1">Make a booking:</p>
+                      </div>
+                      <div class="col-xl-8">
+                        <button type="button" class="mx-2 my-2 btn btn-secondary button_width" data-toggle="modal"
+                          data-target="#bookingButton">Wednesday: 9pm</button>
+                        <button type="button" class="mx-2 my-2 btn btn-secondary button_width" data-toggle="modal"
+                          data-target="#bookingButton">Thursday: 9pm</button>
+                        <button type="button" class="mx-2 my-2 btn btn-secondary button_width" data-toggle="modal"
+                          data-target="#bookingButton">Friday: 9pm</button>
+                        <button type="button" class="mx-2 my-2 btn btn-secondary button_width" data-toggle="modal"
+                          data-target="#bookingButton">Saturday: 6pm</button>
+                        <button type="button" class="mx-2 my-2 btn btn-secondary button_width" data-toggle="modal"
+                          data-target="#bookingButton">Sunday: 6pm</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--Second slide (Trailer)-->
+                <div class="carousel-item">
+                  <div class="row d-flex align-items-center justify-content-center">
+                    <div class="col-9">
+                      <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                        <iframe width="900" height="500" src="https://www.youtube.com/embed/TcMBFSGVi1c" frameborder="0"
+                          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                          allowfullscreen></iframe>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Left and right controls -->
+              <a class="carousel-control-prev" href="#avengersEndgameSlide" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+              </a>
+              <a class="carousel-control-next" href="#avengersEndgameSlide" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Modal for The Happy Prince-->
+    <div class="modal fade" id="theHappyPrinceModal" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <p class="title0" id="exampleModalLongTitle">The Happy Prince</p>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="theHappyPrinceSlide" class="carousel slide" data-interval="false" data-ride="carousel">
+              <!-- The slideshow -->
+              <div class="carousel-inner">
+                <!--First slide (Basic Info)-->
+                <div class="carousel-item active">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-xl-6">
+                        <img src="Photo/the-happy-prince-poster.jpg" class="img-responsive mx-auto d-block"
+                          style="height: auto; max-width: 100%;" alt="Poster Art">
+                      </div>
+                      <div class="col-xl-6">
+                        <div class="col-xl-12">
+                          <p class="title1">Info</p>
+                          <p>Rating: R (for sexual content, graphic nudity, language, and
+                            brief
+                            drug use)</p>
+                          <p>Genre: Drama</p>
+                          <p>Directed By: Rupert Everett</p>
+                          <p>Written By: Rupert Everett</p>
+                          <p>Studio: Sony Pictures Classics</p>
+                          <p>Runtime: 105 minutes</p>
+                        </div>
+                        <div class="col-xl-12">
+                          <p class="title1">Plot Description</p>
+                          <p>In a cheap Parisian hotel room Oscar Wilde lies on his death bed. The past floods back,
+                            taking him to other times and places. Was he once the most famous man in London? The
+                            artist crucified by a society that once worshipped him? Under the microscope of death he
+                            reviews the failed attempt to reconcile with his long suffering wife Constance, the
+                            ensuing reprisal of his fatal love affair with Lord Alfred Douglas and the warmth and
+                            devotion of Robbie Ross, who tried and failed to save him from himself. Travelling through
+                            Wilde's final act and journeys through England, France and Italy, the transience of lust
+                            is laid bare and the true riches of love are revealed. It is a portrait of the dark side
+                            of a genius who lived and died for love.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row" id="top-border">
+                      <div class="col-xl-3">
+                        <p class="title1">Make a booking:</p>
+                      </div>
+                      <div class="col-xl-8">
+                        <button type="button" class="mx-2 my-2 btn btn-secondary button_width" data-toggle="modal"
+                          data-target="#bookingButton">Wednesday: 12pm</button>
+                        <button type="button" class="mx-2 my-2 btn btn-secondary button_width" data-toggle="modal"
+                          data-target="#bookingButton">Thursday: 12pm</button>
+                        <button type="button" class="mx-2 my-2 btn btn-secondary button_width" data-toggle="modal"
+                          data-target="#bookingButton">Friday: 12pm</button>
+                        <button type="button" class="mx-2 my-2 btn btn-secondary button_width" data-toggle="modal"
+                          data-target="#bookingButton">Saturday: 9pm</button>
+                        <button type="button" class="mx-2 my-2 btn btn-secondary button_width" data-toggle="modal"
+                          data-target="#bookingButton">Sunday: 9pm</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--Second slide (Trailer)-->
+                <div class="carousel-item">
+                  <div class="row d-flex align-items-center justify-content-center">
+                    <div class="col-9">
+                      <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                        <iframe zwidth="900" height="500" src="https://www.youtube.com/embed/4HmN9r1Fcr8"
+                          frameborder="0"
+                          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                          allowfullscreen></iframe>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Left and right controls -->
+              <a class="carousel-control-prev" href="#theHappyPrinceSlide" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+              </a>
+              <a class="carousel-control-next" href="#theHappyPrinceSlide" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Modal for Top End Wedding-->
+    <div class="modal fade" id="topEndWeddingModal" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <p class="title0" id="exampleModalLongTitle">Top End Wedding</p>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="topEndWeddingSlide" class="carousel slide" data-interval="false" data-ride="carousel">
+              <!-- The slideshow -->
+              <div class="carousel-inner">
+                <!--First slide (Basic Info)-->
+                <div class="carousel-item active">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-xl-6">
+                        <img src="Photo/top-end-wedding-poster.jpg" class="img-responsive mx-auto d-block"
+                          style="height: auto; max-width: 100%;" alt="Poster Art">
+                      </div>
+                      <div class="col-xl-6">
+                        <div class="col-xl-12">
+                          <p class="title1">Info</p>
+                          <p>Rating: NR (Not Rated)</p>
+                          <p>Genre: Comedy, Romance</p>
+                          <p>Directed By: Wayne Blair</p>
+                          <p>Written By: Miranda Tapsell, Joshua Tyler</p>
+                          <p>Studio: Goalpost Pictures</p>
+                          <p>Runtime: 103 minutes</p>
+                        </div>
+                        <div class="col-xl-12">
+                          <p class="title1">Plot Description</p>
+                          <p>Engaged and in love Lauren and Ned have just 10 days to reunite her newly separated
+                            parents and pull off their dream Top End Wedding. But Lauren's mother has gone missing,
+                            experiencing a midlife crisis. In order to find her, the couple goes on a fantastic road
+                            trip across northern Australia. Along the way they find fulfillment for their own personal
+                            journeys through the wild beauty of the landscapes and the unbeatable charm of the
+                            characters that they meet along the way. But will they finally recover Lauren's mother and
+                            pursue their dream wedding?</p>
+                        </div>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row" id="top-border">
+                      <div class="col-xl-3">
+                        <p class="title1">Make a booking:</p>
+                      </div>
+                      <div class="col-xl-8">
+                        <button type="button" class="mx-2 my-2 btn btn-secondary button_width" data-toggle="modal"
+                          data-target="#bookingButton">Monday: 6pm</button>
+                        <button type="button" class="mx-2 my-2 btn btn-secondary button_width" data-toggle="modal"
+                          data-target="#bookingButton">Tuesday: 6pm</button>
+                        <button type="button" class="mx-2 my-2 btn btn-secondary button_width" data-toggle="modal"
+                          data-target="#bookingButton">Saturday: 3pm</button>
+                        <button type="button" class="mx-2 my-2 btn btn-secondary button_width" data-toggle="modal"
+                          data-target="#bookingButton">Sunday: 3pm</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--Second slide (Trailer)-->
+                <div class="carousel-item">
+                  <div class="row d-flex align-items-center justify-content-center">
+                    <div class="col-9">
+                      <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                        <iframe width="900" height="500" src="https://www.youtube.com/embed/uoDBvGF9pPU" frameborder="0"
+                          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                          allowfullscreen></iframe>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Left and right controls -->
+              <a class="carousel-control-prev" href="#topEndWeddingSlide" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+              </a>
+              <a class="carousel-control-next" href="#topEndWeddingSlide" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Modal for Dumbo-->
+    <div class="modal fade" id="dumboModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <p class="title0" id="exampleModalLongTitle">Dumbo</p>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="dumboSlide" class="carousel slide" data-interval="false" data-ride="carousel">
+              <!-- The slideshow -->
+              <div class="carousel-inner">
+                <!--First slide (Basic Info)-->
+                <div class="carousel-item active">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-xl-6">
+                        <img src="Photo/dumbo-poster.jpg" class="img-responsive mx-auto d-block"
+                          style="height: auto; max-width: 100%;" alt="Poster Art">
+                      </div>
+                      <div class="col-xl-6">
+                        <div class="col-xl-12">
+                          <p class="title1">Info</p>
+                          <p>Rating: PG (for peril/action, some thematic elements, and brief
+                            mild
+                            language)</p>
+                          <p>Genre: Animation, Kids & Family, Science Fiction & Fantasy</p>
+                          <p>Directed By: Tim Burton</p>
+                          <p>Written By: Ehren Kruger</p>
+                          <p>Studio: Walt Disney Pictures</p>
+                          <p>Runtime: 112 minutes</p>
+                        </div>
+                        <div class="col-xl-12">
+                          <p class="title1">Plot Description</p>
+                          <p>Circus owner, Max Medici, enlists former star Holt Farrier and his children Milly and Joe
+                            to care for a newborn
+                            elephant whose oversized ears make him a laughingstock in an already struggling circus.
+                            But when they discover that Dumbo can fly, the circus makes an incredible comeback,
+                            attracting persuasive entrepreneur V.A. Vandevere, who recruits the
+                            peculiar pachyderm for his newest, larger-than-life entertainment venture, Dreamland.
+                            Dumbo soars to new heights alongside a charming and spectacular aerial artist, Colette
+                            Marchant, until Holt learns that beneath its shiny veneer, Dreamland is full
+                            of dark secrets.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row" id="top-border">
+                      <div class="col-xl-3">
+                        <p class="title1">Make a booking:</p>
+                      </div>
+                      <div class="col-xl-8">
+                        <button type="button" class="mx-2 my-2 btn btn-secondary button_width" data-toggle="modal"
+                          data-target="#bookingButton">Monday: 12pm</button>
+                        <button type="button" class="mx-2 my-2 btn btn-secondary button_width" data-toggle="modal"
+                          data-target="#bookingButton">Tuesday: 12pm</button>
+                        <button type="button" class="mx-2 my-2 btn btn-secondary button_width" data-toggle="modal"
+                          data-target="#bookingButton">Wednesday: 6pm</button>
+                        <button type="button" class="mx-2 my-2 btn btn-secondary button_width" data-toggle="modal"
+                          data-target="#bookingButton">Thursday: 6pm</button>
+                        <button type="button" class="mx-2 my-2 btn btn-secondary button_width" data-toggle="modal"
+                          data-target="#bookingButton">Friday: 6pm</button>
+                        <button type="button" class="mx-2 my-2 btn btn-secondary button_width" data-toggle="modal"
+                          data-target="#bookingButton">Saturday: 12pm</button>
+                        <button type="button" class="mx-2 my-2 btn btn-secondary button_width" data-toggle="modal"
+                          data-target="#bookingButton">Sunday: 12pm</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--Second slide (Trailer)-->
+                <div class="carousel-item">
+                  <div class="row d-flex align-items-center justify-content-center">
+                    <div class="col-9">
+                      <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                        <iframe width="900" height="500" src="https://www.youtube.com/embed/7NiYVoqBt-8" frameborder="0"
+                          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                          allowfullscreen></iframe>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Left and right controls -->
+              <a class="carousel-control-prev" href="#dumboSlide" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+              </a>
+              <a class="carousel-control-next" href="#dumboSlide" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Modal for booking section-->
+    <div class="modal fade" id="bookingButton" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content bookingColor">
+          <div class="modal-header">
+            <h5 class="title0" id="exampleModalLongTitle">Booking Time</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h3>Under Construction</h3>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <h3>Contact us</h3>
+    <div>
+      Email: contact@cinemax.com <br>
+      Phone: 0909090909 <br>
+      Address: 18 Anonymous, Ho Chi Minh city
+    </div>
+    <div>&copy;
+      <script>
+        document.write(new Date().getFullYear());
+      </script> Phan Truong Quynh Anh (s3818245), Nguyen Thi Nha Uyen (s3819293). </div>
+    <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web
+      Programming course at RMIT University in Melbourne, Australia.</div>
+  </footer>
+
+</body>
+
+</html>
