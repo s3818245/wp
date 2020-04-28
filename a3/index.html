@@ -88,7 +88,7 @@
             <div class="row borderBg">
               <div class="col-xl-4 borderPadding d-flex align-items-center justify-content-center">
                 <img src="Photo/Avengers_Endgame_Poster.jpg" class="img-responsive mx-auto d-block poster_size"
-                   alt="Avengers Endgame">
+                  alt="Avengers Endgame">
               </div>
               <div class="col-xl-8 borderPadding">
                 <div class="row">
@@ -121,7 +121,7 @@
             <div class="row borderBg">
               <div class="col-xl-4 borderPadding d-flex align-items-center justify-content-center">
                 <img src="Photo/the-happy-prince-poster.jpg" class="img-responsive mx-auto d-block poster_size"
-                   alt="The Happy Prince">
+                  alt="The Happy Prince">
               </div>
               <div class="col-xl-8 borderPadding">
                 <div class="row">
@@ -157,7 +157,7 @@
             <div class="row borderBg">
               <div class="col-xl-4 borderPadding d-flex align-items-center justify-content-center">
                 <img src="Photo/top-end-wedding-poster.jpg" class="img-responsive mx-auto d-block poster_size"
-                   alt="Top End Wedding">
+                  alt="Top End Wedding">
               </div>
               <div class="col-xl-8 borderPadding">
                 <div class="row">
@@ -188,8 +188,7 @@
           <div class="col-lg-6 py-2">
             <div class="row borderBg">
               <div class="col-xl-4 borderPadding d-flex align-items-center justify-content-center">
-                <img src="Photo/dumbo-poster.jpg" class="img-responsive mx-auto d-block poster_size"
-                   alt="Dumbo">
+                <img src="Photo/dumbo-poster.jpg" class="img-responsive mx-auto d-block poster_size" alt="Dumbo">
               </div>
               <div class="col-xl-8 borderPadding">
                 <div class="row">
@@ -717,13 +716,154 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content bookingColor">
           <div class="modal-header">
-            <h5 class="title0" id="exampleModalLongTitle">Booking Time</h5>
+            <h5 class="title0" id="exampleModalLongTitle">
+              <span name="movie[id]" id="movie-id">Movie Title</span> - 
+              <span name="movie[day]" id="movie-day">Day </span> - 
+              <span name="movie[day]" id="movie-day">Time</span> 
+            </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <h3>Under Construction</h3>
+            <div>
+              <form action="" class="was-validated">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="container p-4 my-3 border">
+                      <label for="standard">Standard</label>
+                      <div>
+                        <label for="standard-adult">Adult</label>
+                        <select name="seats[STA]" id="seats-STA" class="custom-select" onchange="getPrice(this.id)">
+                          <option value="">Please Select</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select> <br>
+                        <label for="standard-concession">Concession</label>
+                        <select name="seats[STP]" id="seats-STP" class="custom-select" onchange="getPrice(this.id)">
+                          <option value="">Please Select</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select> <br>
+                        <label for="standard-children">Children</label>
+                        <select name="seats[STC]" id="seats-STC" class="custom-select" onchange="getPrice(this.id)">
+                          <option value="">Please Select</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select> <br>
+                      </div>
+                    </div>
+                    <div class="container p-4 my-3 border">
+                      <label for="firstclass">First class</label>
+                      <div>
+                        <label for="firstclass-adult">Adult</label>
+                        <select name="seats[FCA]" id="seats-FCA" class="custom-select" onchange="getPrice(this.id)">
+                          <option value="">Please Select</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select> <br>
+                        <label for="firstclass-concession">Concession</label>
+                        <select name="seats[FCP]" id="seats-FCP" class="custom-select" onchange="getPrice(this.id)">
+                          <option value="">Please Select</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select> <br>
+                        <label for="firstclass-children">Children</label>
+                        <select name="seats[FCC]" id="seats-FCC" class="custom-select" onchange="getPrice(this.id)">
+                          <option value="">Please Select</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select> <br>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="container my-3 p-4">
+                      <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input name="cust[name]" id="cust-name" type="text" class="form-control"
+                          pattern="^[A-Za-z\-'., ]{1,100}$" required>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input name="cust[email]" id="cust-email" type="email" class="form-control" required>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="mobile">Mobile:</label>
+                        <input name="cust[mobile]" id="cust-mobile" type="tel" class="form-control"
+                          pattern="^(\(04\)|04|\+614)[ ]?\d{4}[ ]?\d{4}$" required>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="credit-card">Credit Card:</label>
+                        <input name="cust[card]" id="cust-card" type="text" class="form-control"
+                          pattern="^([\d] ?){14,19}$" required>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="expiry">Expiry:</label>
+                        <input name="cust[expiry]" id="cust-expiry" type="month" class="form-control" required>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <label for="Total">Total $</label>
+                  <span id="total-amount">0</span>
+                </div>
+                <button class="form-group" type="submit" value="Order">Order</button>
+              </form>
+            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
