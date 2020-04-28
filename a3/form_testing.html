@@ -35,7 +35,7 @@
                         <label for="standard">Standard</label>
                         <div>
                             <label for="standard-adult">Adult</label>
-                            <select name="seats[STA]" id="seats-STA" class="custom-select">
+                            <select name="seats[STA]" id="seats-STA" class="custom-select" onchange="getPrice(this.id)">
                                 <option value="">Please Select</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -49,7 +49,7 @@
                                 <option value="10">10</option>
                             </select> <br>
                             <label for="standard-concession">Concession</label>
-                            <select name="seats[STP]" id="seats-STP" class="custom-select">
+                            <select name="seats[STP]" id="seats-STP" class="custom-select" onchange="getPrice(this.id)">
                                 <option value="">Please Select</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -63,7 +63,7 @@
                                 <option value="10">10</option>
                             </select> <br>
                             <label for="standard-children">Children</label>
-                            <select name="seats[STC]" id="seats-STC" class="custom-select">
+                            <select name="seats[STC]" id="seats-STC" class="custom-select" onchange="getPrice(this.id)">
                                 <option value="">Please Select</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -82,7 +82,7 @@
                         <label for="firstclass">First class</label>
                         <div>
                             <label for="firstclass-adult">Adult</label>
-                            <select name="seats[FCA]" id="seats-FCA" class="custom-select">
+                            <select name="seats[FCA]" id="seats-FCA" class="custom-select" onchange="getPrice(this.id)">
                                 <option value="">Please Select</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -96,7 +96,7 @@
                                 <option value="10">10</option>
                             </select> <br>
                             <label for="firstclass-concession">Concession</label>
-                            <select name="seats[FCP]" id="seats-FCP" class="custom-select">
+                            <select name="seats[FCP]" id="seats-FCP" class="custom-select" onchange="getPrice(this.id)">
                                 <option value="">Please Select</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -110,7 +110,7 @@
                                 <option value="10">10</option>
                             </select> <br>
                             <label for="firstclass-children">Children</label>
-                            <select name="seats[FCC]" id="seats-FCC" class="custom-select">
+                            <select name="seats[FCC]" id="seats-FCC" class="custom-select" onchange="getPrice(this.id)">
                                 <option value="">Please Select</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -125,8 +125,9 @@
                             </select> <br>
                         </div>
                     </div>
-                    <div>
-                        Total $
+                    <label for="Total">Total $</label>
+                    <div id="total-amount">
+                        0
                     </div>
                 </div>
                 <div class="col-md-6">
