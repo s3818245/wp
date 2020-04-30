@@ -4,31 +4,49 @@
 // SECTION FOR FUNCTIONS RELATED TO BOOKING FORM
 
 // Variables
-var movieTitleID = ""
+var SelectedMovieID = ""
 var seatName = ["seats-STA", "seats-STP", "seats-STC", "seats-FCA", "seats-FCP", "seats-FCC"];
 var seatOGPrice = [19.80, 17.50, 15.30, 30.00, 27.00, 24.00];
 var seatDiscounted = [14.00, 12.50, 11.00, 24.00, 22.50, 21.00];
 var currentQuant = [0, 0, 0, 0, 0, 0]
 var subTotal = 0
 
-// get movie title
+// get movie title and update synopsis
 document.querySelectorAll(".synopsis").forEach(item => {
     item.addEventListener("click",
         function () {
-            if (movieTitleID != "") {
-                document.getElementById(movieTitleID).setAttribute("hidden", true)
-                newMovieTitleID = this.value
-                document.getElementById(newMovieTitleID).removeAttribute("hidden")
-                movieTitleID = newMovieTitleID
+            // When user have selected a movie previously
+            if (SelectedMovieID != "") {
+                // Hide old movie title in booking
+                document.getElementById(SelectedMovieID).setAttribute("hidden", true)
+                // Hide old movie synopsis
+                document.getElementById(SelectedMovieID+"synopsis").setAttribute("hidden", true)
+
+                newSelectedMovieID = this.value
+                // update movie id hidden field
+                document.getElementById("movie-id").value= newSelectedMovieID
+                console.log(document.getElementById("movie-id").value)
+                // Unhide new movie title in booking
+                document.getElementById(newSelectedMovieID).removeAttribute("hidden")
+                // Unhide new movie synopsis
+                document.getElementById(newSelectedMovieID+"synopsis").removeAttribute("hidden")
+                SelectedMovieID = newSelectedMovieID
             }
+            // When user have not selected a movie previously
             else {
-                newMovieTitleID = this.value
-                document.getElementById(newMovieTitleID).removeAttribute("hidden")
-                movieTitleID = newMovieTitleID
+                newSelectedMovieID = this.value
+                // Unhide selected movie title in booking form
+                document.getElementById(newSelectedMovieID).removeAttribute("hidden")
+                // Unhide selected movie synopsis
+                document.getElementById(newSelectedMovieID+"synopsis").removeAttribute("hidden")
+                SelectedMovieID = newSelectedMovieID
             }
         }
+        
     )
 })
+
+
 
 // get quantity user selected
 function getselectedQuany(id) {
