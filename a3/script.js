@@ -5,7 +5,7 @@
 
 // Variables
 var SelectedMovieID = ""
-var SelectDayID = ""
+var SelectedDayID = ""
 var seatName = ["seats-STA", "seats-STP", "seats-STC", "seats-FCA", "seats-FCP", "seats-FCC"];
 var seatOGPrice = [19.80, 17.50, 15.30, 30.00, 27.00, 24.00];
 var seatDiscounted = [14.00, 12.50, 11.00, 24.00, 22.50, 21.00];
@@ -80,8 +80,6 @@ document.querySelectorAll(".date").forEach(item => {
                 newSelectedDayID = this.value
                 // 
                 document.getElementById(newSelectedDayID).removeAttribute("hidden")
-                // 
-                document.getElementById(newSelectedDayID+"date").removeAttribute("hidden")
                 SelectedDayID = newSelectedDayID
             }
         }

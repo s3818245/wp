@@ -117,7 +117,7 @@ main section{
 
 }
 
-.modal-header > .title0 {
+.movie-header{
     font-size: 3rem;
     font-weight: bold;
     font-style: italic;
@@ -137,8 +137,12 @@ main section{
     padding: 10px 15px;
 }
 
-.modal-content {
+.section-content {
     background: linear-gradient(180deg, #2d98cc, #88d8ff);
+}
+
+.synopsis-content {
+    height: 1100px;
 }
 
 .bookingColor {
