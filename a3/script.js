@@ -55,7 +55,7 @@ document.querySelectorAll(".synopsis").forEach(item => {
     )
 })
 
-document.querySelectorAll(".synopsis").forEach(item => {
+document.querySelectorAll(".date").forEach(item => {
     item.addEventListener("click",
         function () {
             // 
@@ -63,7 +63,7 @@ document.querySelectorAll(".synopsis").forEach(item => {
                 // 
                 document.getElementById(SelectedDayID).setAttribute("hidden", true)
                 // 
-                document.getElementById(SelectedDayID+"synopsis").setAttribute("hidden", true)
+                document.getElementById(SelectedDayID+"date").setAttribute("hidden", true)
 
                 newSelectedDayID = this.value
                 // 
@@ -72,7 +72,7 @@ document.querySelectorAll(".synopsis").forEach(item => {
                 // 
                 document.getElementById(newSelectedDayID).removeAttribute("hidden")
                 // 
-                document.getElementById(newSelectedDayID+"synopsis").removeAttribute("hidden")
+                document.getElementById(newSelectedDayID+"date").removeAttribute("hidden")
                 SelectedDayID = newSelectedDayID
             }
             // 
@@ -81,7 +81,7 @@ document.querySelectorAll(".synopsis").forEach(item => {
                 // 
                 document.getElementById(newSelectedDayID).removeAttribute("hidden")
                 // 
-                document.getElementById(newSelectedDayID+"synopsis").removeAttribute("hidden")
+                document.getElementById(newSelectedDayID+"date").removeAttribute("hidden")
                 SelectedDayID = newSelectedDayID
             }
         }
