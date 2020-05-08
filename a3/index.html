@@ -324,8 +324,8 @@
   <!--SECTION FOR MODALS-->
   <section id="modal">
     <!--General Modal-->
-    <div class="modal fade" id="generalModal" tabindex="-1" role="dialog"
-      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="generalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -569,7 +569,7 @@
             </div>
 
             <!-- CONTENT FOR DUMBO SYNOPSIS -->
-            
+
             <div id="ANMsynopsis" class="carousel slide" data-interval="false" data-ride="carousel" hidden>
               <!-- The slideshow -->
               <div class="carousel-inner">
@@ -653,18 +653,31 @@
               </a>
             </div>
 
-
+            <hr>
             <div>
               <div>
                 <span>
-                  <span id="ACT" hidden>Avengers Endgame</span>
-                  <span id="RMC" hidden>Top End Wedding</span>
-                  <span id="ANM" hidden>Dumbo</span>
-                  <span id="AHF" hidden>The Happy Prince</span>
+                  <span id="ACT" class="title2" hidden>Avengers Endgame</span>
+                  <span id="RMC" class="title2" hidden>Top End Wedding</span>
+                  <span id="ANM" class="title2" hidden>Dumbo</span>
+                  <span id="AHF" class="title2" hidden>The Happy Prince</span>
                 </span> -
-                <span>Day </span> -
-                <span >Time</span>
-              </div> 
+                <span>Day
+                  <span id="MON" hidden>Monday</span>
+                  <span id="TUE" hidden>Tuesday</span>
+                  <span id="WED" hidden>Wednesday</span>
+                  <span id="THU" hidden>Thursday</span>
+                  <span id="FRI" hidden>Friday</span>
+                  <span id="SAT" hidden>Saturday</span>
+                  <span id="SUN" hidden>Sunday</span>
+                </span> -
+                <span>Time
+                  <span id="T12" hidden>12pm</span>
+                  <span id="T15" hidden>3pm</span>
+                  <span id="T18" hidden>6pm</span>
+                  <span id="T21" hidden>9pm</span>
+                </span>
+              </div>
               <form action="" class="was-validated">
                 <input type="hidden" name="movie[id]" id="movie-id" value="">
                 <input type="hidden" name="movie[day]" id="movie-day" value="">
@@ -779,24 +792,24 @@
                         <input name="cust[name]" id="cust-name" type="text" class="form-control"
                           pattern="^[A-Za-z\-'., ]{1,100}$" required>
                       </div>
-  
+
                       <div class="form-group">
                         <label for="email">Email:</label>
                         <input name="cust[email]" id="cust-email" type="email" class="form-control" required>
                       </div>
-  
+
                       <div class="form-group">
                         <label for="mobile">Mobile:</label>
                         <input name="cust[mobile]" id="cust-mobile" type="tel" class="form-control"
                           pattern="^(\(04\)|04|\+614)( ?\d){8}$" required>
                       </div>
-  
+
                       <div class="form-group">
                         <label for="credit-card">Credit Card:</label>
                         <input name="cust[card]" id="cust-card" type="text" class="form-control"
                           pattern="^([\d] ?){14,19}$" required>
                       </div>
-  
+
                       <div class="form-group">
                         <label for="expiry">Expiry:</label>
                         <input name="cust[expiry]" id="cust-expiry" type="month" class="form-control" required>
@@ -814,14 +827,14 @@
 
           </div>
           <div class="modal-footer">
-            
+
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
     </div>
 
-    
+
 
     <!--Modal for booking section-->
     <div class="modal fade" id="bookingButton" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -829,14 +842,14 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content bookingColor">
           <div class="modal-header">
-            
+
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
             <div>
-              
+
             </div>
           </div>
           <div class="modal-footer">
