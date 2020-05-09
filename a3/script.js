@@ -1,7 +1,6 @@
 /* Insert your javascript here */
 
 
-// SECTION FOR FUNCTIONS RELATED TO BOOKING FORM
 
 // Variables
 var SelectedMovieID = ""
@@ -133,6 +132,9 @@ function toggleSynposis() {
     }
 }
 
+
+
+// SECTION FOR FUNCTIONS RELATED TO BOOKING FORM
 
 // get quantity user selected
 function getselectedQuany(id) {
