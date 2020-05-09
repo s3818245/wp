@@ -115,26 +115,14 @@ function toggleSynposis() {
 
     if (showACT.style.display == "block") {
         showACT.style.display = "none";
-        showAHF.style.display = "block";
-        showRMC.style.display = "block";
-        showANM.style.display = "block";
     }
     else if (showAHF.style.display == "block") {
-        showACT.style.display = "block";
         showAHF.style.display = "none";
-        showRMC.style.display = "block";
-        showANM.style.display = "block";
     }
     else if (showRMC.style.display == "block") {
-        showACT.style.display = "block";
-        showAHF.style.display = "block";
         showRMC.style.display = "none";
-        showANM.style.display = "block";
     }
     else if (showANM.style.display == "block") {
-        showACT.style.display = "block";
-        showAHF.style.display = "block";
-        showRMC.style.display = "block";
         showANM.style.display = "none";
     }
     else {
