@@ -6,6 +6,7 @@
 // Variables
 var SelectedMovieID = ""
 var SelectedDayID = ""
+var SelectedTimeID = ""
 var seatName = ["seats-STA", "seats-STP", "seats-STC", "seats-FCA", "seats-FCP", "seats-FCC"];
 var seatOGPrice = [19.80, 17.50, 15.30, 30.00, 27.00, 24.00];
 var seatDiscounted = [14.00, 12.50, 11.00, 24.00, 22.50, 21.00];
@@ -13,12 +14,12 @@ var currentQuant = [0, 0, 0, 0, 0, 0]
 var subTotal = 0
 
 // Make the trailer stop playing when exit modal
-$(function(){
+$(function () {
     $('.modal').on('hidden.bs.modal', function (e) {
-      $iframe = $(this).find("iframe");
-      $iframe.attr("src", $iframe.attr("src"));
+        $iframe = $(this).find("iframe");
+        $iframe.attr("src", $iframe.attr("src"));
     });
-  });
+});
 
 // get movie title and update synopsis
 document.querySelectorAll(".synopsis").forEach(item => {
@@ -29,29 +30,25 @@ document.querySelectorAll(".synopsis").forEach(item => {
                 // Hide old movie title in booking
                 document.getElementById(SelectedMovieID).setAttribute("hidden", true)
                 // Hide old movie synopsis
-                document.getElementById(SelectedMovieID+"synopsis").setAttribute("hidden", true)
+                document.getElementById(SelectedMovieID + "synopsis").setAttribute("hidden", true)
 
                 newSelectedMovieID = this.value
                 // update movie id hidden field
-                document.getElementById("movie-id").value= newSelectedMovieID
+                document.getElementById("movie-id").value = newSelectedMovieID
                 console.log(document.getElementById("movie-id").value)
-                // Unhide new movie title in booking
-                document.getElementById(newSelectedMovieID).removeAttribute("hidden")
                 // Unhide new movie synopsis
-                document.getElementById(newSelectedMovieID+"synopsis").removeAttribute("hidden")
+                document.getElementById(newSelectedMovieID + "synopsis").removeAttribute("hidden")
                 SelectedMovieID = newSelectedMovieID
             }
             // When user have not selected a movie previously
             else {
                 newSelectedMovieID = this.value
-                // Unhide selected movie title in booking form
-                document.getElementById(newSelectedMovieID).removeAttribute("hidden")
                 // Unhide selected movie synopsis
-                document.getElementById(newSelectedMovieID+"synopsis").removeAttribute("hidden")
+                document.getElementById(newSelectedMovieID + "synopsis").removeAttribute("hidden")
                 SelectedMovieID = newSelectedMovieID
             }
         }
-        
+
     )
 })
 
@@ -59,34 +56,94 @@ document.querySelectorAll(".date").forEach(item => {
     item.addEventListener("click",
         function () {
             // 
-            if (SelectedDayID != "") {
-                // 
+            if (SelectedDayID != "", SelectedTimeID != "") {
+                //
                 document.getElementById(SelectedDayID).setAttribute("hidden", true)
-                // 
-                document.getElementById(SelectedDayID+"date").setAttribute("hidden", true)
-
+                console.log(getElementById(SelectedDayID))
+                document.getElementById(SelectedDayID + "date").setAttribute("hidden", true)
+                
                 newSelectedDayID = this.value
-                // 
-                document.getElementById("movie-day").value= newSelecteDayID
+                document.getElementById("movie-day").value = newSelecteDayID
                 console.log(document.getElementById("movie-day").value)
-                // 
                 document.getElementById(newSelectedDayID).removeAttribute("hidden")
-                // 
-                document.getElementById(newSelectedDayID+"date").removeAttribute("hidden")
                 SelectedDayID = newSelectedDayID
             }
             // 
             else {
+                //
                 newSelectedDayID = this.value
-                // 
                 document.getElementById(newSelectedDayID).removeAttribute("hidden")
                 SelectedDayID = newSelectedDayID
             }
         }
-        
+
     )
 })
 
+document.querySelectorAll(".time").forEach(item => {
+    item.addEventListener("click",
+        function () {
+            // 
+            if (SelectedTimeID != "") {
+                //
+                document.getElementById(SelectedTimeID).setAttribute("hidden", true)
+                document.getElementById(SelectedTimeID + "time").setAttribute("hidden", true)
+
+                newSelectedTimeID = this.value
+                document.getElementById("movie-time").value = newSelecteDayID
+                console.log(document.getElementById("movie-time").value)
+                document.getElementById(newSelectedTimeID).removeAttribute("hidden")
+                SelectedTimeID = newSelectedTimeID
+            }
+            // 
+            else {
+                newSelectedTimeID = this.value
+                document.getElementById(newSelectedTimeID).removeAttribute("hidden")
+                SelectedTimeID = newSelectedTimeID
+            }
+        }
+
+    )
+})
+
+//
+function toggleSynposis() {
+    var showACT = document.getElementById("ACTsynopsis");
+    var showAHF = document.getElementById("AHFsynopsis");
+    var showRMC = document.getElementById("RMCsynopsis");
+    var showANM = document.getElementById("ANMsynopsis");
+
+    if (showACT.style.display == "block") {
+        showACT.style.display = "none";
+        showAHF.style.display = "block";
+        showRMC.style.display = "block";
+        showANM.style.display = "block";
+    }
+    else if (showAHF.style.display == "block") {
+        showACT.style.display = "block";
+        showAHF.style.display = "none";
+        showRMC.style.display = "block";
+        showANM.style.display = "block";
+    }
+    else if (showRMC.style.display == "block") {
+        showACT.style.display = "block";
+        showAHF.style.display = "block";
+        showRMC.style.display = "none";
+        showANM.style.display = "block";
+    }
+    else if (showANM.style.display == "block") {
+        showACT.style.display = "block";
+        showAHF.style.display = "block";
+        showRMC.style.display = "block";
+        showANM.style.display = "none";
+    }
+    else {
+        showACT.style.display = "block";
+        showAHF.style.display = "block";
+        showRMC.style.display = "block";
+        showANM.style.display = "block";
+    }
+}
 
 
 // get quantity user selected
