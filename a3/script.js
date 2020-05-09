@@ -54,51 +54,39 @@ document.querySelectorAll(".synopsis").forEach(item => {
 document.querySelectorAll(".date").forEach(item => {
     item.addEventListener("click",
         function () {
+            SelectedDateTime = this.value.split("_")
+            newSelectedDayID = SelectedDateTime[0]
+            newSelectedTimeID = SelectedDateTime[1]
             // 
             if (SelectedDayID != "", SelectedTimeID != "") {
                 //
                 document.getElementById(SelectedDayID).setAttribute("hidden", true)
-                console.log(getElementById(SelectedDayID))
-                document.getElementById(SelectedDayID + "date").setAttribute("hidden", true)
-                
-                newSelectedDayID = this.value
-                document.getElementById("movie-day").value = newSelecteDayID
-                console.log(document.getElementById("movie-day").value)
-                document.getElementById(newSelectedDayID).removeAttribute("hidden")
-                SelectedDayID = newSelectedDayID
-            }
-            // 
-            else {
-                //
-                newSelectedDayID = this.value
-                document.getElementById(newSelectedDayID).removeAttribute("hidden")
-                SelectedDayID = newSelectedDayID
-            }
-        }
-
-    )
-})
-
-document.querySelectorAll(".time").forEach(item => {
-    item.addEventListener("click",
-        function () {
-            // 
-            if (SelectedTimeID != "") {
-                //
                 document.getElementById(SelectedTimeID).setAttribute("hidden", true)
-                document.getElementById(SelectedTimeID + "time").setAttribute("hidden", true)
 
-                newSelectedTimeID = this.value
-                document.getElementById("movie-time").value = newSelecteDayID
-                console.log(document.getElementById("movie-time").value)
+                // 
+                document.getElementById("movie-day").value = newSelectedDayID
+                document.getElementById("movie-hour").value = newSelectedTimeID
+                console.log(document.getElementById("movie-day").value)
+                console.log(document.getElementById("movie-hour").value)
+
+                document.getElementById(newSelectedDayID).removeAttribute("hidden")
                 document.getElementById(newSelectedTimeID).removeAttribute("hidden")
+                SelectedDayID = newSelectedDayID
                 SelectedTimeID = newSelectedTimeID
             }
             // 
             else {
-                newSelectedTimeID = this.value
+                //
+                document.getElementById(newSelectedDayID).removeAttribute("hidden")
                 document.getElementById(newSelectedTimeID).removeAttribute("hidden")
+
+                document.getElementById("movie-day").value = newSelectedDayID
+                document.getElementById("movie-hour").value = newSelectedTimeID
+
+                console.log(document.getElementById("movie-day").value)
+                console.log(document.getElementById("movie-hour").value)
                 SelectedTimeID = newSelectedTimeID
+                SelectedDayID = newSelectedDayID
             }
         }
 
@@ -158,19 +146,37 @@ function getPrice(id) {
     var selectedQuant = seatType.options[seatType.selectedIndex].value;
     var index = findIndex(id)
     var currentTotal = document.getElementById("total-amount")
-    if (selectedQuant > currentQuant[index]) {
-        subTotal = (parseFloat(currentTotal.innerHTML) + (selectedQuant - currentQuant[index]) * seatOGPrice[index]).toFixed(2);
-        currentTotal.innerHTML = subTotal
-        currentQuant[index] = selectedQuant
-        console.log(subTotal)
-        console.log(currentQuant)
+    if (document.getElementById("movie-day").value != "SUN" && document.getElementById("movie-day").value != "SAT" && document.getElementById("movie-hour").value == "T12") {
+        if (selectedQuant > currentQuant[index]) {
+            subTotal = (parseFloat(currentTotal.innerHTML) + (selectedQuant - currentQuant[index]) * seatDiscounted[index]).toFixed(2);
+            currentTotal.innerHTML = subTotal
+            currentQuant[index] = selectedQuant
+            console.log(subTotal)
+            console.log(currentQuant)
+        }
+        if (selectedQuant < currentQuant[index]) {
+            subTotal = (parseFloat(currentTotal.innerHTML) - (currentQuant[index] - selectedQuant) * seatDiscounted[index]).toFixed(2);
+            currentTotal.innerHTML = subTotal
+            currentQuant[index] = selectedQuant
+            console.log(subTotal)
+            console.log(currentQuant)
+        }
     }
-    if (selectedQuant < currentQuant[index]) {
-        subTotal = (parseFloat(currentTotal.innerHTML) - (currentQuant[index] - selectedQuant) * seatOGPrice[index]).toFixed(2);
-        currentTotal.innerHTML = subTotal
-        currentQuant[index] = selectedQuant
-        console.log(subTotal)
-        console.log(currentQuant)
+    else {
+        if (selectedQuant > currentQuant[index]) {
+            subTotal = (parseFloat(currentTotal.innerHTML) + (selectedQuant - currentQuant[index]) * seatOGPrice[index]).toFixed(2);
+            currentTotal.innerHTML = subTotal
+            currentQuant[index] = selectedQuant
+            console.log(subTotal)
+            console.log(currentQuant)
+        }
+        if (selectedQuant < currentQuant[index]) {
+            subTotal = (parseFloat(currentTotal.innerHTML) - (currentQuant[index] - selectedQuant) * seatOGPrice[index]).toFixed(2);
+            currentTotal.innerHTML = subTotal
+            currentQuant[index] = selectedQuant
+            console.log(subTotal)
+            console.log(currentQuant)
+        }
     }
 }
 
