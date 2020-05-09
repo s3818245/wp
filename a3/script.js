@@ -54,9 +54,16 @@ document.querySelectorAll(".synopsis").forEach(item => {
 document.querySelectorAll(".date").forEach(item => {
     item.addEventListener("click",
         function () {
+            document.getElementById("total-amount").innerHTML="0"
+            for (m=0; m<seatName.length; m++){
+                currentQuant[m] = 0
+                document.getElementById(seatName[m]).selectedIndex=0
+            }
+
             SelectedDateTime = this.value.split("_")
             newSelectedDayID = SelectedDateTime[0]
             newSelectedTimeID = SelectedDateTime[1]
+            
             // 
             if (SelectedDayID != "", SelectedTimeID != "") {
                 //
@@ -124,6 +131,7 @@ function toggleSynposis() {
 
 // SECTION FOR FUNCTIONS RELATED TO BOOKING FORM
 
+
 // get quantity user selected
 function getselectedQuany(id) {
     var seatType = document.getElementById(id);
@@ -140,6 +148,7 @@ function findIndex(whichID) {
         }
     }
 }
+
 
 function getPrice(id) {
     var seatType = document.getElementById(id);
@@ -180,4 +189,5 @@ function getPrice(id) {
     }
 }
 
+    
 
