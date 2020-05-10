@@ -232,6 +232,9 @@
           <div>
             <h1>Synopsis</h1>
           </div>
+          <div class="default-title">
+            Please select a movie
+          </div>
           <!-- CONTENT FOR AVENGERS SYNOPSIS -->
           <div id="ACTsynopsis" class="carousel slide" data-interval="false" data-ride="carousel" hidden>
             <div class="movie-header">
@@ -547,18 +550,24 @@
           </div>
         </div>
 
-        <div class="booking-content">
+        <div id="booking-content">
           <form action="https://titan.csit.rmit.edu.au/~e54061/wp/lunardo-formtest.php" method="POST" id="booking-form"
             onsubmit="return validateForm()" class="was-validated">
             <div>
               <span>
                 <h1>Booking form</h1>
               </span>
+              <span class="default-title">
+                Movie Title
+              </span>
               <span>
                 <span id="ACT" class="title2" hidden>Avengers Endgame</span>
                 <span id="RMC" class="title2" hidden>Top End Wedding</span>
                 <span id="ANM" class="title2" hidden>Dumbo</span>
                 <span id="AHF" class="title2" hidden>The Happy Prince</span>
+              </span>
+              <span id="default-date-time">
+                - Day - Hour (Please select)
               </span>
               <span>
                 <span id="MON" hidden> - Monday</span>

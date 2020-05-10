@@ -20,11 +20,29 @@ $(function () {
     });
 });
 
+$(function(){
+    var currentDate = new Date();
+    
+    var month = currentDate.getMonth() + 1;
+    var year = currentDate.getFullYear();
+    if(month < 10)
+        month = '0' + month.toString();
+    
+    var minDate = year + '-' + month;
+    alert(minDate);
+    document.getElementById("cust-expiry").setAttribute("min", minDate)
+});
+
+
+
 // get movie title and update synopsis
 document.querySelectorAll(".synopsis").forEach(item => {
     item.addEventListener("click",
         function () {
             // When user have selected a movie previously
+            document.querySelectorAll(".default-title").forEach(item => {
+                item.setAttribute("hidden",true)
+            })
             if (SelectedMovieID != "") {
                 // Hide old movie title in booking
                 document.getElementById(SelectedMovieID).setAttribute("hidden", true)
@@ -37,6 +55,7 @@ document.querySelectorAll(".synopsis").forEach(item => {
                 console.log(document.getElementById("movie-id").value)
                 // Unhide new movie synopsis
                 document.getElementById(newSelectedMovieID + "synopsis").removeAttribute("hidden")
+                document.getElementById(newSelectedMovieID).removeAttribute("hidden")
                 SelectedMovieID = newSelectedMovieID
             }
             // When user have not selected a movie previously
@@ -44,6 +63,8 @@ document.querySelectorAll(".synopsis").forEach(item => {
                 newSelectedMovieID = this.value
                 // Unhide selected movie synopsis
                 document.getElementById(newSelectedMovieID + "synopsis").removeAttribute("hidden")
+                document.getElementById(newSelectedMovieID).removeAttribute("hidden")
+                SelectedMovieID = newSelectedMovieID
                 SelectedMovieID = newSelectedMovieID
             }
         }
@@ -54,6 +75,7 @@ document.querySelectorAll(".synopsis").forEach(item => {
 document.querySelectorAll(".date").forEach(item => {
     item.addEventListener("click",
         function () {
+            document.getElementById("default-date-time").setAttribute("hidden", true)
             document.getElementById("total-amount").innerHTML="0"
             for (m=0; m<seatName.length; m++){
                 currentQuant[m] = 0
