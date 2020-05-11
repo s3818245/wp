@@ -20,7 +20,10 @@ Post Submission A2 Updates
     - Testing and modifying styles
 
 Post Submission A3 Updates 
-
+    - Add function updating movie title
+    - Add function updating movie hour
+    - Add function updating total
+    - Add function updating synopsis
 
 
 Post Submission A4 Updates 
