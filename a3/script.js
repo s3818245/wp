@@ -29,7 +29,6 @@ $(function(){
         month = '0' + month.toString();
     
     var minDate = year + '-' + month;
-    alert(minDate);
     document.getElementById("cust-expiry").setAttribute("min", minDate)
 });
 

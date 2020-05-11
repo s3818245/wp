@@ -1,0 +1,237 @@
+/* Insert your styles here */
+header{
+    background-color: lightslategrey;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 4rem;
+    text-align: center;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+main section{
+    min-height: 100vh;
+}
+
+#logo{
+    height: 60px;
+    width: 300px;
+}
+.parallax { 
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+.dolby_image{
+    /* The image used */
+    background-image: url("dolby_cinema.jpeg");
+  
+    /* Set a specific height */
+    height: 600px;
+}
+
+.seat_promo_image{
+    background-image: url("Photo/seat_promo.jpeg");
+    height: 600px;
+}
+.text_on_image{
+    text-align: center;
+    font-size: 2.5rem;
+    color: rgba(255, 255, 255, 0.863);
+    background-color: rgba(69, 73, 82, 0.699);
+    font-family: 'PT Serif', serif;
+}
+
+#sub_text{
+    font-size: 30px; font-style: italic;
+}
+
+    /*Movie board*/
+.main_content{
+    margin-top:30px;
+}
+.poster{
+    grid-area: poster;
+}
+.title{
+    grid-area: title;
+    font-size: 1.39rem;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: left;
+}
+.rating{
+    grid-area: rating;
+    font-size: 1.39rem;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: right;
+}
+.time{
+    grid-area: time;
+    height: 215px;
+    border-top: 2px solid;
+}
+
+.moreInfo{
+    grid-area: moreInfo;
+}
+
+.now-showing-item{
+    display: grid;
+    border: 1px solid white;
+    grid-template-areas:
+      'poster title title rating'
+      'poster time time time'
+      'poster time time time'
+      'poster time time time'
+      'poster time time time'
+      'poster time time time'
+      'poster time time time'
+      'poster time time time'
+      'poster time time time'
+      'poster time time time'
+      'poster time time time'
+      'poster moreInfo moreInfo moreInfo';
+    grid-gap: 5px;
+    background-color: rgb(201, 219, 235);
+    padding: 5px;
+}
+
+/*Hide the scrollbar*/
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+/*Display of the modal's header*/
+.modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.movie-header{
+    font-size: 3rem;
+    font-weight: bold;
+    font-style: italic;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.modal-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 10px 15px;
+}
+
+.section-content {
+    background: linear-gradient(180deg, #2d98cc, #88d8ff);
+}
+
+.synopsis-content {
+    height: 100%;
+}
+
+.bookingColor {
+    background: white;
+}
+
+.title1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.title2 {
+    font-style: italic;
+    text-decoration: underline;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.21rem;
+}
+
+.customGutter > [class*='col-'] {
+    padding-right:30px;
+    padding-left:30px; 
+}
+
+.customGutter > [class*="col-"]:first-child {
+  padding-left:30px;
+}
+  
+.customGutter > [class*="col-"]:last-child {
+  padding-right:30px;
+}
+
+.borderPadding {
+    padding: 5px;
+}
+
+.borderBg {
+    border: 4px outset rgba(206, 155, 202, 0.856);
+    background-color: rgba(222, 201, 233, 0.685);
+}
+
+.section_title{
+    background-color: rgb(157, 162, 172);
+    font-weight: bold;
+    font-family: 'Girassol', cursive;;
+}
+
+
+.seat_type{
+    background-color: rgba(75, 118, 158, 0.897);
+    color: rgb(231, 231, 231);
+}
+
+.seat_type > h1{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: italic;
+}
+
+.now_showing_section{
+    background: radial-gradient( rgba(113, 66, 124, 0.767), rgba(65, 12, 78, 0.87)
+    ,rgba(18, 8, 68, 0.911),rgba(3, 1, 14, 0.938));
+}
+
+.poster_size{
+    height: auto; max-width: 90%;
+}
+footer{
+    background-color: lightslategrey;
+    color:white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 5px;
+}
+
+.equal {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+  }
+.row .equal > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+  }
+
+.button_width {
+    width: 170px;
+}
+
+#avengersEndgameModal, #theHappyPrinceModal, #topEndWeddingModal, #dumboModal {
+    overflow: auto;
+}
