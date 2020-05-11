@@ -771,11 +771,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                     <label for="credit-card">Credit Card:</label>
                     <input name="cust[card]" id="cust-card" type="text" class="form-control" pattern="^([\d] ?){14,19}$"
                       required>
+                    <span class="error">* <?php echo $cardErr; ?></span>
                   </div>
 
                   <div class="form-group">
                     <label for="expiry">Expiry:</label>
                     <input name="cust[expiry]" id="cust-expiry" type="month" class="form-control" required>
+                    <span class="error">* <?php echo $expiryErr; ?></span>
                   </div>
                 </div>
               </div>
