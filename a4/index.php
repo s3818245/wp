@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $mobileError = "Mobile number is required";
     } else {
         $mobile = test_input($_POST["cust[mobile]"]);
-        if (!preg_match("/^(\(04\)|04|\+614)( ?\d){8}$/", $mobile)){
+        if (!preg_match("/^(\(04\)|04|\+614|\+61 4)( ?\d){8}$/", $mobile)){
             $mobileError = "Please provide Australian phone number";
         }
     }
