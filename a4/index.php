@@ -33,48 +33,61 @@
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
 <?php
-include'tools.php';
+
+session_start();
+
+include 'tools.php';
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
 if (empty($_POST["cust"]["name"])) {
    $nameErr = "Name is required";
+   $nameErrorFound++;
  } else {
    $name = test_input($_POST["cust"]["name"]);
    if (!preg_match("/^[A-Za-z\-'., ]{1,100}$/", $name)){
      $nameErr = "Only letters and whitespace are allowed.";
+     $nameErrorFound++;
    }
 }
 
 if (empty($_POST["cust"]["email"])) {
   $emailErr = "Email is required";
+  $mailErrorFound++;
 } else {
   $email = test_input($_POST["cust"]["email"]);
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
      $emailErr = "Invalid email format";
+     $mailErrorFound++;
   }
 }
 
 if (empty($_POST["cust"]["mobile"])){
     $mobileErr = "Mobile number is required";
+    $mobileErrorFound++;
 } else {
     $mobile = test_input($_POST["cust"]["mobile"]);
     if (!preg_match("/^(\(04\)|04|\+61[4,5]|\+61 [4,5])( ?\d){8}$/", $mobile)){
         $mobileErr = "Please provide Australian phone number";
+        $mobileErrorFound++;
     }
 }
 
 if(empty($_POST["cust"]["card"])){
-    $cardError = "Card number is required";
+    $cardErr = "Card number is required";
+    $cardErrorFound++;
 } else {
     $card = test_input($_POST["cust"]["card"]);
     if (!preg_match("/^([\d] ?){14,19}$/", $card)){
         $cardErr = "Please provide a valid card number";
+        $cardErrorFound++;
     }
 }
 
 if(empty($_POST["cust"]["expiry"])){
     $expiryErr = "Please provide credit's card expiry";
+    $expiryErrorFound++;
 }
 
 }  
@@ -600,7 +613,7 @@ if(empty($_POST["cust"]["expiry"])){
         </div>
 
         <div id="booking-content">
-          <form  method="post" id="booking-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+          <form  method="post" id="booking-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>#booking-form">
             <div>
               <span>
                 <h1>Booking form</h1>
@@ -777,7 +790,7 @@ if(empty($_POST["cust"]["expiry"])){
               <label for="Total">Total $</label>
               <span id="total-amount">0</span>
             </div>
-            <button class="form-group" type="submit" value="Submit">Order</button>
+            <button class="form-group" type="submit" href="#booking-form" value="Submit">Order</button>
           </form>
         </div>
 
@@ -896,7 +909,6 @@ if(empty($_POST["cust"]["expiry"])){
       </script> Phan Truong Quynh Anh (s3818245), Nguyen Thi Nha Uyen (s3819293). </div>
     <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web
       Programming course at RMIT University in Melbourne, Australia.</div>
-      <?php preShow($_POST);?>
   </footer>
 
 </body>
