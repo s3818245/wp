@@ -33,51 +33,49 @@
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
 <?php
-
-
-include(tools.php);
+include'tools.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
-    if (empty($_POST["cust[name]"])) {
-       $nameErr = "Name is required";
-     } else {
-       $name = test_input($_POST["cust[name]"]);
-       if (!preg_match("/^[A-Za-z\-'., ]{1,100}$/", $name)){
-         $nameErr = "Only letters and whitespace are allowed.";
-       }
-    }
+if (empty($_POST["cust"]["name"])) {
+   $nameErr = "Name is required";
+ } else {
+   $name = test_input($_POST["cust"]["name"]);
+   if (!preg_match("/^[A-Za-z\-'., ]{1,100}$/", $name)){
+     $nameErr = "Only letters and whitespace are allowed.";
+   }
+}
 
-    if (empty($_POST["cust[email]"])) {
-      $emailErr = "Email is required";
-    } else {
-      $email = test_input($_POST["cust[email]"]);
-      if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
-         $emailErr = "Invalid email format";
-      }
-    }
+if (empty($_POST["cust"]["email"])) {
+  $emailErr = "Email is required";
+} else {
+  $email = test_input($_POST["cust"]["email"]);
+  if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+     $emailErr = "Invalid email format";
+  }
+}
 
-    if (empty($_POST["cust[mobile]"])){
-        $mobileError = "Mobile number is required";
-    } else {
-        $mobile = test_input($_POST["cust[mobile]"]);
-        if (!preg_match("/^(\(04\)|04|\+61[4,5]|\+61 [4,5])( ?\d){8}$/", $mobile)){
-            $mobileError = "Please provide Australian phone number";
-        }
+if (empty($_POST["cust"]["mobile"])){
+    $mobileErr = "Mobile number is required";
+} else {
+    $mobile = test_input($_POST["cust"]["mobile"]);
+    if (!preg_match("/^(\(04\)|04|\+61[4,5]|\+61 [4,5])( ?\d){8}$/", $mobile)){
+        $mobileErr = "Please provide Australian phone number";
     }
+}
 
-    if(empty($_POST["cust[card]"])){
-        $cardError = "Card number is required";
-    } else {
-        $card = test_input($_POST["cust[card]"]);
-        if (!preg_match("/^([\d] ?){14,19}$/", $card)){
-            $cardError = "Please provide a valid card number";
-        }
+if(empty($_POST["cust"]["card"])){
+    $cardError = "Card number is required";
+} else {
+    $card = test_input($_POST["cust"]["card"]);
+    if (!preg_match("/^([\d] ?){14,19}$/", $card)){
+        $cardErr = "Please provide a valid card number";
     }
+}
 
-    if(empty($_POST["cust[expiry]"])){
-        $expiryError = "Please provide credit's card expiry";
-    }
+if(empty($_POST["cust"]["expiry"])){
+    $expiryErr = "Please provide credit's card expiry";
+}
 
 }  
 ?>
