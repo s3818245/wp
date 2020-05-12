@@ -33,12 +33,9 @@
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
 <?php
-function test_input($data){
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialChars($data);
-  return $data;
-}
+
+
+include(tools.php);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -605,8 +602,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
 
         <div id="booking-content">
-          <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" id="booking-form"
-            onsubmit="return validateForm()" class="was-validated">
+          <form  method="post" id="booking-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
             <div>
               <span>
                 <h1>Booking form</h1>
@@ -749,34 +745,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 <div class="container my-3 p-4">
                   <div class="form-group">
                     <label for="name">Name:</label>
-                    <input name="cust[name]" id="cust-name" type="text" class="form-control"
-                      pattern="^[A-Za-z\-'., ]{1,100}$" required>
+                    <input name="cust[name]" id="cust-name" type="text" class="form-control">
                     <span class="error">* <?php echo $nameErr;?></span>
                   </div>
 
                   <div class="form-group">
                     <label for="email">Email:</label>
-                    <input name="cust[email]" id="cust-email" type="email" class="form-control" required>
+                    <input name="cust[email]" id="cust-email" type="email" class="form-control">
                     <span class="error">* <?php echo $emailErr;?></span>
                   </div>
 
                   <div class="form-group">
                     <label for="mobile">Mobile:</label>
-                    <input name="cust[mobile]" id="cust-mobile" type="tel" class="form-control"
-                      pattern="^(\(04\)|04|\+614)( ?\d){8}$" required>
+                    <input name="cust[mobile]" id="cust-mobile" type="tel" class="form-control">
                     <span class="error">* <?php echo $mobileErr;?></span>
                   </div>
 
                   <div class="form-group">
                     <label for="credit-card">Credit Card:</label>
-                    <input name="cust[card]" id="cust-card" type="text" class="form-control" pattern="^([\d] ?){14,19}$"
-                      required>
+                    <input name="cust[card]" id="cust-card" type="text" class="form-control" >
                     <span class="error">* <?php echo $cardErr; ?></span>
                   </div>
 
                   <div class="form-group">
                     <label for="expiry">Expiry:</label>
-                    <input name="cust[expiry]" id="cust-expiry" type="month" class="form-control" required>
+                    <input name="cust[expiry]" id="cust-expiry" type="month" class="form-control">
                     <span class="error">* <?php echo $expiryErr; ?></span>
                   </div>
                 </div>
@@ -786,7 +779,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
               <label for="Total">Total $</label>
               <span id="total-amount">0</span>
             </div>
-            <button class="form-group" type="submit" value="Order">Order</button>
+            <button class="form-group" type="submit" value="Submit">Order</button>
           </form>
         </div>
 
@@ -905,6 +898,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
       </script> Phan Truong Quynh Anh (s3818245), Nguyen Thi Nha Uyen (s3819293). </div>
     <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web
       Programming course at RMIT University in Melbourne, Australia.</div>
+      <?php preShow($_POST);?>
   </footer>
 
 </body>
