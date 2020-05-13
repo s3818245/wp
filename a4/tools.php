@@ -1,19 +1,7 @@
 <?php
 session_start();
-$nameErrorFound = 0;
-$nameCleanData = $_POST["cust"]["name"];
-
-$mailErrorFound = 0;
-$mailCleanData = $_POST["cust"]["email"];
-
-$mobileErrorFound = 0;
-$mobileCleanData = $_POST["cust"]["mobile"];
-
-$cardErrorFound = 0;
-$cardCleanData = $_POST["cust"]["card"];
-
-$expiryErrorFound = 0;
-$expiryCleanData = $_POST["cust"]["expiry"];
+$errorFound = 0;
+$cleanData = $_POST["cust"];
 
 
 

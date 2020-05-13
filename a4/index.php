@@ -38,56 +38,66 @@ session_start();
 
 include 'tools.php';
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
 if (empty($_POST["cust"]["name"])) {
    $nameErr = "Name is required";
-   $nameErrorFound++;
+   $errorFound++;
  } else {
    $name = test_input($_POST["cust"]["name"]);
    if (!preg_match("/^[A-Za-z\-'., ]{1,100}$/", $name)){
      $nameErr = "Only letters and whitespace are allowed.";
-     $nameErrorFound++;
+     $errorFound++;
    }
 }
 
 if (empty($_POST["cust"]["email"])) {
   $emailErr = "Email is required";
-  $mailErrorFound++;
+  $errorFound++;
 } else {
   $email = test_input($_POST["cust"]["email"]);
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
      $emailErr = "Invalid email format";
-     $mailErrorFound++;
+     $errorFound++;
   }
 }
 
 if (empty($_POST["cust"]["mobile"])){
     $mobileErr = "Mobile number is required";
-    $mobileErrorFound++;
+    $errorFound++;
 } else {
     $mobile = test_input($_POST["cust"]["mobile"]);
     if (!preg_match("/^(\(04\)|04|\+61[4,5]|\+61 [4,5])( ?\d){8}$/", $mobile)){
         $mobileErr = "Please provide Australian phone number";
-        $mobileErrorFound++;
+        $errorFound++;
     }
 }
 
 if(empty($_POST["cust"]["card"])){
     $cardErr = "Card number is required";
-    $cardErrorFound++;
+    $errorFound++;
 } else {
     $card = test_input($_POST["cust"]["card"]);
     if (!preg_match("/^([\d] ?){14,19}$/", $card)){
         $cardErr = "Please provide a valid card number";
-        $cardErrorFound++;
+        $errorFound++;
     }
 }
 
 if(empty($_POST["cust"]["expiry"])){
     $expiryErr = "Please provide credit's card expiry";
-    $expiryErrorFound++;
+    $errorFound++;
+}
+
+if($errorFound == 0){
+  foreach ($cleanData as $key => $value){
+    $_SESSION[$key] = $value;
+  }
+
+}
+
+if (isset($_POST['session-reset'])) {
+  unset($_SESSION);
 }
 
 }  
@@ -791,7 +801,11 @@ if(empty($_POST["cust"]["expiry"])){
               <span id="total-amount">0</span>
             </div>
             <button class="form-group" type="submit" href="#booking-form" value="Submit">Order</button>
-          </form>
+            <button type="submit" name="session-reset" value="Reset the session"> Reset the session </button>
+          <!-- Debugging php section -->
+          <?php 
+          preShow($_POST);
+          preShow($_SESSION);?>
         </div>
 
       </div>
