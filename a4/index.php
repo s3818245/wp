@@ -40,6 +40,34 @@ include 'tools.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
+if (empty($_POST["movie"]["day"])){
+  $errorFound++;
+  $movieErr = "Please choose a showing session";
+} else {
+  $movieDay = test_input($_POST["movie"]["day"]);
+  if(!preg_match("/^MON|TUE|WED|THU|FRI|SAT|SUN$/", $movieDay)){
+    $errorFound++;
+  }
+}
+
+if (empty($_POST["movie"]["hour"])){
+  $errorFound++;
+  $movieErr = "Please choose a showing session";
+  if(!preg_match("/^T12|T15|T18|21$/")){
+    $errorFound++;
+  }
+}
+
+if (empty($_POST["movie"]["id"])){
+  $errorFound++;
+  $movieErr = "Please choose a movie";
+}else{
+  $movieID = test_input($_POST["movie"]["id"]);
+  if (!preg_match("/^ACT|AHF|ANM|RMC$/", $movieID)){
+    $errorFound++;
+  }
+}
+
 if (empty($_POST["cust"]["name"])) {
    $nameErr = "Name is required";
    $errorFound++;
@@ -87,10 +115,20 @@ if(empty($_POST["cust"]["card"])){
 if(empty($_POST["cust"]["expiry"])){
     $expiryErr = "Please provide credit's card expiry";
     $errorFound++;
-}
+ } else{
+   if(checkExpiry()){
+   }
+   else{
+     $expiryErr = "Expiry cannot be within 28 days since purchase day";
+     $errorFound;
+   }
+ }
 
 if($errorFound == 0){
-  foreach ($cleanData as $key => $value){
+  foreach ($cleanCustData as $key => $value){
+    $_SESSION[$key] = $value;
+  }
+  foreach ($cleanMovieData as $key => $value){
     $_SESSION[$key] = $value;
   }
 
@@ -802,10 +840,12 @@ if (isset($_POST['session-reset'])) {
             </div>
             <button class="form-group" type="submit" href="#booking-form" value="Submit">Order</button>
             <button type="submit" name="session-reset" value="Reset the session"> Reset the session </button>
+            <span><?php echo $movieErr ?></span>
           <!-- Debugging php section -->
           <?php 
           preShow($_POST);
-          preShow($_SESSION);?>
+          preShow($_SESSION);
+          ?>
         </div>
 
       </div>

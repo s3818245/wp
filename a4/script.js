@@ -64,7 +64,7 @@ document.querySelectorAll(".synopsis").forEach(item => {
                 // Unhide selected movie synopsis
                 document.getElementById(newSelectedMovieID + "synopsis").removeAttribute("hidden")
                 document.getElementById(newSelectedMovieID).removeAttribute("hidden")
-                SelectedMovieID = newSelectedMovieID
+                document.getElementById("movie-id").value = newSelectedMovieID
                 SelectedMovieID = newSelectedMovieID
             }
         }
@@ -177,7 +177,9 @@ function getPrice(id) {
     var selectedQuant = seatType.options[seatType.selectedIndex].value;
     var index = findIndex(id)
     var currentTotal = document.getElementById("total-amount")
-    if (document.getElementById("movie-day").value != "SUN" && document.getElementById("movie-day").value != "SAT" && document.getElementById("movie-hour").value == "T12") {
+    var showingDate = document.getElementById("movie-day").value 
+    var showingTime =document.getElementById("movie-hour").value
+    if (showingDate=="MON" || showingDate=="WED" || (showingDate != "SUN" && showingDate!="SAT" && showingTime == "T12")){
         if (selectedQuant > currentQuant[index]) {
             subTotal = (parseFloat(currentTotal.innerHTML) + (selectedQuant - currentQuant[index]) * seatDiscounted[index]).toFixed(2);
             currentTotal.innerHTML = subTotal
