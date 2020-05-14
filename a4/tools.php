@@ -1,6 +1,9 @@
 <?php
 session_start();
 $errorFound = 0;
+
+$seatTypeChosen = 0;
+
 $cleanCustData = $_POST["cust"];
 
 $cleanMovieData = $_POST["movie"];

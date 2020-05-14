@@ -40,6 +40,7 @@ include 'tools.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
+// Check movie's day
 if (empty($_POST["movie"]["day"])){
   $errorFound++;
   $movieErr = "Please choose a showing session";
@@ -50,6 +51,7 @@ if (empty($_POST["movie"]["day"])){
   }
 }
 
+// Check movie's hour
 if (empty($_POST["movie"]["hour"])){
   $errorFound++;
   $movieErr = "Please choose a showing session";
@@ -58,6 +60,7 @@ if (empty($_POST["movie"]["hour"])){
   }
 }
 
+// Check movie id
 if (empty($_POST["movie"]["id"])){
   $errorFound++;
   $movieErr = "Please choose a movie";
@@ -68,6 +71,22 @@ if (empty($_POST["movie"]["id"])){
   }
 }
 
+// Check seats 
+foreach ($cleanSeatsData as $key => $value){
+  if ($value != ""){
+    if (!preg_match("/^([1-9]|10)$/", $value)){
+      $errorFound++;
+    } else{
+    $seatTypeChosen++;
+    }
+  }
+}
+if($seatTypeChosen==0){
+$seatsErr = "Please choose atleast one type of seat";
+$errorFound++;
+}
+
+// check customer's name
 if (empty($_POST["cust"]["name"])) {
    $nameErr = "Name is required";
    $errorFound++;
@@ -79,6 +98,7 @@ if (empty($_POST["cust"]["name"])) {
    }
 }
 
+// Check customer's email
 if (empty($_POST["cust"]["email"])) {
   $emailErr = "Email is required";
   $errorFound++;
@@ -90,6 +110,7 @@ if (empty($_POST["cust"]["email"])) {
   }
 }
 
+// Check customer's mobile
 if (empty($_POST["cust"]["mobile"])){
     $mobileErr = "Mobile number is required";
     $errorFound++;
@@ -101,6 +122,7 @@ if (empty($_POST["cust"]["mobile"])){
     }
 }
 
+// Check customer's card number
 if(empty($_POST["cust"]["card"])){
     $cardErr = "Card number is required";
     $errorFound++;
@@ -112,6 +134,7 @@ if(empty($_POST["cust"]["card"])){
     }
 }
 
+// Check customer's card's expiry 
 if(empty($_POST["cust"]["expiry"])){
     $expiryErr = "Please provide credit's card expiry";
     $errorFound++;
@@ -124,16 +147,33 @@ if(empty($_POST["cust"]["expiry"])){
    }
  }
 
+//  Update data in SESSION
 if($errorFound == 0){
   foreach ($cleanCustData as $key => $value){
-    $_SESSION[$key] = $value;
+    $_SESSION["cust"][$key] = $value;
   }
   foreach ($cleanMovieData as $key => $value){
-    $_SESSION[$key] = $value;
+    $_SESSION["movie"][$key] = $value;
+  }
+  foreach ($cleanSeatsData as $key=>$value){
+    $_SESSION["seats"][$key] = $value;
+  }
+  if(!empty($_SESSION)){
+    $bookingFile = fopen("booking.csv", "a");
+    $now = date('d/m h:i');
+    $data = array_merge(
+      [$now],
+      (array) $_SESSION["cust"],
+      (array) $_SESSION["movie"],
+      (array) $_SESSION["seats"],
+  );
+  fputcsv($bookingFile, $data);
+  fclose($bookingFile);
   }
 
 }
 
+// Reset session 
 if (isset($_POST['session-reset'])) {
   unset($_SESSION);
 }
@@ -218,11 +258,11 @@ if (isset($_POST['session-reset'])) {
                   </div>
                 </div>
                 <div class="row borderPadding">
-                  <!-- Button trigger Avengers Endgame modal -->
-                  <button type="button" value="ACT" class="synopsis btn btn-primary rounded"
-                    >
+                  <!-- Button trigger Avengers Endgame synopsis -->
+                  <a href="#movie-synopsis">
+                    <button type="submit" value="ACT" class="synopsis btn btn-primary rounded">
                     More Info
-                  </button>
+                  </button></a>
                 </div>
               </div>
             </div>
@@ -251,11 +291,13 @@ if (isset($_POST['session-reset'])) {
                   </div>
                 </div>
                 <div class="row borderPadding">
-                  <!-- Button trigger The Happy Prince modal -->
+                  <!-- Button trigger The Happy Prince synopsis -->
+                  <a href="#movie-synopsis">
                   <button type="button" value="AHF" class="synopsis btn btn-primary rounded"
                     >
                     More Info
                   </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -286,11 +328,13 @@ if (isset($_POST['session-reset'])) {
                   </div>
                 </div>
                 <div class="row borderPadding">
-                  <!-- Button trigger Top End Wedding modal -->
+                  <!-- Button trigger Top End Wedding synopsis -->
+                  <a href="#movie-synopsis">
                   <button type="button" value="RMC" class="synopsis btn btn-primary rounded"
                     >
                     More Info
                   </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -320,11 +364,13 @@ if (isset($_POST['session-reset'])) {
                   </div>
                 </div>
                 <div class="row borderPadding">
-                  <!-- Button trigger Dumbo modal -->
+                  <!-- Button trigger Dumbo synopsis -->
+                  <a href="#movie-synopsis">
                   <button type="button" value="ANM" class="synopsis btn btn-primary rounded"
                     >
                     More Info
                   </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -705,7 +751,6 @@ if (isset($_POST['session-reset'])) {
                     <label for="standard-adult">Adult</label>
                     <select name="seats[STA]" id="seats-STA" class="custom-select" onchange="getPrice(this.id)">
                       <option value="">Please Select</option>
-                      <option value="0">0</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -720,7 +765,6 @@ if (isset($_POST['session-reset'])) {
                     <label for="standard-concession">Concession</label>
                     <select name="seats[STP]" id="seats-STP" class="custom-select" onchange="getPrice(this.id)">
                       <option value="">Please Select</option>
-                      <option value="0">0</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -735,7 +779,6 @@ if (isset($_POST['session-reset'])) {
                     <label for="standard-children">Children</label>
                     <select name="seats[STC]" id="seats-STC" class="custom-select" onchange="getPrice(this.id)">
                       <option value="">Please Select</option>
-                      <option value="0">0</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -755,7 +798,6 @@ if (isset($_POST['session-reset'])) {
                     <label for="firstclass-adult">Adult</label>
                     <select name="seats[FCA]" id="seats-FCA" class="custom-select" onchange="getPrice(this.id)">
                       <option value="">Please Select</option>
-                      <option value="0">0</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -770,7 +812,6 @@ if (isset($_POST['session-reset'])) {
                     <label for="firstclass-concession">Concession</label>
                     <select name="seats[FCP]" id="seats-FCP" class="custom-select" onchange="getPrice(this.id)">
                       <option value="">Please Select</option>
-                      <option value="0">0</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -785,7 +826,6 @@ if (isset($_POST['session-reset'])) {
                     <label for="firstclass-children">Children</label>
                     <select name="seats[FCC]" id="seats-FCC" class="custom-select" onchange="getPrice(this.id)">
                       <option value="">Please Select</option>
-                      <option value="0">0</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -838,9 +878,10 @@ if (isset($_POST['session-reset'])) {
               <label for="Total">Total $</label>
               <span id="total-amount">0</span>
             </div>
-            <button class="form-group" type="submit" href="#booking-form" value="Submit">Order</button>
+            <button class="form-group" type="submit" value="Submit">Order</button>
             <button type="submit" name="session-reset" value="Reset the session"> Reset the session </button>
             <span><?php echo $movieErr ?></span>
+            <span><?php echo $seatsErr?></span>
           <!-- Debugging php section -->
           <?php 
           preShow($_POST);
