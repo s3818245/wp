@@ -149,23 +149,15 @@ if(empty($_POST["cust"]["expiry"])){
 
 //  Update data in SESSION
 if($errorFound == 0){
-  foreach ($cleanCustData as $key => $value){
-    $_SESSION["cust"][$key] = $value;
-  }
-  foreach ($cleanMovieData as $key => $value){
-    $_SESSION["movie"][$key] = $value;
-  }
-  foreach ($cleanSeatsData as $key=>$value){
-    $_SESSION["seats"][$key] = $value;
-  }
+  $_SESSION['cart'] = $_POST;
   if(!empty($_SESSION)){
     $bookingFile = fopen("booking.csv", "a");
     $now = date('d/m h:i');
     $data = array_merge(
       [$now],
-      (array) $_SESSION["cust"],
-      (array) $_SESSION["movie"],
-      (array) $_SESSION["seats"],
+      (array) $_SESSION["cart"]["cust"],
+      (array) $_SESSION["cart"]["movie"],
+      (array) $_SESSION["cart"]["seats"],
   );
   fputcsv($bookingFile, $data);
   fclose($bookingFile);
@@ -880,8 +872,8 @@ if (isset($_POST['session-reset'])) {
             </div>
             <button class="form-group" type="submit" value="Submit">Order</button>
             <button type="submit" name="session-reset" value="Reset the session"> Reset the session </button>
-            <span><?php echo $movieErr ?></span>
-            <span><?php echo $seatsErr?></span>
+            <div><?php echo $movieErr ?></div>
+            <div><?php echo $seatsErr?></div>
           <!-- Debugging php section -->
           <?php 
           preShow($_POST);
