@@ -183,32 +183,36 @@ function getPrice(id) {
         if (selectedQuant > currentQuant[index]) {
             subTotal = (parseFloat(currentTotal.innerHTML) + (selectedQuant - currentQuant[index]) * seatDiscounted[index]).toFixed(2);
             currentTotal.innerHTML = subTotal
+            document.getElementById("total-not-value").value = subTotal
+            console.log(document.getElementById("total-not-value"))
             currentQuant[index] = selectedQuant
-            console.log(subTotal)
-            console.log(currentQuant)
+
         }
         if (selectedQuant < currentQuant[index]) {
             subTotal = (parseFloat(currentTotal.innerHTML) - (currentQuant[index] - selectedQuant) * seatDiscounted[index]).toFixed(2);
             currentTotal.innerHTML = subTotal
+            document.getElementById("total-not-value").value = subTotal
+            console.log(document.getElementById("total-not-value"))
             currentQuant[index] = selectedQuant
-            console.log(subTotal)
-            console.log(currentQuant)
+
         }
     }
     else {
         if (selectedQuant > currentQuant[index]) {
             subTotal = (parseFloat(currentTotal.innerHTML) + (selectedQuant - currentQuant[index]) * seatOGPrice[index]).toFixed(2);
             currentTotal.innerHTML = subTotal
+            document.getElementById("total-not-value").value = subTotal
+            console.log(document.getElementById("total-not-value"))
             currentQuant[index] = selectedQuant
-            console.log(subTotal)
-            console.log(currentQuant)
+
         }
         if (selectedQuant < currentQuant[index]) {
             subTotal = (parseFloat(currentTotal.innerHTML) - (currentQuant[index] - selectedQuant) * seatOGPrice[index]).toFixed(2);
             currentTotal.innerHTML = subTotal
+            document.getElementById("total-not-value").value = subTotal
+            console.log(document.getElementById("total-not-value"))
             currentQuant[index] = selectedQuant
-            console.log(subTotal)
-            console.log(currentQuant)
+
         }
     }
 }

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang='en'>
 
@@ -32,150 +31,149 @@
 
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
-<?php
+  <?php
 
-session_start();
+  session_start();
 
-include 'tools.php';
+  include 'tools.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST"){
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-// Check movie's day
-if (empty($_POST["movie"]["day"])){
-  $errorFound++;
-  $movieErr = "Please choose a showing session";
-} else {
-  $movieDay = test_input($_POST["movie"]["day"]);
-  if(!preg_match("/^MON|TUE|WED|THU|FRI|SAT|SUN$/", $movieDay)){
-    $errorFound++;
-  }
-}
-
-// Check movie's hour
-if (empty($_POST["movie"]["hour"])){
-  $errorFound++;
-  $movieErr = "Please choose a showing session";
-  $movieHour = $_POST["movie"]["hour"];
-  if(!preg_match("/^T12|T15|T18|T21$/", $movieHour)){
-    $errorFound++;
-  }
-}
-
-// Check movie id
-if (empty($_POST["movie"]["id"])){
-  $errorFound++;
-  $movieErr = "Please choose a movie";
-}else{
-  $movieID = test_input($_POST["movie"]["id"]);
-  if (!preg_match("/^ACT|AHF|ANM|RMC$/", $movieID)){
-    $errorFound++;
-  }
-}
-
-// Check seats 
-foreach ($cleanSeatsData as $key => $value){
-  if ($value != ""){
-    if (!preg_match("/^([1-9]|10)$/", $value)){
+    // Check movie's day
+    if (empty($_POST["movie"]["day"])) {
       $errorFound++;
-    } else{
-    $seatTypeChosen++;
+      $movieErr = "Please choose a showing session";
+    } else {
+      $movieDay = test_input($_POST["movie"]["day"]);
+      if (!preg_match("/^MON|TUE|WED|THU|FRI|SAT|SUN$/", $movieDay)) {
+        $errorFound++;
+      }
     }
-  }
-}
-if($seatTypeChosen==0){
-$seatsErr = "Please choose atleast one type of seat";
-$errorFound++;
-}
 
-// check customer's name
-if (empty($_POST["cust"]["name"])) {
-   $nameErr = "Name is required";
-   $errorFound++;
- } else {
-   $name = test_input($_POST["cust"]["name"]);
-   if (!preg_match("/^[A-Za-z\-'., ]{1,100}$/", $name)){
-     $nameErr = "Only letters and whitespace are allowed.";
-     $errorFound++;
-   }
-}
+    // Check movie's hour
+    if (empty($_POST["movie"]["hour"])) {
+      $errorFound++;
+      $movieErr = "Please choose a showing session";
+      $movieHour = $_POST["movie"]["hour"];
+      if (!preg_match("/^T12|T15|T18|T21$/", $movieHour)) {
+        $errorFound++;
+      }
+    }
 
-// Check customer's email
-if (empty($_POST["cust"]["email"])) {
-  $emailErr = "Email is required";
-  $errorFound++;
-} else {
-  $email = test_input($_POST["cust"]["email"]);
-  if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
-     $emailErr = "Invalid email format";
-     $errorFound++;
-  }
-}
+    // Check movie id
+    if (empty($_POST["movie"]["id"])) {
+      $errorFound++;
+      $movieErr = "Please choose a movie";
+    } else {
+      $movieID = test_input($_POST["movie"]["id"]);
+      if (!preg_match("/^ACT|AHF|ANM|RMC$/", $movieID)) {
+        $errorFound++;
+      }
+    }
 
-// Check customer's mobile
-if (empty($_POST["cust"]["mobile"])){
-    $mobileErr = "Mobile number is required";
-    $errorFound++;
-} else {
-    $mobile = test_input($_POST["cust"]["mobile"]);
-    if (!preg_match("/^(\(04\)|04|\+61[4,5]|\+61 [4,5])( ?\d){8}$/", $mobile)){
+    // Check seats 
+    foreach ($cleanSeatsData as $key => $value) {
+      if ($value != "") {
+        if (!preg_match("/^([1-9]|10)$/", $value)) {
+          $errorFound++;
+        } else {
+          $seatTypeChosen++;
+        }
+      }
+    }
+    if ($seatTypeChosen == 0) {
+      $seatsErr = "Please choose atleast one type of seat";
+      $errorFound++;
+    }
+
+    // check customer's name
+    if (empty($_POST["cust"]["name"])) {
+      $nameErr = "Name is required";
+      $errorFound++;
+    } else {
+      $name = test_input($_POST["cust"]["name"]);
+      if (!preg_match("/^[A-Za-z\-'., ]{1,100}$/", $name)) {
+        $nameErr = "Only letters and whitespace are allowed.";
+        $errorFound++;
+      }
+    }
+
+    // Check customer's email
+    if (empty($_POST["cust"]["email"])) {
+      $emailErr = "Email is required";
+      $errorFound++;
+    } else {
+      $email = test_input($_POST["cust"]["email"]);
+      if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $emailErr = "Invalid email format";
+        $errorFound++;
+      }
+    }
+
+    // Check customer's mobile
+    if (empty($_POST["cust"]["mobile"])) {
+      $mobileErr = "Mobile number is required";
+      $errorFound++;
+    } else {
+      $mobile = test_input($_POST["cust"]["mobile"]);
+      if (!preg_match("/^(\(04\)|04|\+61[4,5]|\+61 [4,5])( ?\d){8}$/", $mobile)) {
         $mobileErr = "Please provide Australian phone number";
         $errorFound++;
+      }
     }
-}
 
-// Check customer's card number
-if(empty($_POST["cust"]["card"])){
-    $cardErr = "Card number is required";
-    $errorFound++;
-} else {
-    $card = test_input($_POST["cust"]["card"]);
-    if (!preg_match("/^([\d] ?){14,19}$/", $card)){
+    // Check customer's card number
+    if (empty($_POST["cust"]["card"])) {
+      $cardErr = "Card number is required";
+      $errorFound++;
+    } else {
+      $card = test_input($_POST["cust"]["card"]);
+      if (!preg_match("/^([\d] ?){14,19}$/", $card)) {
         $cardErr = "Please provide a valid card number";
         $errorFound++;
+      }
     }
-}
 
-// Check customer's card's expiry 
-if(empty($_POST["cust"]["expiry"])){
-    $expiryErr = "Please provide credit's card expiry";
-    $errorFound++;
- } else{
-   if(checkExpiry()){
-   }
-   else{
-     $expiryErr = "Expiry cannot be within 28 days since purchase day";
-     $errorFound++;
-   }
- }
+    // Check customer's card's expiry 
+    if (empty($_POST["cust"]["expiry"])) {
+      $expiryErr = "Please provide credit's card expiry";
+      $errorFound++;
+    } else {
+      if (checkExpiry()) {
+      } else {
+        $expiryErr = "Expiry cannot be within 28 days since purchase day";
+        $errorFound++;
+      }
+    }
 
-//  Update data in SESSION
-if($errorFound == 0){
-  $_SESSION['cart'] = $_POST;
-  if(!empty($_SESSION)){
-    $bookingFile = fopen("booking.csv", "a");
-    $now = date('d/m h:i');
-    $data = array_merge(
-      [$now],
-      (array) $_SESSION["cart"]["cust"],
-      (array) $_SESSION["cart"]["movie"],
-      (array) $_SESSION["cart"]["seats"],
-  );
-  fputcsv($bookingFile, $data);
-  fclose($bookingFile);
+    //  Update data in SESSION
+    if ($errorFound == 0) {
+      $_SESSION['cart'] = $_POST;
+      if (!empty($_SESSION)) {
+        $bookingFile = fopen("booking.csv", "a");
+        $now = date('d/m h:i');
+        $data = array_merge(
+          [$now],
+          (array) $_SESSION["cart"]["cust"],
+          (array) $_SESSION["cart"]["movie"],
+          (array) $_SESSION["cart"]["seats"]
+        );
+        fputcsv($bookingFile, $data);
+        fclose($bookingFile);
+        header('Location: receipt.php');
+      }
+    }
+
+    // Reset session 
+    if (isset($_POST['session-reset'])) {
+      unset($_SESSION);
+    }
   }
 
-}
-
-// Reset session 
-if (isset($_POST['session-reset'])) {
-  unset($_SESSION);
-}
-
-}  
-?>
+  ?>
 
   <header>
-    <div class="container-fluid p-4">
+    <div class="container-fluid p-4" id="home">
       <img src="Photo/logo.png" alt="Cinemax" id="logo">
     </div>
   </header>
@@ -184,6 +182,9 @@ if (isset($_POST['session-reset'])) {
     <a class="navbar-brand">Cinemax</a>
 
     <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#home">Home</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="#one">About us</a>
       </li>
@@ -230,8 +231,7 @@ if (isset($_POST['session-reset'])) {
           <div class="col-lg-6 py-2">
             <div class="row borderBg">
               <div class="col-xl-4 borderPadding d-flex align-items-center justify-content-center">
-                <img src="Photo/Avengers_Endgame_Poster.jpg" class="img-responsive mx-auto d-block poster_size"
-                  alt="Avengers Endgame">
+                <img src="Photo/Avengers_Endgame_Poster.jpg" class="img-responsive mx-auto d-block poster_size" alt="Avengers Endgame">
               </div>
               <div class="col-xl-8 borderPadding">
                 <div class="row">
@@ -254,8 +254,8 @@ if (isset($_POST['session-reset'])) {
                   <!-- Button trigger Avengers Endgame synopsis -->
                   <a href="#movie-synopsis">
                     <button type="submit" value="ACT" class="synopsis btn btn-primary rounded">
-                    More Info
-                  </button></a>
+                      More Info
+                    </button></a>
                 </div>
               </div>
             </div>
@@ -263,8 +263,7 @@ if (isset($_POST['session-reset'])) {
           <div class="col-lg-6 py-2">
             <div class="row borderBg">
               <div class="col-xl-4 borderPadding d-flex align-items-center justify-content-center">
-                <img src="Photo/the-happy-prince-poster.jpg" class="img-responsive mx-auto d-block poster_size"
-                  alt="The Happy Prince">
+                <img src="Photo/the-happy-prince-poster.jpg" class="img-responsive mx-auto d-block poster_size" alt="The Happy Prince">
               </div>
               <div class="col-xl-8 borderPadding">
                 <div class="row">
@@ -286,10 +285,9 @@ if (isset($_POST['session-reset'])) {
                 <div class="row borderPadding">
                   <!-- Button trigger The Happy Prince synopsis -->
                   <a href="#movie-synopsis">
-                  <button type="button" value="AHF" class="synopsis btn btn-primary rounded"
-                    >
-                    More Info
-                  </button>
+                    <button type="button" value="AHF" class="synopsis btn btn-primary rounded">
+                      More Info
+                    </button>
                   </a>
                 </div>
               </div>
@@ -301,8 +299,7 @@ if (isset($_POST['session-reset'])) {
           <div class="col-lg-6 py-2">
             <div class="row borderBg">
               <div class="col-xl-4 borderPadding d-flex align-items-center justify-content-center">
-                <img src="Photo/top-end-wedding-poster.jpg" class="img-responsive mx-auto d-block poster_size"
-                  alt="Top End Wedding">
+                <img src="Photo/top-end-wedding-poster.jpg" class="img-responsive mx-auto d-block poster_size" alt="Top End Wedding">
               </div>
               <div class="col-xl-8 borderPadding">
                 <div class="row">
@@ -323,10 +320,9 @@ if (isset($_POST['session-reset'])) {
                 <div class="row borderPadding">
                   <!-- Button trigger Top End Wedding synopsis -->
                   <a href="#movie-synopsis">
-                  <button type="button" value="RMC" class="synopsis btn btn-primary rounded"
-                    >
-                    More Info
-                  </button>
+                    <button type="button" value="RMC" class="synopsis btn btn-primary rounded">
+                      More Info
+                    </button>
                   </a>
                 </div>
               </div>
@@ -359,10 +355,9 @@ if (isset($_POST['session-reset'])) {
                 <div class="row borderPadding">
                   <!-- Button trigger Dumbo synopsis -->
                   <a href="#movie-synopsis">
-                  <button type="button" value="ANM" class="synopsis btn btn-primary rounded"
-                    >
-                    More Info
-                  </button>
+                    <button type="button" value="ANM" class="synopsis btn btn-primary rounded">
+                      More Info
+                    </button>
                   </a>
                 </div>
               </div>
@@ -396,8 +391,7 @@ if (isset($_POST['session-reset'])) {
                 <div class="container">
                   <div class="row">
                     <div class="col-xl-6">
-                      <img src="Photo/Avengers_Endgame_Poster.jpg" class="img-responsive mx-auto d-block"
-                        style="height: auto; max-width: 100%;" alt="Poster Art">
+                      <img src="Photo/Avengers_Endgame_Poster.jpg" class="img-responsive mx-auto d-block" style="height: auto; max-width: 100%;" alt="Poster Art">
                     </div>
                     <div class="col-xl-6">
                       <div class="col-xl-12">
@@ -442,9 +436,7 @@ if (isset($_POST['session-reset'])) {
                 <div class="row d-flex align-items-center justify-content-center">
                   <div class="col-9">
                     <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-                      <iframe width="900" height="500" src="https://www.youtube.com/embed/TcMBFSGVi1c" frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
+                      <iframe width="900" height="500" src="https://www.youtube.com/embed/TcMBFSGVi1c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                   </div>
                 </div>
@@ -471,8 +463,7 @@ if (isset($_POST['session-reset'])) {
                 <div class="container">
                   <div class="row">
                     <div class="col-xl-6">
-                      <img src="Photo/the-happy-prince-poster.jpg" class="img-responsive mx-auto d-block"
-                        style="height: auto; max-width: 100%;" alt="Poster Art">
+                      <img src="Photo/the-happy-prince-poster.jpg" class="img-responsive mx-auto d-block" style="height: auto; max-width: 100%;" alt="Poster Art">
                     </div>
                     <div class="col-xl-6">
                       <div class="col-xl-12">
@@ -520,9 +511,7 @@ if (isset($_POST['session-reset'])) {
                 <div class="row d-flex align-items-center justify-content-center">
                   <div class="col-9">
                     <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-                      <iframe zwidth="900" height="500" src="https://www.youtube.com/embed/4HmN9r1Fcr8" frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
+                      <iframe zwidth="900" height="500" src="https://www.youtube.com/embed/4HmN9r1Fcr8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                   </div>
                 </div>
@@ -549,8 +538,7 @@ if (isset($_POST['session-reset'])) {
                 <div class="container">
                   <div class="row">
                     <div class="col-xl-6">
-                      <img src="Photo/top-end-wedding-poster.jpg" class="img-responsive mx-auto d-block"
-                        style="height: auto; max-width: 100%;" alt="Poster Art">
+                      <img src="Photo/top-end-wedding-poster.jpg" class="img-responsive mx-auto d-block" style="height: auto; max-width: 100%;" alt="Poster Art">
                     </div>
                     <div class="col-xl-6">
                       <div class="col-xl-12">
@@ -593,9 +581,7 @@ if (isset($_POST['session-reset'])) {
                 <div class="row d-flex align-items-center justify-content-center">
                   <div class="col-9">
                     <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-                      <iframe width="900" height="500" src="https://www.youtube.com/embed/uoDBvGF9pPU" frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
+                      <iframe width="900" height="500" src="https://www.youtube.com/embed/uoDBvGF9pPU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                   </div>
                 </div>
@@ -623,8 +609,7 @@ if (isset($_POST['session-reset'])) {
                 <div class="container">
                   <div class="row">
                     <div class="col-xl-6">
-                      <img src="Photo/dumbo-poster.jpg" class="img-responsive mx-auto d-block"
-                        style="height: auto; max-width: 100%;" alt="Poster Art">
+                      <img src="Photo/dumbo-poster.jpg" class="img-responsive mx-auto d-block" style="height: auto; max-width: 100%;" alt="Poster Art">
                     </div>
                     <div class="col-xl-6">
                       <div class="col-xl-12">
@@ -681,9 +666,7 @@ if (isset($_POST['session-reset'])) {
                 <div class="row d-flex align-items-center justify-content-center">
                   <div class="col-9">
                     <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-                      <iframe width="900" height="500" src="https://www.youtube.com/embed/7NiYVoqBt-8" frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
+                      <iframe width="900" height="500" src="https://www.youtube.com/embed/7NiYVoqBt-8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                   </div>
                 </div>
@@ -700,7 +683,7 @@ if (isset($_POST['session-reset'])) {
         </div>
 
         <div id="booking-content">
-          <form  method="post" id="booking-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>#booking-form">
+          <form method="post" id="booking-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>#booking-form">
             <div>
               <span>
                 <h1>Booking form</h1>
@@ -838,24 +821,24 @@ if (isset($_POST['session-reset'])) {
                   <div class="form-group">
                     <label for="name">Name:</label>
                     <input name="cust[name]" id="cust-name" type="text" class="form-control">
-                    <span class="error">* <?php echo $nameErr;?></span>
+                    <span class="error">* <?php echo $nameErr; ?></span>
                   </div>
 
                   <div class="form-group">
                     <label for="email">Email:</label>
                     <input name="cust[email]" id="cust-email" type="email" class="form-control">
-                    <span class="error">* <?php echo $emailErr;?></span>
+                    <span class="error">* <?php echo $emailErr; ?></span>
                   </div>
 
                   <div class="form-group">
                     <label for="mobile">Mobile:</label>
                     <input name="cust[mobile]" id="cust-mobile" type="tel" class="form-control">
-                    <span class="error">* <?php echo $mobileErr;?></span>
+                    <span class="error">* <?php echo $mobileErr; ?></span>
                   </div>
 
                   <div class="form-group">
                     <label for="credit-card">Credit Card:</label>
-                    <input name="cust[card]" id="cust-card" type="text" class="form-control" >
+                    <input name="cust[card]" id="cust-card" type="text" class="form-control">
                     <span class="error">* <?php echo $cardErr; ?></span>
                   </div>
 
@@ -870,16 +853,17 @@ if (isset($_POST['session-reset'])) {
             <div>
               <label for="Total">Total $</label>
               <span id="total-amount">0</span>
+              <input type="hidden" id="total-not-value" name="total" value="">
             </div>
             <button class="form-group" type="submit" value="Submit">Order</button>
             <button type="submit" name="session-reset" value="Reset the session"> Reset the session </button>
             <div><?php echo $movieErr ?></div>
-            <div><?php echo $seatsErr?></div>
-          <!-- Debugging php section -->
-          <?php 
-          preShow($_POST);
-          preShow($_SESSION);
-          ?>
+            <div><?php echo $seatsErr ?></div>
+            <!-- Debugging php section -->
+            <?php
+            preShow($_POST);
+            preShow($_SESSION);
+            ?>
         </div>
 
       </div>
