@@ -144,7 +144,7 @@ if(empty($_POST["cust"]["expiry"])){
    }
    else{
      $expiryErr = "Expiry cannot be within 28 days since purchase day";
-     $errorFound;
+     $errorFound++;
    }
  }
 
