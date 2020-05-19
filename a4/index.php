@@ -55,7 +55,7 @@ if (empty($_POST["movie"]["day"])){
 if (empty($_POST["movie"]["hour"])){
   $errorFound++;
   $movieErr = "Please choose a showing session";
-  if(!preg_match("/^T12|T15|T18|21$/")){
+  if(!preg_match("/^T12|T15|T18|T21$/")){
     $errorFound++;
   }
 }
