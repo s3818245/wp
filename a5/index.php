@@ -131,6 +131,7 @@ mysqli_close($conn);
                         <a class="nav-link" href="#">Wired in-ear headphones</a>
                         <a class="nav-link" href="#">Wireless in-ear headphones</a>
                         <a class="nav-link" href="#">Over-ear headphones</a>
+                        <a class="nav-link" href="#">On-ear headphones</a>
                     </nav>
                 </div>
                 <!-- ITEM LIST -->
