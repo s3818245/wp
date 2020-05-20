@@ -44,11 +44,38 @@
     $custmobile = $_SESSION['cart']['cust']['mobile'];
     $custcard = $_SESSION['cart']['cust']['card'];
 
+    $seatType = array();
+    $seatValue = array();
+    if (!empty($_SESSION['cart']['seats']['STA'])) {
+        array_push($seatType, 'Standard Adult ');
+        array_push($seatValue, $_SESSION['cart']['seats']['STA']);
+    }
+    if (!empty($_SESSION['cart']['seats']['STP'])) {
+        array_push($seatType, 'Standard Concession ');
+        array_push($seatValue, $_SESSION['cart']['seats']['STP']);
+    }
+    if (!empty($_SESSION['cart']['seats']['STC'])) {
+        array_push($seatType, 'Standard Child ');
+        array_push($seatValue, $_SESSION['cart']['seats']['STC']);
+    }
+    if (!empty($_SESSION['cart']['seats']['FCA'])) {
+        array_push($seatType, 'First Class Adult ');
+        array_push($seatValue, $_SESSION['cart']['seats']['FCA']);
+    }
+    if (!empty($_SESSION['cart']['seats']['FCP'])) {
+        array_push($seatType, 'First Class Concession ');
+        array_push($seatValue, $_SESSION['cart']['seats']['FCP']);
+    }
+    if (!empty($_SESSION['cart']['seats']['FCC'])) {
+        array_push($seatType, 'First Class Child ');
+        array_push($seatValue, $_SESSION['cart']['seats']['FCC']);
+    }
+
     $totalAmount = $_SESSION['cart']['total'];
-    
+
 
     preShow($_SESSION);
-    
+
     ?>
 
     <header>
@@ -79,68 +106,91 @@
         <section id="receipt_info">
             <h2>Order Confirmation</h2>
             <div class="container-fluid p-4">
-                <div class="row">
-                    <div class="col-md-7 col-sm-12 py-2 my-1">
-                        <div class="title2">Movie details</div>
-                        <div class="row">
-                            <div class="col-sm-12 py-2"><?php echo $movieTitle[$movieID][0] ;?></div>
-                            <div class="col-sm-4 py-2"><?php echo $movieTitle[$movieID][1] ;?></div>
+                <div class="row justify-content-around">
+                    <div class="col-lg-6 col-md-12 py-2 my-1">
+                        <div class="row title2" style="border: 1px black solid">Movie details</div>
+                        <div class="row" style="border: 1px black solid">
+                            <div class="col-sm-12 py-2"><?php echo $movieTitle[$movieID][0]; ?></div>
+                            <div class="col-sm-4 py-2"><?php echo $movieTitle[$movieID][1]; ?></div>
                             <div class="col-sm-8 py-2">
-                                <div class="col-sm-12"><?php echo $movieTitle[$movieID][2] ;?></div>
-                                <div class="col-sm-12">Tickets info</div>
+                                <div class="col-sm-12"><?php echo $movieTitle[$movieID][2]; ?></div>
+                                <div class="col-sm-12">
+                                    <div class="row justified-content-between" style="border: 1px black solid">Ticket Info:
+                                        <div class="col-6">
+                                            <?php
+                                            foreach (array_combine($seatType, $seatValue) as $seatName => $seatAmount) {
+                                                echo $seatName . ' - ' . $seatAmount . '<br>';
+                                            };
+                                            ?>
+                                        </div>
+                                        <div class="col-4">
+                                            <button>Print receipt</button>
+                                            <button>View ticket</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-5 col-sm-12 py-2 my-1">
+                    <div class="col-lg-5 col-md-12 py-2 my-1">
                         <div class="row title2" style="border: 1px black solid">Order summary</div>
                         <div class="row" style="border: 1px black solid">
-                            <div class="col-6 py-2">
-                                <div class="row row-cols-2">
-                                    <div class="col">Name:</div>
-                                    <div class="col"><?php echo $custname ;?></div>
+                            <div class="col-12 py-2" style="border-bottom: 1px black solid">
+                                <div>Customer's Information</div>
+                                <div class="row">
+                                    <div class="col-4">Name:</div>
+                                    <div class="col-8"><?php echo $custname; ?></div>
                                 </div>
-                                <div class="row row-cols-2">
-                                    <div class="col">Email:</div>
-                                    <div class="col"><?php echo $custemail ;?></div>
+                                <div class="row">
+                                    <div class="col-4">Email:</div>
+                                    <div class="col-8"><?php echo $custemail; ?></div>
                                 </div>
-                                <div class="row row-cols-2">
-                                    <div class="col">Mobile:</div>
-                                    <div class="col"><?php echo $custmobile ;?></div>
+                                <div class="row">
+                                    <div class="col-4">Mobile:</div>
+                                    <div class="col-8"><?php echo $custmobile; ?></div>
                                 </div>
-                                <div class="row row-cols-2">
-                                    <div class="col">Credit card:</div>
-                                    <div class="col"><?php echo $custcard ;?></div>
+                                <div class="row">
+                                    <div class="col-4">Credit card NO.:</div>
+                                    <div class="col-8"><?php echo $custcard; ?></div>
                                 </div>
-                                <div class="row row-cols-2">
-                                    <div class="col">Date:</div>
-                                    <div class="col"><?php echo $movie_day[$movieDay] ;?></div>
+                                <div class="row">
+                                    <div class="col-4">Booking Time:</div>
+                                    <div class="col-8">
+                                        <?php 
+                                        echo $nowdate . '&nbsp';
+                                        echo $nowtime;
+                                        ?>
+                                    </div>
                                 </div>
-                                <div class="row row-cols-2">
-                                    <div class="col">Time:</div>
-                                    <div class="col"><?php echo $movie_hour[$movieHour] ;?></div>
-                                </div>
+
                             </div>
-                            <div class="col-6 py-2">
-                                <div class="row row-cols-3">
-                                    <div class="col">Seat:</div>
-                                    <div class="col"><?php echo $seatname[$seat] ;?></div>
-                                    <div class="col"></div>
-                                </div>
-                                <div class="row row-cols-3">
-                                    <div class="col">Tickets total:</div>
-                                    <div class="col"></div>
-                                    <div class="col"></div>
+                            <div class="col-12 py-2">
+                                <div>Price</div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <?php
+                                        foreach (array_combine($seatType, $seatValue) as $seatName => $seatAmount) {
+                                            echo '<div class="row">';
+                                            echo '<div class="col-6">' . $seatName;
+                                            echo '</div>';
+                                            echo '<div class="col-6">' . $seatAmount;
+                                            echo '</div>';
+                                            echo '</div>';
+                                        };
+                                        ?>
+                                    </div>
                                 </div>
                                 <hr>
                                 <div class="row row-cols-3">
                                     <div class="col">Total:</div>
                                     <div class="col"></div>
-                                    <div class="col">$<?php echo $totalAmount ;?></div>
+                                    <div class="col">$<?php echo $totalAmount; ?></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </section>
     </main>

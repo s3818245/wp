@@ -37,6 +37,8 @@
 
   include 'tools.php';
 
+  date_default_timezone_set("Asia/Ho_Chi_Minh");
+
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check movie's day
@@ -151,9 +153,11 @@
       $_SESSION['cart'] = $_POST;
       if (!empty($_SESSION)) {
         $bookingFile = fopen("booking.csv", "a");
-        $now = date('d/m h:i');
+        $nowdate = date('d/m/Y');
+        $nowtime = date('H:i');
         $data = array_merge(
-          [$now],
+          [$nowdate],
+          [$nowtime],
           (array) $_SESSION["cart"]["cust"],
           (array) $_SESSION["cart"]["movie"],
           (array) $_SESSION["cart"]["seats"]
@@ -168,6 +172,9 @@
     if (isset($_POST['session-reset'])) {
       unset($_SESSION);
     }
+  }
+
+  if (isset($_POST['submit'])) {
   }
 
   ?>
@@ -820,31 +827,31 @@
                 <div class="container my-3 p-4">
                   <div class="form-group">
                     <label for="name">Name:</label>
-                    <input name="cust[name]" id="cust-name" type="text" class="form-control">
+                    <input name="cust[name]" id="cust-name" type="text" class="form-control" value="<?php echo $errname; ?>">
                     <span class="error">* <?php echo $nameErr; ?></span>
                   </div>
 
                   <div class="form-group">
                     <label for="email">Email:</label>
-                    <input name="cust[email]" id="cust-email" type="email" class="form-control">
+                    <input name="cust[email]" id="cust-email" type="email" class="form-control" value="<?php echo $erremail; ?>">
                     <span class="error">* <?php echo $emailErr; ?></span>
                   </div>
 
                   <div class="form-group">
                     <label for="mobile">Mobile:</label>
-                    <input name="cust[mobile]" id="cust-mobile" type="tel" class="form-control">
+                    <input name="cust[mobile]" id="cust-mobile" type="tel" class="form-control" value="<?php echo $errmobile; ?>">
                     <span class="error">* <?php echo $mobileErr; ?></span>
                   </div>
 
                   <div class="form-group">
                     <label for="credit-card">Credit Card:</label>
-                    <input name="cust[card]" id="cust-card" type="text" class="form-control">
+                    <input name="cust[card]" id="cust-card" type="text" class="form-control" value="<?php echo $errcard; ?>">
                     <span class="error">* <?php echo $cardErr; ?></span>
                   </div>
 
                   <div class="form-group">
                     <label for="expiry">Expiry:</label>
-                    <input name="cust[expiry]" id="cust-expiry" type="month" class="form-control">
+                    <input name="cust[expiry]" id="cust-expiry" type="month" class="form-control" value="<?php echo $errexpiry; ?>">
                     <span class="error">* <?php echo $expiryErr; ?></span>
                   </div>
                 </div>
@@ -854,6 +861,8 @@
               <label for="Total">Total $</label>
               <span id="total-amount">0</span>
               <input type="hidden" id="total-not-value" name="total" value="">
+              <input type="hidden" id="nowdate" name="nowdate" value="" onsubmit="getDateTime();">
+              <input type="hidden" id="nowtime" name="nowtime" value="">
             </div>
             <button class="form-group" type="submit" value="Submit">Order</button>
             <button type="submit" name="session-reset" value="Reset the session"> Reset the session </button>

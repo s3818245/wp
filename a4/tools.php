@@ -142,14 +142,7 @@ $movie_hour = [
   'T21' => '9pm',
 ];
 
-$seatname = [
-  'STA' => 'Standard Adult',
-  'STP' => 'Standard Concession',
-  'STC' => 'Standard Child',
-  'FCA' => 'First Class Adult',
-  'FCP' => 'First Class Concession',
-  'FCC' => 'First Class Child',
-];
+
 
 function test_input($data)
 {

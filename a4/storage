@@ -1,0 +1,39 @@
+<div class="row row-cols-3">
+                                    <div class="col">Seat:</div>
+                                    <div class="col">
+                                        <?php
+                                        foreach ($seatType as $seatName) {
+                                            echo $seatName . '<br>';
+                                        };
+                                        ?>
+                                    </div>
+                                    <div class="col">
+                                        <?php ?>
+                                    </div>
+                                </div>
+                                <div class="row row-cols-3">
+                                    <div class="col">Tickets total:</div>
+                                    <div class="col"></div>
+                                    <div class="col"></div>
+
+                                        echo "<row>";
+    $i = 0;
+    foreach($children as $child) { 
+
+        echo "item "; 
+
+        $i++;  
+        if ($i % 2 == 0 && $i != count($children)) { 
+            echo "</row><row>";
+        }
+
+    }
+    echo "</row>"
+
+
+
+                                                                                        array_map(function ($seatName, $seatAmount) {
+                                            echo $seatName;
+                                            echo $seatAmount . '<br>';
+                                        }, $seatType, $seatValue);
+                                        ?>

@@ -171,6 +171,12 @@ function findIndex(whichID) {
     }
 }
 
+function getDateTime() {
+    var nowDate = getDate();
+    document.getElementById("nowdate").value = nowDate
+    var nowTime = document.getElementById('nowtime').value;
+
+}
 
 function getPrice(id) {
     var seatType = document.getElementById(id);
