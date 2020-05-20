@@ -31,6 +31,50 @@
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
+<?php
+    $servername = "localhost";
+    $port = "8889";
+    $username = "root";
+    $password = "root";
+    $dbname = "myDB";
+
+    //create connection 
+    $conn = new mysqli("$servername:$port", $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    } 
+
+// SECTION FOR CREATING DATABASE AND TABLE
+
+    // Create database
+/*    $sql = "CREATE DATABASE itemData";
+if (mysqli_query($conn, $sql)) {
+  echo "Database created successfully";
+} else {
+  echo "Error creating database: " . mysqli_error($conn);
+}
+*/
+    // Create table and database
+/* $sql = "CREATE TABLE itemData (
+    itemName VARCHAR(100),
+    itemID VARCHAR(100),
+    itemClass VARCHAR(10),
+    itemDescription VARCHAR(100),
+    itemPrice VARCHAR(100),
+    itemImage VARCHAR(100),
+)";
+
+
+if (mysqli_query($conn, $sql)) {
+echo "<p> Table student created successfully </p>";
+} else {
+echo "<p>Error creating table: </p>" . mysqli_error($conn);
+}
+*/
+
+mysqli_close($conn);
+?>
 
     <nav class="navbar navbar-expand bg-dark navbar-dark">
         <a class="navbar-brand">Logo</a>
