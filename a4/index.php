@@ -151,6 +151,8 @@
     //  Update data in SESSION
     if ($errorFound == 0) {
       $_SESSION['cart'] = $_POST;
+      $_SESSION['date'] = $nowdate;
+      $_SESSION['time'] = $nowtime;
       if (!empty($_SESSION)) {
         $bookingFile = fopen("booking.csv", "a");
         $nowdate = date('d/m/Y');

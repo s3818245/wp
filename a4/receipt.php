@@ -177,6 +177,8 @@
                                             echo '</div>';
                                             echo '</div>';
                                         };
+                                        echo '<div class="col-6">' . $_SESSION["date"] ." ". $_SESSION["time"];
+                                        echo '</div>';
                                         ?>
                                     </div>
                                 </div>
