@@ -55,17 +55,16 @@ if (mysqli_query($conn, $sql)) {
   echo "Error creating database: " . mysqli_error($conn);
 }
 */
-    // Create table and database
-/* $sql = "CREATE TABLE itemData (
+/*
+    // Create table 
+ $sql = "CREATE TABLE itemData (
     itemName VARCHAR(100),
     itemID VARCHAR(100),
     itemClass VARCHAR(10),
     itemDescription VARCHAR(100),
     itemPrice VARCHAR(100),
-    itemImage VARCHAR(100),
+    itemImage BLOB,
 )";
-
-
 if (mysqli_query($conn, $sql)) {
 echo "<p> Table student created successfully </p>";
 } else {
@@ -77,7 +76,7 @@ mysqli_close($conn);
 ?>
 
     <nav class="navbar navbar-expand bg-dark navbar-dark">
-        <a class="navbar-brand">Logo</a>
+        <a class="navbar-brand">Bluetooth headphones</a>
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link justified-content-right" href="#one">sth</a>
@@ -126,23 +125,41 @@ mysqli_close($conn);
                 </div>
             </div>
             <div class="row justify-content-around">
-                <div class="col-2">CATEGORY
-                    <div>Nav Cate</div>
-                    <div>Nav Cate</div>
-                    <div>Nav Cate</div>
-                    <div>Nav Cate</div>
+                <div class="col-3">CATEGORY
+                <nav class="nav flex-column">
+                        <a class="nav-link" href="#">All items</a>
+                        <a class="nav-link" href="#">Wired in-ear headphones</a>
+                        <a class="nav-link" href="#">Wireless in-ear headphones</a>
+                        <a class="nav-link" href="#">Over-ear headphones</a>
+                    </nav>
                 </div>
+                <!-- ITEM LIST -->
                 <div class="col-9">ITEM LIST
                     <div class="row row-cols-3">
                         <div class="col">
                             <div class="card" style="width:250px">
 
+                                <img class="card-img-top" src="Photos/airpods.jpg" alt="Card image">
+
+                                <div class="card-body">
+                                    <h4 class="card-title"> Apple Airpods</h4>
+                                    <p class="card-text"></p>
+                                    <a href="" style="text-decoration: " ;>
+                                    Price: $159.00
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card" style="width:250px">
+
                                 <img class="card-img-top" src="" alt="Card image">
 
                                 <div class="card-body">
                                     <h4 class="card-title"></h4>
                                     <p class="card-text"></p>
-                                    <a href="" style="text-decoration: line-through" ;>
+                                    <a href="" style="text-decoration: " ;>
 
                                     </a>
                                 </div>
@@ -157,7 +174,7 @@ mysqli_close($conn);
                                 <div class="card-body">
                                     <h4 class="card-title"></h4>
                                     <p class="card-text"></p>
-                                    <a href="" style="text-decoration: line-through" ;>
+                                    <a href="" style="text-decoration: " ;>
 
                                     </a>
                                 </div>
@@ -172,7 +189,7 @@ mysqli_close($conn);
                                 <div class="card-body">
                                     <h4 class="card-title"></h4>
                                     <p class="card-text"></p>
-                                    <a href="" style="text-decoration: line-through" ;>
+                                    <a href="" style="text-decoration: " ;>
 
                                     </a>
                                 </div>
@@ -187,7 +204,7 @@ mysqli_close($conn);
                                 <div class="card-body">
                                     <h4 class="card-title"></h4>
                                     <p class="card-text"></p>
-                                    <a href="" style="text-decoration: line-through" ;>
+                                    <a href="" style="text-decoration: " ;>
 
                                     </a>
                                 </div>
@@ -202,7 +219,7 @@ mysqli_close($conn);
                                 <div class="card-body">
                                     <h4 class="card-title"></h4>
                                     <p class="card-text"></p>
-                                    <a href="" style="text-decoration: line-through" ;>
+                                    <a href="" style="text-decoration: " ;>
 
                                     </a>
                                 </div>
@@ -217,22 +234,7 @@ mysqli_close($conn);
                                 <div class="card-body">
                                     <h4 class="card-title"></h4>
                                     <p class="card-text"></p>
-                                    <a href="" style="text-decoration: line-through" ;>
-
-                                    </a>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card" style="width:250px">
-
-                                <img class="card-img-top" src="" alt="Card image">
-
-                                <div class="card-body">
-                                    <h4 class="card-title"></h4>
-                                    <p class="card-text"></p>
-                                    <a href="" style="text-decoration: line-through" ;>
+                                    <a href="" style="text-decoration: " ;>
 
                                     </a>
                                 </div>
