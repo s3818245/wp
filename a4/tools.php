@@ -142,7 +142,49 @@ $movie_hour = [
   'T21' => '9pm',
 ];
 
+$movieID = $_SESSION['cart']['movie']['id'];
+$movieDay = $_SESSION['cart']['movie']['day'];
+$movieHour = $_SESSION['cart']['movie']['hour'];
+$custname = $_SESSION['cart']['cust']['name'];
+$custemail = $_SESSION['cart']['cust']['email'];
+$custmobile = $_SESSION['cart']['cust']['mobile'];
+$custcard = $_SESSION['cart']['cust']['card'];
 
+$seatSTA = $_SESSION['cart']['seats']['STA'];
+$seatSTP = $_SESSION['cart']['seats']['STP'];
+$seatSTC = $_SESSION['cart']['seats']['STC'];
+$seatFCA = $_SESSION['cart']['seats']['FCA'];
+$seatFCP = $_SESSION['cart']['seats']['FCP'];
+$seatFCC = $_SESSION['cart']['seats']['FCC'];
+
+$seatType = array();
+$seatValue = array();
+if (!empty($seatSTA)) {
+  array_push($seatType, 'Standard Adult ');
+  array_push($seatValue, $seatSTA);
+}
+if (!empty($seatSTP)) {
+  array_push($seatType, 'Standard Concession ');
+  array_push($seatValue, $seatSTP);
+}
+if (!empty($seatSTC)) {
+  array_push($seatType, 'Standard Child ');
+  array_push($seatValue, $seatSTC);
+}
+if (!empty($seatFCA)) {
+  array_push($seatType, 'First Class Adult ');
+  array_push($seatValue, $seatFCA);
+}
+if (!empty($seatFCP)) {
+  array_push($seatType, 'First Class Concession ');
+  array_push($seatValue, $seatFCP);
+}
+if (!empty($seatFCC)) {
+  array_push($seatType, 'First Class Child ');
+  array_push($seatValue, $seatFCC);
+}
+
+$totalAmount = $_SESSION['cart']['total'];
 
 function test_input($data)
 {

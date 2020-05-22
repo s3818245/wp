@@ -1,5 +1,6 @@
 /* Insert your styles here */
-header{
+
+header {
     background-color: lightslategrey;
     color: white;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -7,38 +8,40 @@ header{
     text-align: center;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
-main section{
+main section {
     min-height: 100vh;
 }
 
-#logo{
+#logo {
     height: 60px;
     width: 300px;
 }
-.parallax { 
+
+.parallax {
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-  }
-.dolby_image{
+}
+
+.dolby_image {
     /* The image used */
     background-image: url("dolby_cinema.jpeg");
-  
     /* Set a specific height */
     height: 600px;
 }
 
-.seat_promo_image{
+.seat_promo_image {
     background-image: url("Photo/seat_promo.jpeg");
     height: 600px;
 }
-.text_on_image{
+
+.text_on_image {
     text-align: center;
     font-size: 2.5rem;
     color: rgba(255, 255, 255, 0.863);
@@ -46,78 +49,73 @@ main section{
     font-family: 'PT Serif', serif;
 }
 
-#sub_text{
-    font-size: 30px; font-style: italic;
+#sub_text {
+    font-size: 30px;
+    font-style: italic;
 }
 
-    /*Movie board*/
-.main_content{
-    margin-top:30px;
+/*Movie board*/
+
+.main_content {
+    margin-top: 30px;
 }
-.poster{
+
+.poster {
     grid-area: poster;
 }
-.title{
+
+.title {
     grid-area: title;
     font-size: 1.39rem;
     font-weight: bold;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: left;
 }
-.rating{
+
+.rating {
     grid-area: rating;
     font-size: 1.39rem;
     font-weight: bold;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: right;
 }
-.time{
+
+.time {
     grid-area: time;
     height: 215px;
     border-top: 2px solid;
 }
 
-.moreInfo{
+.moreInfo {
     grid-area: moreInfo;
 }
 
-.now-showing-item{
+.now-showing-item {
     display: grid;
     border: 1px solid white;
-    grid-template-areas:
-      'poster title title rating'
-      'poster time time time'
-      'poster time time time'
-      'poster time time time'
-      'poster time time time'
-      'poster time time time'
-      'poster time time time'
-      'poster time time time'
-      'poster time time time'
-      'poster time time time'
-      'poster time time time'
-      'poster moreInfo moreInfo moreInfo';
+    grid-template-areas: 'poster title title rating' 'poster time time time' 'poster time time time' 'poster time time time' 'poster time time time' 'poster time time time' 'poster time time time' 'poster time time time' 'poster time time time' 'poster time time time' 'poster time time time' 'poster moreInfo moreInfo moreInfo';
     grid-gap: 5px;
     background-color: rgb(201, 219, 235);
     padding: 5px;
 }
 
 /*Hide the scrollbar*/
+
 ::-webkit-scrollbar {
     width: 0px;
     background: transparent;
 }
 
 /*Display of the modal's header*/
+
 .modal-header {
     padding: 10px 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
-.movie-header{
+.movie-header {
     font-size: 3rem;
     font-weight: bold;
     font-style: italic;
@@ -162,17 +160,17 @@ main section{
     font-size: 1.21rem;
 }
 
-.customGutter > [class*='col-'] {
-    padding-right:30px;
-    padding-left:30px; 
+.customGutter>[class*='col-'] {
+    padding-right: 30px;
+    padding-left: 30px;
 }
 
-.customGutter > [class*="col-"]:first-child {
-  padding-left:30px;
+.customGutter>[class*="col-"]:first-child {
+    padding-left: 30px;
 }
-  
-.customGutter > [class*="col-"]:last-child {
-  padding-right:30px;
+
+.customGutter>[class*="col-"]:last-child {
+    padding-right: 30px;
 }
 
 .borderPadding {
@@ -184,34 +182,35 @@ main section{
     background-color: rgba(222, 201, 233, 0.685);
 }
 
-.section_title{
+.section_title {
     background-color: rgb(157, 162, 172);
     font-weight: bold;
-    font-family: 'Girassol', cursive;;
+    font-family: 'Girassol', cursive;
+    ;
 }
 
-
-.seat_type{
+.seat_type {
     background-color: rgba(75, 118, 158, 0.897);
     color: rgb(231, 231, 231);
 }
 
-.seat_type > h1{
+.seat_type>h1 {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-style: italic;
 }
 
-.now_showing_section{
-    background: radial-gradient( rgba(113, 66, 124, 0.767), rgba(65, 12, 78, 0.87)
-    ,rgba(18, 8, 68, 0.911),rgba(3, 1, 14, 0.938));
+.now_showing_section {
+    background: radial-gradient( rgba(113, 66, 124, 0.767), rgba(65, 12, 78, 0.87), rgba(18, 8, 68, 0.911), rgba(3, 1, 14, 0.938));
 }
 
-.poster_size{
-    height: auto; max-width: 90%;
+.poster_size {
+    height: auto;
+    max-width: 90%;
 }
-footer{
+
+footer {
     background-color: lightslategrey;
-    color:white;
+    color: white;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     padding: 5px;
 }
@@ -222,11 +221,12 @@ footer{
     display: -ms-flexbox;
     display: flex;
     flex-wrap: wrap;
-  }
-.row .equal > [class*='col-'] {
+}
+
+.row .equal>[class*='col-'] {
     display: flex;
     flex-direction: column;
-  }
+}
 
 .button_width {
     width: 170px;
@@ -234,4 +234,10 @@ footer{
 
 #avengersEndgameModal, #theHappyPrinceModal, #topEndWeddingModal, #dumboModal {
     overflow: auto;
+}
+
+.receipt_title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    font-style: italic;
 }

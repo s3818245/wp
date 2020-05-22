@@ -151,12 +151,12 @@
     //  Update data in SESSION
     if ($errorFound == 0) {
       $_SESSION['cart'] = $_POST;
+      $nowdate = date('l d/m/Y');
+      $nowtime = date('H:i');
       $_SESSION['date'] = $nowdate;
       $_SESSION['time'] = $nowtime;
       if (!empty($_SESSION)) {
         $bookingFile = fopen("booking.csv", "a");
-        $nowdate = date('d/m/Y');
-        $nowtime = date('H:i');
         $data = array_merge(
           [$nowdate],
           [$nowtime],
@@ -177,6 +177,7 @@
   }
 
   if (isset($_POST['submit'])) {
+    
   }
 
   ?>
@@ -863,8 +864,6 @@
               <label for="Total">Total $</label>
               <span id="total-amount">0</span>
               <input type="hidden" id="total-not-value" name="total" value="">
-              <input type="hidden" id="nowdate" name="nowdate" value="" onsubmit="getDateTime();">
-              <input type="hidden" id="nowtime" name="nowtime" value="">
             </div>
             <button class="form-group" type="submit" value="Submit">Order</button>
             <button type="submit" name="session-reset" value="Reset the session"> Reset the session </button>
