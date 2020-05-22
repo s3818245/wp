@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,8 +61,8 @@ echo "<p>Error creating table: </p>" . mysqli_error($conn);
 } 
 */
 
-//Default data
-/*$sql = "INSERT INTO itemData VALUES('Apple Airpods Pro', 'airpods-pro', 'apple in-ear', 'This is ', '$100',";
+//Failed code
+/*$sql = "INSERT INTO itemData VALUES('Apple Airpods Pro', 'airpods-pro', 'apple in-ear', 'This is', '$100',";
 $sql = "INSERT INTO itemData VALUES('Apple Airpods', 'airpods', 'apple in-ear', 'This is ', '$100', 'airpods.jpg');";
 $sql = "INSERT INTO itemData VALUES('Beats Solo 3', 'beats-solo-3', 'beats on-ear', 'This is ', '$100', 'beats-solo-3.jpg');";
 $sql = "INSERT INTO itemData VALUES('Beats Solo', 'beats-solo', 'beats on-ear', 'This is ', '$100', 'beats-solo.jpg');";
@@ -146,7 +145,7 @@ mysqli_close($conn);
                 </div>
                 <!-- ITEM LIST -->
                 <div class="col-9">ITEM LIST
-                    <div class="row row-cols-3">
+                    <div class="row row-cols-md-3 row-cols-1">
                         <?php
                         
                             $servername = "sql307.epizy.com";
@@ -168,17 +167,20 @@ mysqli_close($conn);
                         if (mysqli_num_rows($result) > 0) {
                             // output data of each row
                             while($row = mysqli_fetch_assoc($result)) {
-                                echo '<div class="col">';
+                                echo '<div class="col py-2">';
                                 echo    '<div class="card" style="width:250px,">';
     
                                 echo    '<img class="card-img-top" src="data:image/jpg;base64,' . base64_encode($row['itemImage']) . '" />'; ;
     
-                                echo        '<div class="card-body">';
+                                echo        '<div class="card-body text-center">';
                                 echo            '<h4 class="card-title">' .$row['itemName'].  '</h4>';
                                 echo            '<p class="card-text"></p>';
-                                echo            '<a href="" style="text-decoration: " ;>';
+                                echo            '<div style="" class="text-center";>';
                                 echo            'Price:' .$row['itemPrice'];
-                                echo            '</a>';
+                                echo            '</div>';
+                                echo                '<div class="text-center">';
+                                echo                    '<button type="button" class="btn btn-secondary pt-1" value="'.$row['itemID'].'">More information</button>';
+                                echo                '</div>';
                                 echo        '</div>';
                                 echo    '</div>';
                                 echo'</div>';
@@ -187,8 +189,7 @@ mysqli_close($conn);
                             echo "0 results";
                           }
                         ?>
-                        <!--
-                        CODE FOR CARD
+                        <!--CODE FOR CARD
                         <div class="col">
                             <div class="card" style="width:250px">
 
@@ -197,9 +198,12 @@ mysqli_close($conn);
                                 <div class="card-body">
                                     <h4 class="card-title"> Apple Airpods</h4>
                                     <p class="card-text"></p>
-                                    <a href="" style="text-decoration: " ;>
+                                    <div style="color:blue" class="text-center";>
                                     Price: $159.00
-                                    </a>
+                                    </div>
+                                    <div class="text-center">
+                                    <button type="button" class="btn btn-secondary pt-1">More information</button>
+                                    </div>
                                 </div>
 
                             </div>
