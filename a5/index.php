@@ -32,44 +32,54 @@
 
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 <?php
-    $servername = "localhost";
-    $port = "8889";
-    $username = "root";
-    $password = "root";
-    $dbname = "myDB";
+    $servername = "sql307.epizy.com";
+    // $port= 8889;
+    $username = "epiz_25832353";
+    $password = "3IEhY1FThCdC7g4";
+    $dbname = "epiz_25832353_itemData";
 
     //create connection 
-    $conn = new mysqli("$servername:$port", $username, $password, $dbname);
+    $conn = new mysqli($servername, $username, $password, $dbname);
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     } 
 
 // SECTION FOR CREATING DATABASE AND TABLE
-
-    // Create database
-/*    $sql = "CREATE DATABASE itemData";
-if (mysqli_query($conn, $sql)) {
-  echo "Database created successfully";
-} else {
-  echo "Error creating database: " . mysqli_error($conn);
-}
-*/
-/*
-    // Create table 
- $sql = "CREATE TABLE itemData (
+/*    // Create table 
+$sql = "CREATE TABLE itemData (
     itemName VARCHAR(100),
     itemID VARCHAR(100),
-    itemClass VARCHAR(10),
-    itemDescription VARCHAR(100),
+    itemClass VARCHAR(1000),
+    itemDescription VARCHAR(10000),
     itemPrice VARCHAR(100),
-    itemImage BLOB,
+    itemImage BLOB
 )";
 if (mysqli_query($conn, $sql)) {
 echo "<p> Table student created successfully </p>";
 } else {
 echo "<p>Error creating table: </p>" . mysqli_error($conn);
-}
+} 
+*/
+
+//Default data
+/*$sql = "INSERT INTO itemData VALUES('Apple Airpods Pro', 'airpods-pro', 'apple in-ear', 'This is ', '$100',";
+$sql = "INSERT INTO itemData VALUES('Apple Airpods', 'airpods', 'apple in-ear', 'This is ', '$100', 'airpods.jpg');";
+$sql = "INSERT INTO itemData VALUES('Beats Solo 3', 'beats-solo-3', 'beats on-ear', 'This is ', '$100', 'beats-solo-3.jpg');";
+$sql = "INSERT INTO itemData VALUES('Beats Solo', 'beats-solo', 'beats on-ear', 'This is ', '$100', 'beats-solo.jpg');";
+$sql = "INSERT INTO itemData VALUES('Beats Studio 3', 'beats-studio-3', 'beats over-ear', 'This is ', '$100', 'beats-studio-3.jpg');";
+$sql = "INSERT INTO itemData VALUES('Beats X', 'beatsx', 'beats in-ear', 'This is ', '$100', 'beatsx.jpg');";
+$sql = "INSERT INTO itemData VALUES('Samsung Galaxy Buds +', 'galaxybuds', 'samsung in-ear', 'This is ', '$100', 'galaxybuds.jpg');";
+$sql = "INSERT INTO itemData VALUES('Jaybirds X4', 'jaybirds-x4', 'jaybirds in-ear', 'This is ', '$100', 'jaybirds-x4.jpg');";
+$sql = "INSERT INTO itemData VALUES('Powerbeats Pro', 'powerbeats-pro', 'beats in-ear', 'This is ', '$100', 'powerbeats-pro.jpg');";
+$sql = "INSERT INTO itemData VALUES('Powerbeats Wired', 'powerbeats-wired', 'beats in-ear', 'This is ', '$100', 'powerbeats-wired.jpg');";
+$sql = "INSERT INTO itemData VALUES('Sony WF-1000-XM3', 'sony-wf-1000-xm3', 'sony in-ear', 'This is ', '$100', 'sony-wf-1000-xm3.jpg');";
+
+if (mysqli_query($conn, $sql)) {
+    echo "<p>Insert item successfully </p>";
+    } else {
+    echo "<p>Error insert item: </p>" . mysqli_error($conn);
+    } 
 */
 
 mysqli_close($conn);
@@ -137,6 +147,48 @@ mysqli_close($conn);
                 <!-- ITEM LIST -->
                 <div class="col-9">ITEM LIST
                     <div class="row row-cols-3">
+                        <?php
+                        
+                            $servername = "sql307.epizy.com";
+                            // $port= 8889;
+                            $username = "epiz_25832353";
+                            $password = "3IEhY1FThCdC7g4";
+                            $dbname = "epiz_25832353_itemData";
+
+                            //create connection 
+                            $conn = new mysqli($servername, $username, $password, $dbname);
+                            // Check connection
+                             if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                                }  
+
+                        $sql = "SELECT * FROM itemData";
+                        $result = mysqli_query($conn, $sql);
+                        
+                        if (mysqli_num_rows($result) > 0) {
+                            // output data of each row
+                            while($row = mysqli_fetch_assoc($result)) {
+                                echo '<div class="col">';
+                                echo    '<div class="card" style="width:250px,">';
+    
+                                echo    '<img class="card-img-top" src="data:image/jpg;base64,' . base64_encode($row['itemImage']) . '" />'; ;
+    
+                                echo        '<div class="card-body">';
+                                echo            '<h4 class="card-title">' .$row['itemName'].  '</h4>';
+                                echo            '<p class="card-text"></p>';
+                                echo            '<a href="" style="text-decoration: " ;>';
+                                echo            'Price:' .$row['itemPrice'];
+                                echo            '</a>';
+                                echo        '</div>';
+                                echo    '</div>';
+                                echo'</div>';
+                            }
+                          } else {
+                            echo "0 results";
+                          }
+                        ?>
+                        <!--
+                        CODE FOR CARD
                         <div class="col">
                             <div class="card" style="width:250px">
 
@@ -151,127 +203,8 @@ mysqli_close($conn);
                                 </div>
 
                             </div>
-                        </div>
-                        <div class="col">
-                            <div class="card" style="width:250px">
-
-                                <img class="card-img-top" src="" alt="Card image">
-
-                                <div class="card-body">
-                                    <h4 class="card-title"></h4>
-                                    <p class="card-text"></p>
-                                    <a href="" style="text-decoration: " ;>
-
-                                    </a>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card" style="width:250px">
-
-                                <img class="card-img-top" src="" alt="Card image">
-
-                                <div class="card-body">
-                                    <h4 class="card-title"></h4>
-                                    <p class="card-text"></p>
-                                    <a href="" style="text-decoration: " ;>
-
-                                    </a>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card" style="width:250px">
-
-                                <img class="card-img-top" src="" alt="Card image">
-
-                                <div class="card-body">
-                                    <h4 class="card-title"></h4>
-                                    <p class="card-text"></p>
-                                    <a href="" style="text-decoration: " ;>
-
-                                    </a>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card" style="width:250px">
-
-                                <img class="card-img-top" src="" alt="Card image">
-
-                                <div class="card-body">
-                                    <h4 class="card-title"></h4>
-                                    <p class="card-text"></p>
-                                    <a href="" style="text-decoration: " ;>
-
-                                    </a>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card" style="width:250px">
-
-                                <img class="card-img-top" src="" alt="Card image">
-
-                                <div class="card-body">
-                                    <h4 class="card-title"></h4>
-                                    <p class="card-text"></p>
-                                    <a href="" style="text-decoration: " ;>
-
-                                    </a>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card" style="width:250px">
-
-                                <img class="card-img-top" src="" alt="Card image">
-
-                                <div class="card-body">
-                                    <h4 class="card-title"></h4>
-                                    <p class="card-text"></p>
-                                    <a href="" style="text-decoration: " ;>
-
-                                    </a>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card" style="width:250px">
-
-                                <img class="card-img-top" src="" alt="Card image">
-
-                                <div class="card-body">
-                                    <h4 class="card-title"></h4>
-                                    <p class="card-text"></p>
-                                    <a href="" style="text-decoration: line-through" ;>
-
-                                    </a>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card" style="width:250px">
-
-                                <img class="card-img-top" src="" alt="Card image">
-
-                                <div class="card-body">
-                                    <h4 class="card-title"></h4>
-                                    <p class="card-text"></p>
-                                    <a href="" style="text-decoration: line-through" ;>
-
-                                    </a>
-                                </div>
-
-                            </div>
-                        </div>
+                        </div> 
+                        -->
                     </div>
                     <br>
                     <div>
