@@ -90,60 +90,60 @@
 
     // check customer's name
     if (empty($_POST["cust"]["name"])) {
-      $nameErr = "Name is required";
+      $nameErr = "* Name is required";
       $errorFound++;
     } else {
       $name = test_input($_POST["cust"]["name"]);
       if (!preg_match("/^[A-Za-z\-'., ]{1,100}$/", $name)) {
-        $nameErr = "Only letters and whitespace are allowed.";
+        $nameErr = "* Only letters and whitespace are allowed.";
         $errorFound++;
       }
     }
 
     // Check customer's email
     if (empty($_POST["cust"]["email"])) {
-      $emailErr = "Email is required";
+      $emailErr = "* Email is required";
       $errorFound++;
     } else {
       $email = test_input($_POST["cust"]["email"]);
       if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $emailErr = "Invalid email format";
+        $emailErr = "* Invalid email format";
         $errorFound++;
       }
     }
 
     // Check customer's mobile
     if (empty($_POST["cust"]["mobile"])) {
-      $mobileErr = "Mobile number is required";
+      $mobileErr = "* Mobile number is required";
       $errorFound++;
     } else {
       $mobile = test_input($_POST["cust"]["mobile"]);
       if (!preg_match("/^(\(04\)|04|\+61[4,5]|\+61 [4,5])( ?\d){8}$/", $mobile)) {
-        $mobileErr = "Please provide Australian phone number";
+        $mobileErr = "* Please provide Australian phone number";
         $errorFound++;
       }
     }
 
     // Check customer's card number
     if (empty($_POST["cust"]["card"])) {
-      $cardErr = "Card number is required";
+      $cardErr = "* Card number is required";
       $errorFound++;
     } else {
       $card = test_input($_POST["cust"]["card"]);
       if (!preg_match("/^([\d] ?){14,19}$/", $card)) {
-        $cardErr = "Please provide a valid card number";
+        $cardErr = "* Please provide a valid card number";
         $errorFound++;
       }
     }
 
     // Check customer's card's expiry 
     if (empty($_POST["cust"]["expiry"])) {
-      $expiryErr = "Please provide credit's card expiry";
+      $expiryErr = "* Please provide credit's card expiry";
       $errorFound++;
     } else {
       if (checkExpiry()) {
       } else {
-        $expiryErr = "Expiry cannot be within 28 days since purchase day";
+        $expiryErr = "* Expiry cannot be within 28 days since purchase day";
         $errorFound++;
       }
     }
@@ -836,31 +836,31 @@
                   <div class="form-group">
                     <label for="name">Name:</label>
                     <input name="cust[name]" id="cust-name" type="text" class="form-control" value="<?php echo $name_err; ?>">
-                    <span class="error" style="color: red;">* <?php echo $nameErr; ?></span>
+                    <span class="error" style="color: red;"><?php echo $nameErr; ?></span>
                   </div>
 
                   <div class="form-group">
                     <label for="email">Email:</label>
                     <input name="cust[email]" id="cust-email" type="email" class="form-control" value="<?php echo $email_err; ?>">
-                    <span class="error" style="color: red;">* <?php echo $emailErr; ?></span>
+                    <span class="error" style="color: red;"><?php echo $emailErr; ?></span>
                   </div>
 
                   <div class="form-group">
                     <label for="mobile">Mobile:</label>
                     <input name="cust[mobile]" id="cust-mobile" type="tel" class="form-control" value="<?php echo $mobile_err; ?>">
-                    <span class="error" style="color: red;">* <?php echo $mobileErr; ?></span>
+                    <span class="error" style="color: red;"><?php echo $mobileErr; ?></span>
                   </div>
 
                   <div class="form-group">
                     <label for="credit-card">Credit Card:</label>
                     <input name="cust[card]" id="cust-card" type="text" class="form-control" value="<?php echo $card_err; ?>">
-                    <span class="error" style="color: red;">* <?php echo $cardErr; ?></span>
+                    <span class="error" style="color: red;"><?php echo $cardErr; ?></span>
                   </div>
 
                   <div class="form-group">
                     <label for="expiry">Expiry:</label>
                     <input name="cust[expiry]" id="cust-expiry" type="month" class="form-control" value="<?php echo $expiry_err; ?>">
-                    <span class="error" style="color: red;">* <?php echo $expiryErr; ?></span>
+                    <span class="error" style="color: red;"><?php echo $expiryErr; ?></span>
                   </div>
                 </div>
               </div>
