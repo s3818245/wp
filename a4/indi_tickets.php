@@ -34,6 +34,9 @@
 
     <?php
     session_start();
+    if (empty($_SESSION['cart'])) {
+        header('Location: index.php');
+    }
 
     include 'tools.php';
 
@@ -91,17 +94,20 @@
                                     <div class="col-12" style="color: #c1c7cb;">
                                             Movie
                                     </div>
-                                    <div class="col-12" style="font-size: 1.2rem; font-weight: 500;">' . 
-                                        $movieTitle[$movieID][0] . 
+                                    <div class="col-12" style="font-size: 1.2rem; font-weight: 500;">' .
+                                    $movieTitle[$movieID][0] .
                                     '</div>
                                     <div class="col-12" style="color: #c1c7cb;">
                                         Date
                                     </div>
-                                    <div class="col-12" style="font-size: 1.2rem; font-weight: 500;">' . 
-                                        $movie_day[$movieDay] . ' at ' . $movie_hour[$movieHour] . 
+                                    <div class="col-12" style="font-size: 1.2rem; font-weight: 500;">' .
+                                    $movie_day[$movieDay] . ' at ' . $movie_hour[$movieHour] .
                                     '</div>
                                     <div class="col-12" style="color: #c1c7cb;">Seat:</div>
                                     <div class="col-12" style="font-size: 1.2rem; font-weight: 500;">' . $seatName . '</div>
+                                    <div class="col-12">
+                                    <p class="text-center" style="font-size: 1.5rem; font-weight: 650;"> ADMIT ONE </p>
+                                </div>
                                 </div>
                                 <div class="col-2" style="margin: auto; ">
                                     <img class="mx-auto d-block" src="Photo/barcode-part.png" style="max-width: 62%; height: auto;">

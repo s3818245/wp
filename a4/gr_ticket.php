@@ -34,6 +34,9 @@
 
     <?php
     session_start();
+    if (empty($_SESSION['cart'])) {
+        header('Location: index.php');
+    }
 
     include 'tools.php';
 
@@ -118,7 +121,7 @@
                             </div>
                         </div>
                         <div class="col-2" style="margin: auto; ">
-                            <img class="mx-auto d-block" src="Photo/barcode-part.png" style="max-width: 100%; height: auto;">
+                            <img class="mx-auto d-block" src="Photo/barcode-part.png" style="max-width: 78%; height: auto;">
                         </div>
                     </div>
                 </div>

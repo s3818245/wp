@@ -177,7 +177,12 @@
   }
 
   if (isset($_POST['submit'])) {
-    
+    $name_err = $_POST['cust']['name'];
+    $email_err = $_POST['cust']['email'];
+    $mobile_err = $_POST['cust']['mobile'];
+    $card_err = $_POST['cust']['card'];
+    $expiry_err = $_POST['cust']['expiry'];
+
   }
 
   ?>
@@ -830,32 +835,32 @@
                 <div class="container my-3 p-4">
                   <div class="form-group">
                     <label for="name">Name:</label>
-                    <input name="cust[name]" id="cust-name" type="text" class="form-control" value="<?php echo $errname; ?>">
-                    <span class="error">* <?php echo $nameErr; ?></span>
+                    <input name="cust[name]" id="cust-name" type="text" class="form-control" value="<?php echo $name_err; ?>">
+                    <span class="error" style="color: red;">* <?php echo $nameErr; ?></span>
                   </div>
 
                   <div class="form-group">
                     <label for="email">Email:</label>
-                    <input name="cust[email]" id="cust-email" type="email" class="form-control" value="<?php echo $erremail; ?>">
-                    <span class="error">* <?php echo $emailErr; ?></span>
+                    <input name="cust[email]" id="cust-email" type="email" class="form-control" value="<?php echo $email_err; ?>">
+                    <span class="error" style="color: red;">* <?php echo $emailErr; ?></span>
                   </div>
 
                   <div class="form-group">
                     <label for="mobile">Mobile:</label>
-                    <input name="cust[mobile]" id="cust-mobile" type="tel" class="form-control" value="<?php echo $errmobile; ?>">
-                    <span class="error">* <?php echo $mobileErr; ?></span>
+                    <input name="cust[mobile]" id="cust-mobile" type="tel" class="form-control" value="<?php echo $mobile_err; ?>">
+                    <span class="error" style="color: red;">* <?php echo $mobileErr; ?></span>
                   </div>
 
                   <div class="form-group">
                     <label for="credit-card">Credit Card:</label>
-                    <input name="cust[card]" id="cust-card" type="text" class="form-control" value="<?php echo $errcard; ?>">
-                    <span class="error">* <?php echo $cardErr; ?></span>
+                    <input name="cust[card]" id="cust-card" type="text" class="form-control" value="<?php echo $card_err; ?>">
+                    <span class="error" style="color: red;">* <?php echo $cardErr; ?></span>
                   </div>
 
                   <div class="form-group">
                     <label for="expiry">Expiry:</label>
-                    <input name="cust[expiry]" id="cust-expiry" type="month" class="form-control" value="<?php echo $errexpiry; ?>">
-                    <span class="error">* <?php echo $expiryErr; ?></span>
+                    <input name="cust[expiry]" id="cust-expiry" type="month" class="form-control" value="<?php echo $expiry_err; ?>">
+                    <span class="error" style="color: red;">* <?php echo $expiryErr; ?></span>
                   </div>
                 </div>
               </div>
@@ -865,15 +870,37 @@
               <span id="total-amount">0</span>
               <input type="hidden" id="total-not-value" name="total" value="">
             </div>
-            <button class="form-group" type="submit" value="Submit">Order</button>
+            <button class="form-group" type="submit" name="submit" value="Submit">Order</button>
             <button type="submit" name="session-reset" value="Reset the session"> Reset the session </button>
             <div><?php echo $movieErr ?></div>
             <div><?php echo $seatsErr ?></div>
+
             <!-- Debugging php section -->
-            <?php
-            preShow($_POST);
-            preShow($_SESSION);
-            ?>
+            <button type="button" data-toggle="modal" data-target="#debug_Modal">
+              Debug button
+            </button>
+
+            <div class="modal fade" id="debug_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Debug Modal</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <?php
+                    preShow($_POST);
+                    preShow($_SESSION);
+                    ?>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
 
       </div>
