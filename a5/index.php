@@ -146,7 +146,7 @@ mysqli_close($conn);
                 </div>
                 <!-- ITEM LIST -->
                 <div class="col-9">ITEM LIST
-                    <div class="row row-cols-3">
+                    <div class="row row-cols-lg-3 row-cols-sm-1">
                         <?php
                         
                             $servername = "sql307.epizy.com";
