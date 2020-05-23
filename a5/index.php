@@ -136,10 +136,10 @@ mysqli_close($conn);
             <div class="row justify-content-around">
                 <div class="col-3">CATEGORY
                 <nav class="nav flex-column">
-                        <a class="category nav-link" href="#" value="">All items</a>
-                        <a class="category nav-link" href="#" value="in-ear">in-ear headphones</a>
-                        <a class="category nav-link" href="#" value="over-ear">Over-ear headphones</a>
-                        <a class="category nav-link" href="#" value="on-ear">On-ear headphones</a>
+                        <button class="category nav-link"  value="">All items</button>
+                        <button class="category nav-link" value="in-ear">in-ear headphones</button>
+                        <button class="category nav-link" value="over-ear">Over-ear headphones</button>
+                        <button class="category nav-link" value="on-ear">On-ear headphones</button>
                     </nav>
                 </div>
                 <!-- ITEM LIST -->
