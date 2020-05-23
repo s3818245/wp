@@ -136,20 +136,15 @@ mysqli_close($conn);
             <div class="row justify-content-around">
                 <div class="col-3">CATEGORY
                 <nav class="nav flex-column">
-                        <a class="nav-link" href="#">All items</a>
-                        <a class="nav-link" href="#">Wired in-ear headphones</a>
-                        <a class="nav-link" href="#">Wireless in-ear headphones</a>
-                        <a class="nav-link" href="#">Over-ear headphones</a>
-                        <a class="nav-link" href="#">On-ear headphones</a>
+                        <a class="category nav-link" href="#" value="">All items</a>
+                        <a class="category nav-link" href="#" value="in-ear">in-ear headphones</a>
+                        <a class="category nav-link" href="#" value="over-ear">Over-ear headphones</a>
+                        <a class="category nav-link" href="#" value="on-ear">On-ear headphones</a>
                     </nav>
                 </div>
                 <!-- ITEM LIST -->
                 <div class="col-9">ITEM LIST
-<<<<<<< HEAD
-                    <div class="row row-cols-lg-3 row-cols-sm-1">
-=======
                     <div class="row row-cols-md-3 row-cols-1">
->>>>>>> 7d5e6b5ff3a9e4daa21093136346c662500a03da
                         <?php
                         
                             $servername = "sql307.epizy.com";
@@ -172,7 +167,7 @@ mysqli_close($conn);
                             // output data of each row
                             while($row = mysqli_fetch_assoc($result)) {
                                 echo '<div class="col py-2">';
-                                echo    '<div class="card" style="width:250px,">';
+                                echo    '<div class="card '.$row['itemClass'].'" style="max-width:250px, height: 400px;">';
     
                                 echo    '<img class="card-img-top" src="data:image/jpg;base64,' . base64_encode($row['itemImage']) . '" />'; ;
     
