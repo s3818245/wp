@@ -33,9 +33,8 @@
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
     <?php
     session_start();
-    if (!empty($_SESSION)){
-        $id = $_SESSION['info'];
-
+    if (!empty($_GET)){
+        $id = $_GET['info'];
         session_start();
         $servername = "localhost";
         $port= 8889;
@@ -50,7 +49,7 @@
         die("Connection failed: " . $conn->connect_error);
         }   
 
-        $sql = "SELECT * FROM itemData WHERE itemID=$id";
+        $sql = "SELECT * FROM itemData WHERE itemID='$id'";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) > 0) {
@@ -62,6 +61,7 @@
           } else {
             echo "0 results";
           }
+        mysqli_close($conn);
     }
     ?> 
 

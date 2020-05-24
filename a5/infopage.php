@@ -48,7 +48,7 @@
             die("Connection failed: " . $conn->connect_error);
         }  
 
-        $sql = "SELECT * FROM itemData WHERE itemID=$id";
+        $sql = "SELECT * FROM itemData WHERE itemID='$id'";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) > 0) {
@@ -60,7 +60,9 @@
           } else {
             echo "0 results";
           }
+        mysqli_close($conn);
     }
+
     ?> 
 
     <nav class="navbar navbar-expand bg-dark navbar-dark">

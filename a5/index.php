@@ -83,13 +83,6 @@ if (mysqli_query($conn, $sql)) {
 */
 
 mysqli_close($conn);
-
-if (!empty($_GET['info'])){
-    if (isset($_GET['submit'])) {
-            $_SESSION = $_GET;
-            header('Location: infopage.php');
-        }
-    }
 ?>
 
     <nav class="navbar navbar-expand bg-dark navbar-dark">
@@ -185,7 +178,7 @@ if (!empty($_GET['info'])){
                                 echo            '<div style="" class="text-center";>';
                                 echo            'Price:' .$row['itemPrice'];
                                 echo            '</div>';
-                                echo            '<form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="get">';
+                                echo            '<form action="infopage.php '.header('Location: infopage.php').'" method="get">';
                                 echo                '<div class="text-center">';
                                 echo                '<input type="hidden" name="info" value="'.$row['itemID'].'">';
                                 echo                '<button type="submit" class="btn btn-secondary pt-1">More information</button>';
@@ -198,6 +191,7 @@ if (!empty($_GET['info'])){
                           } else {
                             echo "0 results";
                           }
+                          mysqli_close($conn);
                         ?>
                         <!-- CODE FOR CARD 
                         <div class="col">
