@@ -172,8 +172,8 @@ if (!empty($_GET['info'])){
                         if (mysqli_num_rows($result) > 0) {
                             // output data of each row
                             while($row = mysqli_fetch_assoc($result)) {
-                                echo '<div class="col py-2">';
-                                echo    '<div class="card '.$row['itemClass'].'" style="max-width:250px, height: 400px;">';
+                                echo '<div class="item '.$row['itemClass'].' col py-2">';
+                                echo    '<div class="card" style="max-width:250px, height: 400px;">';
     
                                 echo    '<img class="card-img-top" src="data:image/jpg;base64,' . base64_encode($row['itemImage']) . '" />'; ;
     
@@ -183,9 +183,12 @@ if (!empty($_GET['info'])){
                                 echo            '<div style="" class="text-center";>';
                                 echo            'Price:' .$row['itemPrice'];
                                 echo            '</div>';
+                                echo            '<form action="'.header('Location: infopage.php').'" method="get">';
                                 echo                '<div class="text-center">';
-                                echo                    '<button type="button" class="btn btn-secondary pt-1" value="'.$row['itemID'].'">More information</button>';
+                                echo                '<input type="hidden" name="info" value="'.$row['itemID'].'">';
+                                echo                '<button type="submit" class="btn btn-secondary pt-1">More information</button>';
                                 echo                '</div>';
+                                echo            '</form>';
                                 echo        '</div>';
                                 echo    '</div>';
                                 echo'</div>';
@@ -194,7 +197,7 @@ if (!empty($_GET['info'])){
                             echo "0 results";
                           }
                         ?>
-                        <!--CODE FOR CARD
+                        <!-- CODE FOR CARD 
                         <div class="col">
                             <div class="card" style="width:250px">
 
@@ -206,14 +209,18 @@ if (!empty($_GET['info'])){
                                     <div style="color:blue" class="text-center";>
                                     Price: $159.00
                                     </div>
-                                    <div class="text-center">
-                                    <button type="button" class="btn btn-secondary pt-1">More information</button>
-                                    </div>
+                                    <form action="header('Location: infopage.php')" method="get">
+                                        <div class="text-center">
+                                            <input type="hidden" name="info" value="">
+                                            <button type="submit" name="info" class="btn btn-secondary pt-1">More information</button>
+                                        </div>
+                                    </form>
                                 </div>
 
                             </div>
-                        </div> 
-                        -->
+                        </div>
+                        --> 
+                        
                     </div>
                     <br>
                     <div>
