@@ -82,6 +82,12 @@ if (mysqli_query($conn, $sql)) {
 */
 
 mysqli_close($conn);
+
+if (!empty($_GET['info'])){
+    if (isset($_GET['submit'])) {
+            header('Location: infopage.php');
+        }
+    }
 ?>
 
     <nav class="navbar navbar-expand bg-dark navbar-dark">
