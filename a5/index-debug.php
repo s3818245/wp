@@ -84,12 +84,12 @@ if (mysqli_query($conn, $sql)) {
 
 mysqli_close($conn);
 
-if (!empty($_GET['info'])){
-    if (isset($_GET['submit'])) {
-            $_SESSION = $_GET;
-            preShow($_GET);
+if (!empty($_POST['info'])){
+    if (isset($_POST['submit'])) {
+            $_SESSION = $_POST;
+            preShow($_POST);
             preShow($_SESSION);
-            header('Location: infopage.php');
+            header('Location: infopage-debug.php');
         }
     }
 ?>
@@ -188,7 +188,7 @@ if (!empty($_GET['info'])){
                                 echo            '<div style="" class="text-center";>';
                                 echo            'Price:' .$row['itemPrice'];
                                 echo            '</div>';
-                                echo            '<form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="get">';
+                                echo            '<form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">';
                                 echo                '<div class="text-center">';
                                 echo                '<input type="hidden" name="info" value="'.$row['itemID'].'">';
                                 echo                '<button type="submit" class="btn btn-secondary pt-1">More information</button>';
