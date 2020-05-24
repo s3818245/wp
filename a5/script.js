@@ -3,16 +3,16 @@ document.querySelectorAll(".category").forEach(
         item.addEventListener("click", function () {
             var filter = this.value
             if (filter != "") {
-                document.querySelectorAll(".card ").forEach(item => {
+                document.querySelectorAll(".item ").forEach(item => {
                     item.removeAttribute("hidden")
-                    if (item.className != ("card " + filter)) {
+                    if (item.className != ("item " + filter + " col py-2")) {
                         item.setAttribute("hidden", true)
                     }
                 }
                 )
             }
             else {
-                document.querySelectorAll(".card ").forEach(item => {
+                document.querySelectorAll(".item ").forEach(item => {
                     item.removeAttribute("hidden")
                 }
                 )

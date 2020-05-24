@@ -36,17 +36,19 @@
     if (!empty($_SESSION)){
         $id = $_SESSION['info'];
 
-        $servername = "sql307.epizy.com";
-        // $port= 8889;
-        $username = "epiz_25832353";
-        $password = "3IEhY1FThCdC7g4";
-        $dbname = "epiz_25832353_itemData";
+        session_start();
+        $servername = "localhost";
+        $port= 8889;
+        $username = "root";
+        $password = "root";
+        $dbname = "myDB";
+                    
         //create connection 
-        $conn = new mysqli($servername, $username, $password, $dbname);
+        $conn = new mysqli("$servername:$port", $username, $password, $dbname);
         // Check connection
         if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }  
+        die("Connection failed: " . $conn->connect_error);
+        }   
 
         $sql = "SELECT * FROM itemData WHERE itemID=$id";
         $result = mysqli_query($conn, $sql);

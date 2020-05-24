@@ -32,14 +32,14 @@
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 <?php
 session_start();
-    $servername = "sql307.epizy.com";
-    // $port= 8889;
-    $username = "epiz_25832353";
-    $password = "3IEhY1FThCdC7g4";
-    $dbname = "epiz_25832353_itemData";
+    $servername = "localhost";
+    $port= 8889;
+    $username = "root";
+    $password = "root";
+    $dbname = "myDB";
 
     //create connection 
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli("$servername:$port", $username, $password, $dbname);
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -87,6 +87,8 @@ mysqli_close($conn);
 if (!empty($_GET['info'])){
     if (isset($_GET['submit'])) {
             $_SESSION = $_GET;
+            preShow($_GET);
+            preShow($_SESSION);
             header('Location: infopage.php');
         }
     }
@@ -155,18 +157,19 @@ if (!empty($_GET['info'])){
                     <div class="row row-cols-md-3 row-cols-1">
                         <?php
                         
-                            $servername = "sql307.epizy.com";
-                            // $port= 8889;
-                            $username = "epiz_25832353";
-                            $password = "3IEhY1FThCdC7g4";
-                            $dbname = "epiz_25832353_itemData";
-
-                            //create connection 
-                            $conn = new mysqli($servername, $username, $password, $dbname);
-                            // Check connection
-                             if ($conn->connect_error) {
+                        session_start();
+                        $servername = "localhost";
+                        $port= 8889;
+                        $username = "root";
+                        $password = "root";
+                        $dbname = "myDB";
+                    
+                        //create connection 
+                        $conn = new mysqli("$servername:$port", $username, $password, $dbname);
+                        // Check connection
+                        if ($conn->connect_error) {
                             die("Connection failed: " . $conn->connect_error);
-                                }  
+                        } 
 
                         $sql = "SELECT * FROM itemData";
                         $result = mysqli_query($conn, $sql);
