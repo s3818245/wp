@@ -61,9 +61,23 @@
                         <thead class="thead-light">
                             <tr>
                                 <th>Item</th>
-                                <th>Prince</th>
+                                <th>Price</th>
                                 <th>Quantity</th>
                                 <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <thead class="thead">
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th>
+                                    <button type="button" class="" onclick="minus('item');">
+                                    <span class="glyphicon glyphicon-minus-sign"></span> - </button>
+                                    <input type=text id='item-qty'>
+                                    <button type="button" class="" onclick="plus('item');">
+                                    <span class="glyphicon glyphicon-plus-sign"></span> + </button>
+                                </th>
+                                <th>$<span id='p1-subtotal'></span> </th>
                             </tr>
                         </thead>
                     </table>
