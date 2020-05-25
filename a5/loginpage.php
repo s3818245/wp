@@ -37,17 +37,17 @@
                 <form action="" method="POST" name="login_form">
                     <div class="form-group">
                         <label for="username">Username:</label>
-                        <input type="text" class="Input form-control" name="username" id="username" placeholder="Username/Email/Mobile phone">
+                        <input type="text" class="Input form-control" id="username" placeholder="Username/Email/Mobile phone">
                     </div>
                     <br>
                     <div class="form-group">
                         <label for="password">Password::</label>
-                        <input type="password" class="Input form-control" name="password" id="password" placeholder="Password">
+                        <input type="password" class="Input form-control" id="password" placeholder="Password">
                     </div>
                     <br>
                     <div class="float-right">
                         <button type="submit" class="" name="" value="">Cancel</button>
-                        <button class="" type="submit" value="Submit">Log in</button>
+                        <button class="form-group" type="submit" value="Submit">Log in</button>
                     </div>
                 </form>
             </div>
