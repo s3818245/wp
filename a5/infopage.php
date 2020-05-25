@@ -14,7 +14,6 @@
 
 
     <script defer src="script.js"></script>
-    <script src='wireframe.js'></script>
     <script src="style.css"></script>
 
     <!-- Latest compiled and minified CSS -->
@@ -33,8 +32,8 @@
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
     <?php
     session_start();
-    if (!empty($_SESSION)){
-        $id = $_SESSION['info'];
+    if (!empty($_GET)){
+        $id = $_GET['info'];
 
         $servername = "sql307.epizy.com";
         // $port= 8889;
@@ -60,9 +59,7 @@
           } else {
             echo "0 results";
           }
-        mysqli_close($conn);
     }
-
     ?> 
 
     <nav class="navbar navbar-expand bg-dark navbar-dark">
@@ -90,38 +87,15 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-5 col-12">
-                    <div class="col-12">Image here</div>
-                    <div class="col-12">(controlable carousel)
-                        <div id="productImage" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img class="d-block w-100" src="..." alt="First slide">More pic?
-                                    <?php
-                                    echo $itemImage;
-                                    ?>
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="..." alt="Second slide">More pic?
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="..." alt="Third slide">More pic?
-                                </div>
-                            </div>
-                            <a class="carousel-control-prev" href="#productImage" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#productImage" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
+                    <div class="col-12">
+                        <?php
+                            echo $itemImage;
+                        ?>
                     </div>
                 </div>
                 <div class="col-md-7 col-12">
                     <div class="col-12">
-                        <h1>Product name</h1>
-                        <?php echo $itemName;?>
+                        <h1><?php echo $itemName;?></h1>
                     </div>
                     <hr>
                     <div class="col-12">
@@ -129,7 +103,7 @@
                     </div>
                     <br>
                     <div class="col-12">
-                        price
+                        Price: $
                         <?php echo $itemPrice;?>
                     </div>
                     <br>
@@ -138,17 +112,7 @@
                     </div>
                     <br>
                     <div class="col-12">
-                        <?php echo $itemDescription;?>
-
-                        Description: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae eius dolorem
-                        officia amet laboriosam nam, error perferendis unde minima dolores et autem libero veritatis
-                        pariatur beatae facere hic harum. Repellat harum, suscipit neque sed, quae adipisci voluptates
-                        sapiente, consequuntur nam obcaecati eos dolor voluptatibus ipsa hic repudiandae. Dolorum
-                        adipisci aliquam quasi tempora magnam nemo quo reiciendis ad dolor assumenda ut suscipit
-                        molestias, a molestiae nobis voluptate repellendus aperiam ab perferendis odit hic, maxime eius
-                        reprehenderit! Molestias maiores vero accusamus praesentium ipsum quidem distinctio doloribus
-                        recusandae voluptatibus totam omnis, quod, error animi placeat voluptate fugiat qui deleniti
-                        culpa soluta magni iure.
+                        Description: <?php echo $itemDescription;?>
                     </div>
                     <hr>
                     <div class="col-12">
@@ -212,6 +176,7 @@
             </div>
         </div>
     </main>
+    <?php mysqli_close($conn); ?>
 
 </body>
 

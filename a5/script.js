@@ -5,7 +5,7 @@ document.querySelectorAll(".category").forEach(
             if (filter != "") {
                 document.querySelectorAll(".item ").forEach(item => {
                     item.removeAttribute("hidden")
-                    if (item.className != ("item " + filter + " col py-2")) {
+                    if (item.className != ("item " + filter + " col py-2 d-flex align-items-stretch")) {
                         item.setAttribute("hidden", true)
                     }
                 }
@@ -26,10 +26,10 @@ function plus(whichID, price){
     var whichQty = document.getElementById(whichID + "-qty");
     var whichSubtotal = document.getElementById(whichID + "-subtotal");
     whichQty.value = Number(whichQty.value) + 1;
-    var newSubtotal = whichQty*price
+    var newSubtotal = (whichQty.value)*price
     console.log(whichQty.getAttribute("name") + ' quantity is ' + whichQty.value);
     console.log(whichSubtotal.getAttribute("name") + ' is:$ ' + newSubtotal);
-    whichSubtotal.innerHTML = "Total: " + newSubtotal.toFixed(2);
+    whichSubtotal.innerHTML = newSubtotal.toFixed(2);
 }
 
 function minus(whichID, price){
@@ -38,10 +38,10 @@ function minus(whichID, price){
     if (whichQty.value > 0){
         whichQty.value = Number(whichQty.value) -1;
     }
-    var newSubtotal = whichQty*price
+    var newSubtotal = (whichQty.value)*price
     console.log(whichQty.getAttribute("name") + ' quantity is ' + whichQty.value);
     console.log(whichSubtotal.getAttribute("name") + ' is:$ ' + newSubtotal);
-    whichSubtotal.innerHTML = "Total: " + newSubtotal.toFixed(2);
+    whichSubtotal.innerHTML = newSubtotal.toFixed(2);
 }
 
 function updateQuantity(whichID, price) {
@@ -54,8 +54,8 @@ function updateQuantity(whichID, price) {
         alert('Wrong quantity');
         return;
     } 
-    var newSubtotal = whichQty.value * price;
+    var newSubtotal = (whichQty.value) * price;
     console.log(whichQty.getAttribute("name") + ' quantity is ' + whichQty.value);
     console.log(whichSubtotal.getAttribute("name") + ' is:$ ' + newSubtotal);
-    whichSubtotal.innerHTML = "Total: " + newSubtotal.toFixed(2);
+    whichSubtotal.innerHTML = newSubtotal.toFixed(2);
 }

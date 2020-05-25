@@ -145,7 +145,7 @@ mysqli_close($conn);
                 </div>
                 <!-- ITEM LIST -->
                 <div class="col-9">ITEM LIST
-                    <div class="row row-cols-md-3 row-cols-1">
+                    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1">
                         <?php
                         
                             $servername = "sql307.epizy.com";
@@ -167,7 +167,7 @@ mysqli_close($conn);
                         if (mysqli_num_rows($result) > 0) {
                             // output data of each row
                             while($row = mysqli_fetch_assoc($result)) {
-                                echo '<div class="item '.$row['itemClass'].' col py-2">';
+                                echo '<div class="item '.$row['itemClass'].' col py-2 d-flex align-items-stretch">';
                                 echo    '<div class="card" style="max-width:250px, height: 400px;">';
     
                                 echo    '<img class="card-img-top" src="data:image/jpg;base64,' . base64_encode($row['itemImage']) . '" />'; ;
@@ -176,7 +176,7 @@ mysqli_close($conn);
                                 echo            '<h4 class="card-title">' .$row['itemName'].  '</h4>';
                                 echo            '<p class="card-text"></p>';
                                 echo            '<div style="" class="text-center";>';
-                                echo            'Price:' .$row['itemPrice'];
+                                echo            'Price: $' .$row['itemPrice'];
                                 echo            '</div>';
                                 echo            '<form action="infopage.php '.header('Location: infopage.php').'" method="get">';
                                 echo                '<div class="text-center">';
