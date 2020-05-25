@@ -100,8 +100,7 @@
                     </div>
                     <hr>
                     <div class="col-12">
-                        Price: $
-                        <?php echo $itemPrice;?>
+                        Price: $<?php echo $itemPrice;?>
                     </div>
                     <br>
                     <div class="availability col-12">
@@ -109,8 +108,10 @@
                     </div>
                     <br>
                     <div class="col-12">
-                        Description: <?php echo $itemDescription;?>
+                        Category: 
+                        <?php echo $itemClass?>
                     </div>
+                    <br>
                     <hr>
                     <div class="col-12">
                         <div class="row">
@@ -118,11 +119,11 @@
                         </div>
                     </div>
                     <hr>
-                    <br>
                     <div class="col-12">
-                        Category: 
-                        <?php echo $itemClass?>
-                    </div>
+                        Description:
+                        <div class="description"> <?php echo $itemDescription;?>
+                        </div>
+                    </div>    
                 </div>
             </div>
             <br>
