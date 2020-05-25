@@ -56,6 +56,7 @@
             $itemPrice = $row['itemPrice'];
             $itemImage = '<img class="card-img-top" src="data:image/jpg;base64,' . base64_encode($row['itemImage']) . '" />';
             $itemDescription = $row['itemDescription'];
+            $itemClass = $row['itemClass'];
           } else {
             echo "0 results";
           }
@@ -99,16 +100,12 @@
                     </div>
                     <hr>
                     <div class="col-12">
-                        Rating?
-                    </div>
-                    <br>
-                    <div class="col-12">
                         Price: $
                         <?php echo $itemPrice;?>
                     </div>
                     <br>
-                    <div class="col-12">
-                        Product avaibility?
+                    <div class="availability col-12">
+                        In stock
                     </div>
                     <br>
                     <div class="col-12">
@@ -117,33 +114,18 @@
                     <hr>
                     <div class="col-12">
                         <div class="row">
-                            <div class="col-3">Qty: input</div>
                             <div class="col-7"><Button>Add to cart</Button></div>
                         </div>
                     </div>
                     <hr>
-                    <div class="col-12">
-                        Wishlist if u want to?
-                    </div>
                     <br>
                     <div class="col-12">
-                        category?
+                        Category: 
+                        <?php echo $itemClass?>
                     </div>
                 </div>
             </div>
             <br>
-            <div class="row">
-                <div class="col-12">
-                    <h3>Review (number)</h3>
-                </div>
-                <div class="col-12">
-                    Review des: Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae iure
-                    blanditiis inventore similique esse quidem ex dicta, saepe quibusdam eveniet rerum, officia
-                    veritatis fugiat voluptate ut repellendus tempore enim quae ab alias ratione maxime officiis. Minima
-                    eveniet asperiores in, corrupti delectus nesciunt nam modi, debitis nemo vero illo, impedit
-                    molestias.
-                </div>
-            </div>
             <br>
             <div class="row">
                 <div class="col-12">
