@@ -65,25 +65,61 @@
     }
     ?> 
 
-    <nav class="navbar navbar-expand bg-dark navbar-dark">
-        <a class="navbar-brand">Logo</a>
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link justified-content-right" href="#one">sth</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link justified-content-right" href="#two">sth</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link justified-content-right" href="#three">sth</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link justified-content-right" href="#four">sth</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link justified-content-right" href="#five">sth</a>
-            </li>
-        </ul>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="navbar-collapse w-100 order-1 order-md-0 dual-collapse2">
+            <a class="navbar-brand">Logo</a>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link justified-content-right" href="#Home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link justified-content-right" href="#two">sth2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link justified-content-right" href="#three">sth3</a>
+                </li>
+            </ul>
+        </div>
+        <div class="mx-auto order-0">
+        </div>
+        <div class="navbar-collapse w-100 order-1 dual-collapse2">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link justified-content-right" href="#wishlist">
+                        <svg class="bi bi-star" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
+                        </svg> Wish list</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link justified-content-right" href="#checkout">
+                        <svg class="bi bi-check-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                            <path fill-rule="evenodd"
+                                d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z" />
+                        </svg> Check Out</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link justified-content-right" href="#cart">
+                        <svg class="bi bi-cart3" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                        </svg> Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link justified-content-right" href="#login">
+                        <svg class="bi bi-lock" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                        </svg> Login</a>
+                </li>
+            </ul>
+        </div>
     </nav>
 
     <main class="main section">
