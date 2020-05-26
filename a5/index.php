@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +21,7 @@
 
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+    
     <!-- Popper JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
@@ -31,23 +30,23 @@
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
-    <?php
-    session_start();
-    $servername = "localhost";
-    $port = 8889;
-    $username = "root";
-    $password = "root";
-    $dbname = "myDB";
+<?php
+session_start();
+    $servername = "sql307.epizy.com";
+    // $port= 8889;
+    $username = "epiz_25832353";
+    $password = "3IEhY1FThCdC7g4";
+    $dbname = "epiz_25832353_itemData";
 
     //create connection 
-    $conn = new mysqli("$servername:$port", $username, $password, $dbname);
+    $conn = new mysqli($servername, $username, $password, $dbname);
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
-    }
+    } 
 
-    // SECTION FOR CREATING DATABASE AND TABLE
-    /*    // Create table 
+// SECTION FOR CREATING DATABASE AND TABLE
+/*    // Create table 
 $sql = "CREATE TABLE itemData (
     itemName VARCHAR(100),
     itemID VARCHAR(100),
@@ -63,8 +62,8 @@ echo "<p>Error creating table: </p>" . mysqli_error($conn);
 } 
 */
 
-    //Failed code
-    /*$sql = "INSERT INTO itemData VALUES('Apple Airpods Pro', 'airpods-pro', 'apple in-ear', 'This is', '$100',";
+//Failed code
+/*$sql = "INSERT INTO itemData VALUES('Apple Airpods Pro', 'airpods-pro', 'apple in-ear', 'This is', '$100',";
 $sql = "INSERT INTO itemData VALUES('Apple Airpods', 'airpods', 'apple in-ear', 'This is ', '$100', 'airpods.jpg');";
 $sql = "INSERT INTO itemData VALUES('Beats Solo 3', 'beats-solo-3', 'beats on-ear', 'This is ', '$100', 'beats-solo-3.jpg');";
 $sql = "INSERT INTO itemData VALUES('Beats Solo', 'beats-solo', 'beats on-ear', 'This is ', '$100', 'beats-solo.jpg');";
@@ -83,21 +82,21 @@ if (mysqli_query($conn, $sql)) {
     } 
 */
 
-    mysqli_close($conn);
-    ?>
+mysqli_close($conn);
+?>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="navbar-collapse w-100 order-1 order-md-0 dual-collapse2">
             <a class="navbar-brand">Logo</a>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#Home">Home</a>
+                    <a class="nav-link justified-content-right" href="#Home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#two">sth2</a>
+                    <a class="nav-link justified-content-right" href="#two">sth2</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#three">sth3</a>
+                    <a class="nav-link justified-content-right" href="#three">sth3</a>
                 </li>
             </ul>
         </div>
@@ -136,19 +135,19 @@ if (mysqli_query($conn, $sql)) {
 
 
     <main class="main section">
-        <div class="container-fluid" id="Home">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
                     <div id="carouselMain" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img class="d-block w-100" src="..." alt="First slide">
+                                <img class="d-block w-100" src="Photos/index-carousel-1.jpg" alt="First slide">
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100" src="..." alt="Second slide">
+                                <img class="d-block w-100" src="Photos/index-carousel-2.jpg" alt="Second slide">
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100" src="..." alt="Third slide">
+                                <img class="d-block w-100" src="Photos/index-carousel-3.jpg" alt="Third slide">
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#carouselMain" role="button" data-slide="prev">
@@ -165,61 +164,82 @@ if (mysqli_query($conn, $sql)) {
             <div class="row justify-content-around">
                 <div class="col-3">CATEGORY
                     <nav class="nav flex-column">
-                        <button class="category nav-link" value="">All items</button>
-                        <button class="category nav-link" value="in-ear">in-ear headphones</button>
-                        <button class="category nav-link" value="over-ear">Over-ear headphones</button>
-                        <button class="category nav-link" value="on-ear">On-ear headphones</button>
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>#item-list" method="get">
+                        <input type="hidden" name="category" value="">
+                        <button type="submit"  class="nav-link">All items</button>
+                        </form>
+
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>#item-list" method="get">
+                        <input type="hidden" name="category" value="in-ear">
+                        <button type="submit" class="nav-link">In-ear headphones</button>
+                        </form>
+
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>#item-list" method="get">
+                        <input type="hidden" name="category" value="on-ear">
+                        <button type="submit" class="nav-link">On-ear headphones</button>
+                        </form>
+
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>#item-list" method="get">
+                        <input type="hidden" name="category" value="over-ear">
+                        <button type="submit" class="nav-link">Over-ear headphones</button>
+                        </form>  
                     </nav>
                 </div>
                 <!-- ITEM LIST -->
-                <div class="col-9">ITEM LIST
-                    <div class="row row-cols-md-3 row-cols-1">
+                <div class="col-9" id="item-list">ITEM LIST
+                    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1">
                         <?php
+                        
+                            $servername = "sql307.epizy.com";
+                            // $port= 8889;
+                            $username = "epiz_25832353";
+                            $password = "3IEhY1FThCdC7g4";
+                            $dbname = "epiz_25832353_itemData";
 
-                        session_start();
-                        $servername = "localhost";
-                        $port = 8889;
-                        $username = "root";
-                        $password = "root";
-                        $dbname = "myDB";
-
-                        //create connection 
-                        $conn = new mysqli("$servername:$port", $username, $password, $dbname);
-                        // Check connection
-                        if ($conn->connect_error) {
+                            //create connection 
+                            $conn = new mysqli($servername, $username, $password, $dbname);
+                            // Check connection
+                             if ($conn->connect_error) {
                             die("Connection failed: " . $conn->connect_error);
+                                }  
+                        if (!empty($_GET['category'])){
+                            $category = $_GET['category'];
+                            $sql = "SELECT * FROM itemData WHERE itemClass='$category'";
                         }
-
-                        $sql = "SELECT * FROM itemData";
+                        else{
+                            $sql = "SELECT * FROM itemData";
+                        }
                         $result = mysqli_query($conn, $sql);
 
+                        
                         if (mysqli_num_rows($result) > 0) {
                             // output data of each row
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                echo '<div class="item ' . $row['itemClass'] . ' col py-2">';
+                            while($row = mysqli_fetch_assoc($result)) {
+                                echo '<div class="col py-2 d-flex align-items-stretch">';
                                 echo    '<div class="card" style="max-width:250px, height: 400px;">';
-
-                                echo    '<img class="card-img-top" src="data:image/jpg;base64,' . base64_encode($row['itemImage']) . '" />';;
-
+    
+                                echo    '<img class="card-img-top" src="data:image/jpg;base64,' . base64_encode($row['itemImage']) . '" />'; ;
+    
                                 echo        '<div class="card-body text-center">';
-                                echo            '<h4 class="card-title">' . $row['itemName'] .  '</h4>';
+                                echo            '<h4 class="card-title">' .$row['itemName'].  '</h4>';
                                 echo            '<p class="card-text"></p>';
                                 echo            '<div style="" class="text-center";>';
-                                echo            'Price:' . $row['itemPrice'];
+                                echo            'Price: $' .$row['itemPrice'];
                                 echo            '</div>';
-                                echo            '<form action="infopage-debug.php ' . header('Location: infopage-debug.php') . '" method="get">';
+                                echo            '<form action="infopage.php '.header('Location: infopage.php').'" method="get">';
                                 echo                '<div class="text-center">';
-                                echo                '<input type="hidden" name="info" value="' . $row['itemID'] . '">';
+                                echo                '<input type="hidden" name="info" value="'.$row['itemID'].'">';
                                 echo                '<button type="submit" class="btn btn-secondary pt-1">More information</button>';
                                 echo                '</div>';
                                 echo            '</form>';
                                 echo        '</div>';
                                 echo    '</div>';
-                                echo '</div>';
+                                echo'</div>';
                             }
-                        } else {
+                          } else {
                             echo "0 results";
-                        }
+                          }
+                          mysqli_close($conn);
                         ?>
                         <!-- CODE FOR CARD 
                         <div class="col">
@@ -243,8 +263,8 @@ if (mysqli_query($conn, $sql)) {
 
                             </div>
                         </div>
-                        -->
-
+                        --> 
+                        
                     </div>
                     <br>
                     <div>
