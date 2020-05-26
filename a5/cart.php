@@ -104,7 +104,7 @@
                                 <th>Subtotal</th>
                             </tr>
                         </thead>
-                        <tbody class="thead">
+                         <!--<tbody class="thead">
                             <tr>
                                 <th></th>
                                 <th></th>
@@ -117,7 +117,7 @@
                                 </th>
                                 <th>$<span id='p1-subtotal'></span> </th>
                             </tr>
-                        </tbody>
+                        </tbody>-->
                         <?php
                             
                             $servername = "sql307.epizy.com";
@@ -144,10 +144,10 @@
                                     <th>'.$row['itemName'].'</th>
                                     <th> $'.$row['itemPrice'].'</th>
                                     <th>
-                                        <button type="button" class="" onclick="minus("'.$row['itemID'].'", "'.$row['itemPrice'].'");">
+                                        <button type="button" class="" onclick="minus(\''.$row['itemID'].'\', '.$row['itemPrice'].');">
                                         <span class="glyphicon glyphicon-minus-sign"></span> - </button>
-                                        <input type=text id="'.$row['itemID'].'-qty" onchange="updateQuantity(\''.$row['itemID'].'\', '.$row['itemPrice'].')">
-                                        <button type="button" class="" onclick="plus("'.$row['itemID'].'", "'.$row['itemPrice'].'");">
+                                        <input type=text id="'.$row['itemID'].'-qty" onchange="updateQuantity(\''.$row['itemID'].'\', '.$row['itemPrice'].')" value="1">
+                                        <button type="button" class="" onclick="plus(\''.$row['itemID'].'\', '.$row['itemPrice'].');">
                                         <span class="glyphicon glyphicon-plus-sign"></span> + </button>
                                     </th>
                                     <th>$<span id="'.$row['itemID'].'-subtotal"></span> </th>
