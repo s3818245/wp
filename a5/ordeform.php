@@ -36,7 +36,7 @@
             <a class="navbar-brand">Logo</a>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#two">sth2</a>
@@ -51,7 +51,7 @@
         <div class="navbar-collapse w-100 order-1 dual-collapse2">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="wishlist.html">
+                    <a class="nav-link" href="wishlist.php">
                         <svg class="bi bi-star" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -59,7 +59,7 @@
                         </svg> Wish list</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="orderform.html">
+                    <a class="nav-link active" href="orderform.php">
                         <svg class="bi bi-check-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -69,7 +69,7 @@
                         </svg> Check Out</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="cart.html">
+                    <a class="nav-link" href="cart.php">
                         <svg class="bi bi-cart3" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -77,7 +77,7 @@
                         </svg> Cart</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="loginpage.html">
+                    <a class="nav-link" href="loginpage.php">
                         <svg class="bi bi-lock" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
