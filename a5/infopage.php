@@ -142,7 +142,11 @@
                     <hr>
                     <div class="col-12">
                         <div class="row">
-                            <div class="col-7"><Button>Add to cart</Button></div>
+                            <div class="col-7">
+                                <form action="cart.php<?php header('Location: cart.php');?>" method="post">
+                                    <button type="submit" name="productName" value="<?php echo $id;?>">Add to cart</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                     <hr>

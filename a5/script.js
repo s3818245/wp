@@ -1,25 +1,4 @@
-document.querySelectorAll(".category").forEach(
-    item => {
-        item.addEventListener("click", function () {
-            var filter = this.value
-            if (filter != "") {
-                document.querySelectorAll(".item ").forEach(item => {
-                    item.removeAttribute("hidden")
-                    if (item.className != ("item " + filter + " col py-2 d-flex align-items-stretch")) {
-                        item.setAttribute("hidden", true)
-                    }
-                }
-                )
-            }
-            else {
-                document.querySelectorAll(".item ").forEach(item => {
-                    item.removeAttribute("hidden")
-                }
-                )
-            }
-        })
-    }
-)
+
 
 // Update Quantity + price
 function plus(whichID, price){

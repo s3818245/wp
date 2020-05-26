@@ -30,19 +30,30 @@
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
-
+<?php
+    include 'tools.php';
+    session_start();
+    if(!empty($_POST)){
+        preShow($_POST);
+        $itemID = $_POST['productName'];
+        if($_SESSION['cart'][$itemID]!= 'added'){
+            $_SESSION['cart'][$itemID] = 'added';
+        }
+        preShow($_SESSION);
+    }
+?>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="navbar-collapse w-100 order-1 order-md-0 dual-collapse2">
             <a class="navbar-brand">Logo</a>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link justified-content-right" href="#Home">Home</a>
+                    <a class="nav-link" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link justified-content-right" href="#two">sth2</a>
+                    <a class="nav-link" href="#two">sth2</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link justified-content-right" href="#three">sth3</a>
+                    <a class="nav-link" href="#three">sth3</a>
                 </li>
             </ul>
         </div>
@@ -108,7 +119,7 @@
                             </tr>
                         </tbody>
                         <?php
-                        
+                            
                             $servername = "sql307.epizy.com";
                             // $port= 8889;
                             $username = "epiz_25832353";
@@ -121,8 +132,8 @@
                              if ($conn->connect_error) {
                             die("Connection failed: " . $conn->connect_error);
                                 }  
-
-                        $sql = "SELECT * FROM itemData";
+                        foreach ($_SESSION['cart'] as $key => $value){
+                        $sql = "SELECT * FROM itemData WHERE itemID='$key'";
                         $result = mysqli_query($conn, $sql);
                         
                         if (mysqli_num_rows($result) > 0) {
@@ -145,6 +156,7 @@
                             }
                           } else {
                             echo "0 results";
+                          }
                           }
                           mysqli_close($conn);
                         ?>
