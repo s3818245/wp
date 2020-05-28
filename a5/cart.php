@@ -156,7 +156,7 @@
                                         <button type="button" class="" onclick="plus(\''.$row['itemID'].'\', '.$row['itemPrice'].');">
                                         <span class="glyphicon glyphicon-plus-sign"></span> + </button>
                                     </th>
-                                    <th>$<span class="subtotal" id="'.$row['itemID'].'-subtotal" value="'.$row['itemPrice'].'">'.$row['itemPrice'].'</span>     
+                                    <th>$<span class="subtotal" id="'.$row['itemID'].'-subtotal" value="'.$row['itemPrice'].'" onchange="itemTotal();">'.$row['itemPrice'].'</span>     
                                         <form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">
                                             <button type="submit" name="delete" value="'.$row['itemID'].'"> Delete </button>
                                         </form>
@@ -174,7 +174,7 @@
                     </table>
                     <div class="float-right">
                         <h4>
-                        Product Total: $
+                        Product Total: $ <span id="producttotal"><?php echo $itemTotal;?></span>
                         </h4>
                     </div>
                     <div class="col-12 d-flex justify-content-end">

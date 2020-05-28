@@ -21,6 +21,7 @@ function minus(whichID, price){
     console.log(whichQty.getAttribute("name") + ' quantity is ' + whichQty.value);
     console.log(whichSubtotal.getAttribute("name") + ' is:$ ' + newSubtotal);
     whichSubtotal.innerHTML = newSubtotal.toFixed(2);
+    whichSubtotal.value = newSubtotal.toFixed(2);
 }
 
 function updateQuantity(whichID, price) {
@@ -37,4 +38,13 @@ function updateQuantity(whichID, price) {
     console.log(whichQty.getAttribute("name") + ' quantity is ' + whichQty.value);
     console.log(whichSubtotal.getAttribute("name") + ' is:$ ' + newSubtotal);
     whichSubtotal.innerHTML = newSubtotal.toFixed(2);
+    whichSubtotal.value = newSubtotal.toFixed(2);
+}
+
+function itemTotal(){
+    var itemTotal = 0
+    document.querySelectorAll(".subtotal").forEach(item =>{
+        itemTotal += item.value
+    }
+    )
 }
