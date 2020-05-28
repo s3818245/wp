@@ -14,7 +14,7 @@ function plus(whichID, price){
 function minus(whichID, price){
     var whichQty = document.getElementById(whichID+"-qty");
     var whichSubtotal = document.getElementById(whichID+"-subtotal");
-    if (whichQty.value > 0){
+    if (whichQty.value > 1){
         whichQty.value = Number(whichQty.value) -1;
     }
     var newSubtotal = (whichQty.value)*price

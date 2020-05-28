@@ -36,6 +36,10 @@
     if(!empty($_POST)){
         preShow($_POST);
         $itemID = $_POST['productName'];
+        $deleteID = $_POST['delete'];
+        if (!empty($_SESSION['cart'][$deleteID])){
+            unset($_SESSION['cart'][$deleteID]);
+        }
         if($_SESSION['cart'][$itemID]!= 'added'){
             $_SESSION['cart'][$itemID] = 'added';
         }
@@ -126,6 +130,8 @@
                             $password = "3IEhY1FThCdC7g4";
                             $dbname = "epiz_25832353_itemData";
 
+                            $itemTotal = 0;
+
                             //create connection 
                             $conn = new mysqli($servername, $username, $password, $dbname);
                             // Check connection
@@ -150,9 +156,14 @@
                                         <button type="button" class="" onclick="plus(\''.$row['itemID'].'\', '.$row['itemPrice'].');">
                                         <span class="glyphicon glyphicon-plus-sign"></span> + </button>
                                     </th>
-                                    <th>$<span id="'.$row['itemID'].'-subtotal"></span> </th>
+                                    <th>$<span class="subtotal" id="'.$row['itemID'].'-subtotal" value="'.$row['itemPrice'].'">'.$row['itemPrice'].'</span>     
+                                        <form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">
+                                            <button type="submit" name="delete" value="'.$row['itemID'].'"> Delete </button>
+                                        </form>
+                                    </th>
                                 </tr>
                                 </tbody>';
+                                $itemTotal += $row['itemPrice'] ;
                             }
                           } else {
                             echo "0 results";
@@ -177,7 +188,7 @@
                         <div class="col-12">
                             <div class="row">
                                 <div class="col-6">Product total:</div>
-                                <div class="col-6" id="product-total" value="0">$</div>
+                                <div class="col-6" id="product-total" value="<?php echo $itemTotal;?>">$ <?php echo $itemTotal;?></div>
                             </div>
                         </div>
                         <div class="col-12">
