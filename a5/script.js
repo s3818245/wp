@@ -45,6 +45,10 @@ function itemTotal(){
     var itemTotal = 0
     document.querySelectorAll(".subtotal").forEach(item =>{
         itemTotal += item.value
+        console.log(item.value);
+        document.getElementById("product-total").innerHTML = itemTotal;
+        document.getElementById("producttotal").innerHTML = itemTotal;
+        document.getElementById("product-total").value = itemTotal;
     }
     )
 }
