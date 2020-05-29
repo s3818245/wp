@@ -34,6 +34,8 @@
     session_start();
     include 'tools.php';
 
+    $login = array('admin1' => 'nghiepquatsapmat', 'admin2' => 'nlgiaidoancuoi');
+
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($_POST["username"])) {
             $usernameErr = "* Username is required";
@@ -44,10 +46,42 @@
             $passwordErr = "* Password is required";
             $errorFound++;
         }
+
+        if ($errorFound == 0) {
+            $_SESSION['userdata'] = $_POST;
+            $nowdate = date('l d/m/Y');
+            $nowtime = date('H:i');
+            $_SESSION['date'] = $nowdate;
+            $_SESSION['time'] = $nowtime;
+            if (!empty($_SESSION)) {
+                $bookingFile = fopen("booking.csv", "a");
+                $data = array_merge(
+                    [$nowdate],
+                    [$nowtime],
+                    (array) $_SESSION["userdata"]
+                );
+                fputcsv($bookingFile, $data);
+                fclose($bookingFile);
+            }
+        }
     }
 
-    $login = array('admin1' => 'nghiepquatsapmat', 'admin2' => 'nlgiaidoancuoi');
+    if (isset($_POST["login"])) {
+
+        $username = isset($_POST["username"]) ? $_POST["username"] : "";
+        $password = isset($_POST["password"]) ? $_POST["password"] : "";
+
+        if (isset($login[$username]) && $login[$username] == $password) {
+            $_SESSION['userdata']['username'] = $username;
+            header("location: testadminlogin.php");
+            exit;
+        } else {
+            $err_mes = "* Invalid Login Details";
+        };
+    };
+    preShow($_POST);
     ?>
+
     <div class="container login_con">
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col-md-6 col-12 my-auto" style="border: 1px black solid;">
@@ -55,14 +89,17 @@
                 <form action="" method="post" name="login_form">
                     <div class="form-group">
                         <label for="username">Username:</label>
-                        <input type="text" class="Input form-control" id="username" placeholder="Username/Email/Mobile phone">
+                        <input type="text" class="Input form-control" id="username" name="username" placeholder="Username/Email/Mobile phone">
+                        <span class="error" style="color: red;"><?php echo $usernameErr; ?></span>
                     </div>
                     <div class="form-group">
                         <label for="password">Password::</label>
-                        <input type="password" class="Input form-control" id="password" placeholder="Password">
+                        <input type="password" class="Input form-control" id="password" name="password" placeholder="Password">
+                        <span class="error" style="color: red;"><?php echo $passwordErr; ?></span>
                     </div>
                     <div class="my-2">
-                        <button class="btn btn-primary btn-sm btn-block" type="submit" value="Submit">Log in</button>
+                        <span class="error" style="color: red;"><?php echo $err_mes; ?></span><br>
+                        <button class="btn btn-primary btn-sm btn-block" type="submit" name="login" value="Submit">Log in</button>
                     </div>
                     <div class="row row-cols-2">
                         <div class="col">
@@ -80,23 +117,6 @@
             </div>
         </div>
     </div>
-    <?php
-    if (isset($_POST["submit"])) {
-
-        $username = isset($_POST["username"]) ? $_POST["username"] : "";
-        $password = isset($_POST["password"]) ? $_POST["password"] : "";
-
-        if (isset($login[$username]) && $login[$username] == $password) {
-            header("location: orderform.html");
-            exit;
-        } else {
-            $err_mes = "<span style='color: red'> Invalid Login Details </span>";
-            echo $err_mes;
-        };
-    };
-
-    preShow($_POST);
-    ?>
 </body>
 
 </html>
