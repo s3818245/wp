@@ -31,8 +31,8 @@
 
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 <?php
-    include 'tools.php';
     session_start();
+    include 'tools.php';
     if(!empty($_POST)){
         preShow($_POST);
         $itemID = $_POST['productName'];
@@ -45,15 +45,14 @@
         }
         preShow($_SESSION);
     }
-    
-    if (!empty($_SESSION['userdata']['username'])) {
+if (!empty($_SESSION['userdata']['username'])) {
         $pageusername = '
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarUser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <svg class="bi bi-person" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M13 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM3.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></svg>'
-            . $_SESSION['userdata']['username'] .
-            '</a>
+                       . $_SESSION['userdata']['username'] .
+                    '</a>
                     <div class="dropdown-menu" aria-labelledby="navbarUser">
                         <a class="dropdown-item" href="logout.php">Logout</a>
                     </div>
@@ -84,7 +83,7 @@
                 ';
     }
 
-    ?>
+?>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="navbar-collapse w-100 order-1 order-md-0 dual-collapse2">
@@ -145,7 +144,7 @@
                                 <th>Subtotal</th>
                             </tr>
                         </thead>
-                         <!--<tbody class="thead">
+                        <!--<tbody class="thead">
                             <tr>
                                 <th></th>
                                 <th></th>
@@ -166,7 +165,6 @@
                             $username = "epiz_25832353";
                             $password = "3IEhY1FThCdC7g4";
                             $dbname = "epiz_25832353_itemData";
-
                             $itemTotal = 0;
 
                             //create connection 
@@ -193,7 +191,7 @@
                                         <button type="button" class="" onclick="plus(\''.$row['itemID'].'\', '.$row['itemPrice'].');">
                                         <span class="glyphicon glyphicon-plus-sign"></span> + </button>
                                     </th>
-                                    <th>$<span class="subtotal" id="'.$row['itemID'].'-subtotal" value="'.$row['itemPrice'].'" onchange="itemTotal();">'.$row['itemPrice'].'</span>     
+                                      <th>$<span class="subtotal" id="'.$row['itemID'].'-subtotal" value="'.$row['itemPrice'].'" onchange="itemTotal();">'.$row['itemPrice'].'</span>     
                                         <form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">
                                             <button type="submit" name="delete" value="'.$row['itemID'].'"> Delete </button>
                                         </form>
@@ -215,7 +213,7 @@
                         </h4>
                     </div>
                     <div class="col-12 d-flex justify-content-end">
-                        <button class="btn btn-primary">Continue shopping</button>
+                        <a href="index.php"><button class="btn btn-primary">Continue shopping</button></a>
                     </div>
                 </div>
                 <br>
@@ -225,30 +223,30 @@
                         <div class="col-12">
                             <div class="row">
                                 <div class="col-6">Product total:</div>
-                                <div class="col-6" id="product-total" value="<?php echo $itemTotal;?>">$ <?php echo $itemTotal;?></div>
+                                <div class="col-6" id="product-total" value="<?php echo $itemTotal;?>">$<?php echo $itemTotal;?></div>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="row">
-                                <div class="col-6">GTS: </div>
-                                <div class="col-6" id="GTS" value="">$</div>
+                                <div class="col-6">GST (28%):</div>
+                                <div class="col-6" id="GTS" value="<?php echo number_format((float) $itemTotal * (7 / 25), 2, '.', ''); ?>">$<?php echo number_format((float) $itemTotal * (7 / 25), 2, '.', ''); ?></div>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="row">
                                 <div class="col-6">Delivery fee: </div>
-                                <div class="col-6" id="delivery-fee" value="15">$ 15 </div>
+                                <div class="col-6" id="delivery-fee" value="15">$15 </div>
                             </div>
                         </div>
                         <hr>
                         <div class="col-12">
                             <div class="row">
                                 <div class="col-6">Total</div>
-                                <div class="col-6" id="total">$</div>
+                                <div class="col-6" id="total" value="<?php echo number_format((float) $itemTotal * (32 / 25) + 15, 2, '.', ''); ?>">$<?php echo number_format((float) $itemTotal * (32 / 25) + 15, 2, '.', ''); ?></div>
                             </div>
                         </div>
                         <div class="col-12">
-                            <button class="btn btn-primary btn-md float-right">Check da freak out button</button>
+                            <a href="orderform.php"><button class="btn btn-primary btn-md float-right" name="checkout">Checkout</button></a>
                         </div>
                     </div>
                 </div>
