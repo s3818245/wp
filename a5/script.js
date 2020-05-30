@@ -44,11 +44,14 @@ function updateQuantity(whichID, price) {
 function itemTotal(){
     var itemTotal = 0
     document.querySelectorAll(".subtotal").forEach(item =>{
-        itemTotal += item.value
-        console.log(item.value);
-        document.getElementById("product-total").innerHTML = itemTotal;
-        document.getElementById("producttotal").innerHTML = itemTotal;
-        document.getElementById("product-total").value = itemTotal;
+        subtotal = item.innerHTML;
+        console.log(subtotal)
+        itemTotal += Number(subtotal);
+        document.getElementById("product-total").innerHTML = itemTotal.toFixed(2);
+        document.getElementById("producttotal").innerHTML = itemTotal.toFixed(2);
+        document.getElementById("product-total").value = itemTotal.toFixed(2);
+        document.getElementById("GTS").value = (itemTotal*(7/25)).toFixed(2);
+        document.getElementById("GTS").innerHTML = (itemTotal*(7/25)).toFixed(2);
     }
     )
 }
