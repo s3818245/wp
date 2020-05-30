@@ -52,6 +52,8 @@ function itemTotal(){
         document.getElementById("product-total").value = itemTotal.toFixed(2);
         document.getElementById("GTS").value = (itemTotal*(7/25)).toFixed(2);
         document.getElementById("GTS").innerHTML = (itemTotal*(7/25)).toFixed(2);
+        document.getElementById("total").value = itemTotal.toFixed(2) + (itemTotal*(7/25)).toFixed(2) + 15;
+        document.getElementById("total").innerHTML = (itemTotal.toFixed(2) + (itemTotal*(7/25)).toFixed(2) + 15).toFixed(2);
     }
     )
 }
