@@ -31,6 +31,116 @@
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <?php
+    include 'tools.php';
+    $servername = "sql307.epizy.com";
+    // $port= 8889;
+    $username = "epiz_25832353";
+    $password = "3IEhY1FThCdC7g4";
+    $dbname = "epiz_25832353_itemData";
+    $itemTotal = 0;
+
+    //create connection 
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+    } 
+
+    $errorFound = 0;
+
+    preShow($_POST);
+    if (isset($_POST['add'])){
+        // check image
+        if(isset($_FILES['item-image'])){
+            echo "image chosen";
+        $imgData = addslashes(file_get_contents($_FILES['item-image']['tmp_name']));
+        $imageSize = $_FILES['item-image']['size'];
+        $imageName = $_FILES['item-image']['name'];
+        $imageError = $_FILES['item-image']['error'];
+
+        $valid_types = array('png', 'jpg', 'jpeg');
+        $filetype = strtolower(end(explode('.',$imageName)));
+
+
+        if(!in_array($filetype, $valid_types)){
+            $imageErrorMess = "* Please choose an image file";
+            $errorFound++;
+        }
+        if($imageSize>65536){
+            $imageErrorMess = "* Size of image is too large";
+            $errorFound++;
+        }
+        }
+
+        // check item name
+        if (empty($_POST['item']['name'])){
+            $nameError = "* Please enter product's name";
+            $errorFound++;
+        } else{
+            $itemName = test_input($_POST['item']['name']);
+            if(!preg_match("/^([A-Za-z\-'., ]|[0-9]){1,100}$/", $itemName)){
+                $nameError = "* Stop hacking my website";
+                $errorFound++;
+            }          
+        }
+
+        // check item price
+        if (empty($_POST['item']['price'])){
+            $priceError = "* Please enter product's price";
+            $errorFound++;
+        } else{
+            $itemPrice = test_input($_POST['item']['price']);
+            if(!preg_match("/^([0-9].?){1,100}$/", $itemPrice)){
+                $priceError = "* Only integers and '.' are allowed";
+                $errorFound++;
+            }          
+        }
+
+        // check item category
+        if (empty($_POST['item']['category'])){
+            $categoryError = "* Please enter product's category";
+            $errorFound++;
+        } else{
+            $itemCategory = test_input($_POST['item']['category']);
+            if(!preg_match("/^[a-zA-Z\-]{1,100}$/", $itemCategory)){
+                $categoryError = "* Only letters and '-' are allowed";
+                $errorFound++;
+            }          
+        }
+
+        // chek item description
+        if (empty($_POST['item']['description'])){
+            $descriptionError = "* Please enter product's description";
+            $errorFound++;
+        } else{
+            $itemDescription = test_input($_POST['item']['description']);
+            if(!preg_match("/^[A-Za-z\-'., 0-9]*$/", $itemDescription)){
+                $descriptionError = "* Stop hacking our website";
+                $errorFound++;
+            }          
+        }
+
+
+        if($errorFound==0){
+            $itemNameExplode = explode(' ',$itemName);
+            if(count($itemNameExplode)>1){
+                $itemNameJoin = join('-', $itemNameExplode);
+                $itemID = strtolower($itemNameJoin);
+            }else{
+                $itemID = strtolower($itemName);
+            }
+            $sql = "INSERT INTO itemData VALUES ('$itemName', '$itemID', '$itemCategory', '$itemDescription', '$itemPrice', '$imgData');";
+            if (mysqli_multi_query($conn, $sql)) {
+                echo "<p>New record created successfully </p>";
+              } else {
+                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+              }
+        }
+    }
+
+    mysqli_close($conn);
+    ?>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="navbar-collapse w-100 order-1 order-md-0 dual-collapse2">
@@ -91,7 +201,7 @@
 
     <main class="main section">
         <div class="container-fluid">
-            <form action="">
+            <form enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <div class="row">
                     <div class="col-md-5 col-12">
                         <div class="col-12">
@@ -100,7 +210,8 @@
                             <img src="Photos/upload_icon.png" style="width:300px;height:300px;" alt="">
                             <label>Upload Image File:</label>
                             <br>
-                            <input name="userImage" type="file" class="form-control-file"> 
+                            <input name="item-image" type="file" class="form-control-file"> 
+                            <span><?php echo $imageErrorMess; ?></span>
                         </div>
                     </div>
                     <div class="col-md-7 col-12">
@@ -108,12 +219,14 @@
                             <h1>Product Name
                                 <input name="item[name]" id="item-name" type="text">
                             </h1>
+                                <span><?php echo $nameError;?></span>
                         </div>
                         <hr>
                         <br>
                         <div class="col-12">
                             Price: $
-                            <input name="item[price]" id="item-price" type="number">
+                            <input name="item[price]" id="item-price" type="text">
+                            <span><?php echo $priceError;?></span>
                         </div>
                         <br>
                         <br>
@@ -124,6 +237,7 @@
                                 <option value="on-ear">On-ear</option>
                                 <option value="over-ear">Over-ear</option>
                             </select>
+                            <span><?php echo $categoryError;?></span>
                         </div>
                         <br>
                         <hr>
@@ -131,10 +245,11 @@
                             Description:
                             <br>
                             <textarea name="item[description]" id="item-description" cols="60" rows="10" class="form-control"></textarea>
+                            <span><?php echo $descriptionError;?></span>
                         </div>
                         <br>
                         <div class="col-12">
-                            <button type="submit" class="btn btn-secondary">Save</button>
+                            <button name="add" type="submit" class="btn btn-secondary">Add item</button>
                         </div>        
                     </div>
                 </div>
