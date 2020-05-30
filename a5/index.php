@@ -204,21 +204,51 @@ if (mysqli_query($conn, $sql)) {
                             <input type="hidden" name="category" value="">
                             <button type="submit" class="nav-link">All items</button>
                         </form>
+                        <?php
+                        $servername = "sql307.epizy.com";
+                        // $port= 8889;
+                        $username = "epiz_25832353";
+                        $password = "3IEhY1FThCdC7g4";
+                        $dbname = "epiz_25832353_itemData";
 
-                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>#item-list" method="get">
+                        //create connection 
+                        $conn = new mysqli($servername, $username, $password, $dbname);
+                        // Check connection
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+                        $sql = "SELECT * FROM itemCat";
+                        $result = mysqli_query($conn, $sql);
+
+                        if (mysqli_num_rows($result) > 0) {
+                            // output data of each row
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo '<form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'#item-list" method="get">
+                                <input type="hidden" name="category" value="'.$row['Category'].'">
+                                <button type="submit" class="nav-link">'.$row['Category'].' headphones</button>
+                                </form>';
+                            }
+                        } else {
+                            echo "0 results";
+                        }
+                        mysqli_close($conn);
+                        ?>
+                        <!--  
+                        <form action=" echo htmlspecialchars($_SERVER["PHP_SELF"]); #item-list" method="get">
                             <input type="hidden" name="category" value="in-ear">
                             <button type="submit" class="nav-link">In-ear headphones</button>
                         </form>
 
-                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>#item-list" method="get">
+                        <form action=" echo htmlspecialchars($_SERVER["PHP_SELF"]); #item-list" method="get">
                             <input type="hidden" name="category" value="on-ear">
                             <button type="submit" class="nav-link">On-ear headphones</button>
                         </form>
 
-                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>#item-list" method="get">
+                        <form action=" echo htmlspecialchars($_SERVER["PHP_SELF"]); #item-list" method="get">
                             <input type="hidden" name="category" value="over-ear">
                             <button type="submit" class="nav-link">Over-ear headphones</button>
                         </form>
+                        -->
                     </nav>
                 </div>
                 <!-- ITEM LIST -->
