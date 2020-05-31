@@ -65,7 +65,9 @@
         $delete_id = $_POST['delete'];
         $sql = "DELETE FROM itemData WHERE itemID='$delete_id';";
 
+        // Code for testing
         if (mysqli_query($conn, $sql)) {
+            header('Location: index.php');
             echo "<p>Record deleted successfully </p>";
         } else {
             echo "Error deleting record: " . mysqli_error($conn);

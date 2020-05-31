@@ -204,7 +204,7 @@ if (mysqli_query($conn, $sql)) {
                     <nav class="nav flex-column">
                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>#item-list" method="get">
                             <input type="hidden" name="category" value="">
-                            <button type="submit" class="nav-link">All items</button>
+                            <button type="submit" class="nav-link btn btn-secondary">All items</button>
                         </form>
                         <?php
                         $servername = "sql307.epizy.com";
@@ -227,7 +227,7 @@ if (mysqli_query($conn, $sql)) {
                             while ($row = mysqli_fetch_assoc($result)) {
                                 echo '<form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'#item-list" method="get">
                                 <input type="hidden" name="category" value="'.$row['Category'].'">
-                                <button type="submit" class="nav-link">'.$row['Category'].' headphones</button>
+                                <button type="submit" class="nav-link btn btn-secondary">'.$row['Category'].' headphones</button>
                                 </form>';
                             }
                         } else {
@@ -278,6 +278,12 @@ if (mysqli_query($conn, $sql)) {
                         }
                         $result = mysqli_query($conn, $sql);
 
+                        if(!empty($_POST['delete-cat'])){
+                            $deletecat = $_POST['delete-cat'];
+                            $sql = "DELETE FROM itemCat WHERE Category='$deletecat';";
+                            header('Location: index.php');
+                        }
+
 
                         if (mysqli_num_rows($result) > 0) {
                             // output data of each row
@@ -305,7 +311,12 @@ if (mysqli_query($conn, $sql)) {
                             }
                             echo $addedpro;
                         } else {
-                            echo "0 results";
+                            echo "<div>0 results</div>";
+                                if (!empty($_SESSION['userdata']['username'])){
+                                    echo '<br><form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">
+                                    <button type="submit" class="btn btn-secondary" name="delete-cat" value="'.$category.'">Delete category</button>
+                                </form>';
+                                }
                         }
                         mysqli_close($conn);
                         ?>
@@ -335,35 +346,6 @@ if (mysqli_query($conn, $sql)) {
 
                     </div>
                     <br>
-                    <!--  
-                    <div>
-                        Maybe sth?
-                    </div>
-                    <br>
-                    <div>
-                        <div id="carouselRec" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img class="d-block w-100" src="..." alt="First slide">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="..." alt="Second slide">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="..." alt="Third slide">
-                                </div>
-                            </div>
-                            <a class="carousel-control-prev" href="#carouselRec" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselRec" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-                    </div>
-                    -->
                 </div>
             </div>
         </div>
