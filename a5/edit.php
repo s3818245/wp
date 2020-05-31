@@ -32,9 +32,10 @@
 
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
     <?php
+    session_start();
 
     if (empty($_SESSION['userdata']['username'])){
-    header('Location: loginpage.php');
+        header('Location: loginpage.php');
     }
 
     include 'tools.php';
@@ -43,7 +44,6 @@
     $username = "epiz_25832353";
     $password = "3IEhY1FThCdC7g4";
     $dbname = "epiz_25832353_itemData";
-    $itemTotal = 0;
 
     //create connection 
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -52,10 +52,31 @@
     die("Connection failed: " . $conn->connect_error);
     } 
 
+    if (!empty($_GET)) {
+        $_SESSION['edit-id'] = $_GET['edit'];
+    }
+
+    if(isset($_SESSION['edit-id'])){
+        $currentid =  $_SESSION['edit-id'];
+        $sql = "SELECT * FROM itemData WHERE itemID='$currentid';";
+        $result = mysqli_query($conn, $sql);
+
+        if (mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+            $currentitemName = $row['itemName'];
+            $currentitemPrice = $row['itemPrice'];
+            $currentitemImage = '<img class="card-img-top" src="data:image/jpg;base64,' . base64_encode($row['itemImage']) . '" />';
+            $currentitemDescription = $row['itemDescription'];
+            $currentitemClass = $row['itemClass'];
+        } else {
+            echo "0 results";
+        }
+    }
     $errorFound = 0;
 
     preShow($_POST);
-    if (isset($_POST['add'])){
+    preShow($_SESSION);
+    if (isset($_POST['save'])){
         // check image
         if(isset($_FILES['item-image'])){
             echo "image chosen";
@@ -156,15 +177,17 @@
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                 }
             }
-            $sql = "INSERT INTO itemData VALUES ('$itemName', '$itemID', '$itemCategory', '$itemDescription', '$itemPrice', '$imgData');";
+            $thisID = $_SESSION['edit-id'];
+            $sql = "UPDATE itemData SET itemName = '$itemName', itemID= '$itemID', itemClass='$itemCategory', itemDescription = '$itemDescription', itemPrice='$itemPrice', itemImage='$imgData' WHERE itemID='$thisID';";
             if (mysqli_multi_query($conn, $sql)) {
-                echo "<p>New record created successfully </p>";
+                echo "<p>Edit successfully </p>";
+                header('Location: index.php');
               } else {
                 echo "Error: " . $sql . "<br>" . mysqli_error($conn);
               }
         }
     }
-    // Check if logged in
+        // Check if logged in
     if (!empty($_SESSION['userdata']['username'])) {
         $pageusername = '
                 <li class="nav-item dropdown">
@@ -224,10 +247,12 @@
         </div>
         <div class="navbar-collapse w-100 order-1 dual-collapse2">
             <ul class="navbar-nav ml-auto">
-                 <!-- <li class="nav-item"> 
-                    <a class="nav-link" href="wishlist.php">
-                        <svg class="bi bi-star" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
+                <!-- <li class="nav-item"> 
+                    <a class="nav-link justified-content-right" href="wishlist.html">
+                        <svg class="bi bi-star" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
                         </svg> Wish list</a>
                 </li>
                 -->
@@ -262,19 +287,19 @@
                 <div class="row">
                     <div class="col-md-5 col-12">
                         <div class="col-12">
-                            <h1>Insert image</h1>
+                            <h1>Choose new image</h1>
                            <br>
-                            <img src="Photos/upload_icon.png" style="width:300px;height:300px;" alt="">
+                            <?php echo $currentitemImage?>
                             <label>Upload Image File (smaller than 64KB):</label>
                             <br>
                             <input name="item-image" type="file" class="form-control-file"> 
-                            <span style="color: red;"><?php echo $imageErrorMess; ?></span>
+                            <span  style="color: red;"><?php echo $imageErrorMess; ?></span>
                         </div>
                     </div>
                     <div class="col-md-7 col-12">
                         <div class="col-12">
                             <h1>Product Name
-                                <input name="item[name]" id="item-name" type="text">
+                                <input name="item[name]" id="item-name" type="text" value="<?php echo $currentitemName;?>">
                             </h1>
                                 <span style="color: red;"><?php echo $nameError;?></span>
                         </div>
@@ -282,13 +307,13 @@
                         <br>
                         <div class="col-12">
                             Price: $
-                            <input name="item[price]" id="item-price" type="text">
+                            <input name="item[price]" id="item-price" type="text" value="<?php echo $currentitemPrice?>">
                             <span style="color: red;"><?php echo $priceError;?></span>
                         </div>
                         <br>
                         <br>
                         <div class="col-12">
-                            Category:
+                            Category: current category - <?php echo $currentitemClass?>
                             <select name="item[category]" id="item-category" class="form-control">
                                 <option value="">Please select one option</option>
                                 <?php
@@ -318,12 +343,12 @@
                         <div class="col-12">
                             Description:
                             <br>
-                            <textarea name="item[description]" id="item-description" cols="60" rows="10" class="form-control"></textarea>
+                            <textarea name="item[description]" id="item-description" cols="60" rows="10" class="form-control" value="<?php echo $currentitemDescription;?>"></textarea>
                             <span style="color: red;"><?php echo $descriptionError;?></span>
                         </div>
                         <br>
                         <div class="col-12">
-                            <button name="add" type="submit" class="btn btn-secondary">Add item</button>
+                            <button name="save" type="submit" class="btn btn-secondary">Save changes</button>
                         </div>        
                     </div>
                 </div>

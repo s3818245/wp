@@ -32,9 +32,6 @@
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
     <?php
     session_start();
-    if (!empty($_GET)) {
-        $id = $_GET['info'];
-
         $servername = "sql307.epizy.com";
         // $port= 8889;
         $username = "epiz_25832353";
@@ -46,6 +43,8 @@
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
+    if (!empty($_GET)) {
+        $id = $_GET['info'];
 
         $sql = "SELECT * FROM itemData WHERE itemID='$id'";
         $result = mysqli_query($conn, $sql);
@@ -61,6 +60,18 @@
             echo "0 results";
         }
     }
+    // delete record
+    if(isset($_POST['delete'])){
+        $delete_id = $_POST['delete'];
+        $sql = "DELETE FROM itemData WHERE itemID='$delete_id';";
+
+        if (mysqli_query($conn, $sql)) {
+            echo "<p>Record deleted successfully </p>";
+        } else {
+            echo "Error deleting record: " . mysqli_error($conn);
+        }
+    }
+
     if (!empty($_SESSION['userdata']['username'])) {
         $pageusername = '
                 <li class="nav-item dropdown">
@@ -108,24 +119,26 @@
                 <li class="nav-item">
                     <a class="nav-link" href="index.php">Home</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item"> 
                     <a class="nav-link" href="#two">sth2</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#three">sth3</a>
                 </li>
+                -->
             </ul>
         </div>
         <div class="mx-auto order-0">
         </div>
         <div class="navbar-collapse w-100 order-1 dual-collapse2">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
+                <!-- <li class="nav-item"> 
                     <a class="nav-link" href="wishlist.php">
                         <svg class="bi bi-star" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
                         </svg> Wish list</a>
                 </li>
+                -->
                 <li class="nav-item">
                     <a class="nav-link" href="orderform.php">
                         <svg class="bi bi-check-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -181,6 +194,27 @@
                                 <form action="cart.php<?php header('Location: cart.php'); ?>" method="post">
                                     <button type="submit" name="productName" value="<?php echo $id; ?>">Add to cart</button>
                                 </form>
+
+                                <!-- 
+                                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                                    <button type="submit" name="delete" value="<?php echo $id;?>"> Delete item</button>
+                                </form>
+
+                                <form action="edit.php<?php header('Location: edit.php');?>" method="get">
+                                    <button type="submit" name="edit" value="<?php echo $id;?>"> Edit item</button>
+                                </form>
+                                -->
+                                <?php
+                                if (!empty($_SESSION['userdata']['username'])){
+                                    echo '<form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">
+                                    <button type="submit" name="delete" value="'.$id.'"> Delete item</button>
+                                </form>
+
+                                <form action="edit.php'.header('Location: edit.php').'" method="get">
+                                    <button type="submit" name="edit" value="'.$id.'"> Edit item</button>
+                                </form>';
+                                    }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -195,6 +229,7 @@
             <br>
             <br>
             <div class="row">
+                <!--  
                 <div class="col-12">
                     <h3>Related product</h3>
                 </div>
@@ -222,6 +257,7 @@
                         </a>
                     </div>
                 </div>
+                -->
             </div>
         </div>
     </main>
