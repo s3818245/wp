@@ -38,6 +38,8 @@
 
     date_default_timezone_set("Asia/Ho_Chi_Minh");
 
+    $countrieslist = array("..." => "", "AF" => "Afghanistan", "AX" => "Åland Islands", "AL" => "Albania", "DZ" => "Algeria", "AS" => "American Samoa", "AD" => "Andorra", "AO" => "Angola", "AI" => "Anguilla", "AQ" => "Antarctica", "AG" => "Antigua and Barbuda", "AR" => "Argentina", "AM" => "Armenia", "AW" => "Aruba", "AU" => "Australia", "AT" => "Austria", "AZ" => "Azerbaijan", "BS" => "Bahamas", "BH" => "Bahrain", "BD" => "Bangladesh", "BB" => "Barbados", "BY" => "Belarus", "BE" => "Belgium", "BZ" => "Belize", "BJ" => "Benin", "BM" => "Bermuda", "BT" => "Bhutan", "BO" => "Bolivia", "BA" => "Bosnia and Herzegovina", "BW" => "Botswana", "BV" => "Bouvet Island", "BR" => "Brazil", "IO" => "British Indian Ocean Territory", "BN" => "Brunei Darussalam", "BG" => "Bulgaria", "BF" => "Burkina Faso", "BI" => "Burundi", "KH" => "Cambodia", "CM" => "Cameroon", "CA" => "Canada", "CV" => "Cape Verde", "KY" => "Cayman Islands", "CF" => "Central African Republic", "TD" => "Chad", "CL" => "Chile", "CN" => "China", "CX" => "Christmas Island", "CC" => "Cocos (Keeling) Islands", "CO" => "Colombia", "KM" => "Comoros", "CG" => "Congo", "CD" => "Congo, The Democratic Republic of The", "CK" => "Cook Islands", "CR" => "Costa Rica", "CI" => "Cote D'ivoire", "HR" => "Croatia", "CU" => "Cuba", "CY" => "Cyprus", "CZ" => "Czech Republic", "DK" => "Denmark", "DJ" => "Djibouti", "DM" => "Dominica", "DO" => "Dominican Republic", "EC" => "Ecuador", "EG" => "Egypt", "SV" => "El Salvador", "GQ" => "Equatorial Guinea", "ER" => "Eritrea", "EE" => "Estonia", "ET" => "Ethiopia", "FK" => "Falkland Islands (Malvinas)", "FO" => "Faroe Islands", "FJ" => "Fiji", "FI" => "Finland", "FR" => "France", "GF" => "French Guiana", "PF" => "French Polynesia", "TF" => "French Southern Territories", "GA" => "Gabon", "GM" => "Gambia", "GE" => "Georgia", "DE" => "Germany", "GH" => "Ghana", "GI" => "Gibraltar", "GR" => "Greece", "GL" => "Greenland", "GD" => "Grenada", "GP" => "Guadeloupe", "GU" => "Guam", "GT" => "Guatemala", "GG" => "Guernsey", "GN" => "Guinea", "GW" => "Guinea-bissau", "GY" => "Guyana", "HT" => "Haiti", "HM" => "Heard Island and Mcdonald Islands", "VA" => "Holy See (Vatican City State)", "HN" => "Honduras", "HK" => "Hong Kong", "HU" => "Hungary", "IS" => "Iceland", "IN" => "India", "ID" => "Indonesia", "IR" => "Iran, Islamic Republic of", "IQ" => "Iraq", "IE" => "Ireland", "IM" => "Isle of Man", "IL" => "Israel", "IT" => "Italy", "JM" => "Jamaica", "JP" => "Japan", "JE" => "Jersey", "JO" => "Jordan", "KZ" => "Kazakhstan", "KE" => "Kenya", "KI" => "Kiribati", "KP" => "Korea, Democratic People's Republic of", "KR" => "Korea, Republic of", "KW" => "Kuwait", "KG" => "Kyrgyzstan", "LA" => "Lao People's Democratic Republic", "LV" => "Latvia", "LB" => "Lebanon", "LS" => "Lesotho", "LR" => "Liberia", "LY" => "Libyan Arab Jamahiriya", "LI" => "Liechtenstein", "LT" => "Lithuania", "LU" => "Luxembourg", "MO" => "Macao", "MK" => "Macedonia, The Former Yugoslav Republic of", "MG" => "Madagascar", "MW" => "Malawi", "MY" => "Malaysia", "MV" => "Maldives", "ML" => "Mali", "MT" => "Malta", "MH" => "Marshall Islands", "MQ" => "Martinique", "MR" => "Mauritania", "MU" => "Mauritius", "YT" => "Mayotte", "MX" => "Mexico", "FM" => "Micronesia, Federated States of", "MD" => "Moldova, Republic of", "MC" => "Monaco", "MN" => "Mongolia", "ME" => "Montenegro", "MS" => "Montserrat", "MA" => "Morocco", "MZ" => "Mozambique", "MM" => "Myanmar", "NA" => "Namibia", "NR" => "Nauru", "NP" => "Nepal", "NL" => "Netherlands", "AN" => "Netherlands Antilles", "NC" => "New Caledonia", "NZ" => "New Zealand", "NI" => "Nicaragua", "NE" => "Niger", "NG" => "Nigeria", "NU" => "Niue", "NF" => "Norfolk Island", "MP" => "Northern Mariana Islands", "NO" => "Norway", "OM" => "Oman", "PK" => "Pakistan", "PW" => "Palau", "PS" => "Palestinian Territory, Occupied", "PA" => "Panama", "PG" => "Papua New Guinea", "PY" => "Paraguay", "PE" => "Peru", "PH" => "Philippines", "PN" => "Pitcairn", "PL" => "Poland", "PT" => "Portugal", "PR" => "Puerto Rico", "QA" => "Qatar", "RE" => "Reunion", "RO" => "Romania", "RU" => "Russian Federation", "RW" => "Rwanda", "SH" => "Saint Helena", "KN" => "Saint Kitts and Nevis", "LC" => "Saint Lucia", "PM" => "Saint Pierre and Miquelon", "VC" => "Saint Vincent and The Grenadines", "WS" => "Samoa", "SM" => "San Marino", "ST" => "Sao Tome and Principe", "SA" => "Saudi Arabia", "SN" => "Senegal", "RS" => "Serbia", "SC" => "Seychelles", "SL" => "Sierra Leone", "SG" => "Singapore", "SK" => "Slovakia", "SI" => "Slovenia", "SB" => "Solomon Islands", "SO" => "Somalia", "ZA" => "South Africa", "GS" => "South Georgia and The South Sandwich Islands", "ES" => "Spain", "LK" => "Sri Lanka", "SD" => "Sudan", "SR" => "Suriname", "SJ" => "Svalbard and Jan Mayen", "SZ" => "Swaziland", "SE" => "Sweden", "CH" => "Switzerland", "SY" => "Syrian Arab Republic", "TW" => "Taiwan, Province of China", "TJ" => "Tajikistan", "TZ" => "Tanzania, United Republic of", "TH" => "Thailand", "TL" => "Timor-leste", "TG" => "Togo", "TK" => "Tokelau", "TO" => "Tonga", "TT" => "Trinidad and Tobago", "TN" => "Tunisia", "TR" => "Turkey", "TM" => "Turkmenistan", "TC" => "Turks and Caicos Islands", "TV" => "Tuvalu", "UG" => "Uganda", "UA" => "Ukraine", "AE" => "United Arab Emirates", "GB" => "United Kingdom", "US" => "United States", "UM" => "United States Minor Outlying Islands", "UY" => "Uruguay", "UZ" => "Uzbekistan", "VU" => "Vanuatu", "VE" => "Venezuela", "VN" => "Viet Nam", "VG" => "Virgin Islands, British", "VI" => "Virgin Islands, U.S.", "WF" => "Wallis and Futuna", "EH" => "Western Sahara", "YE" => "Yemen", "ZM" => "Zambia", "ZW" => "Zimbabwe");
+
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // check customer's name
@@ -70,7 +72,7 @@
             $errorFound++;
         } else {
             $mobile = test_input($_POST["cust"]["mobile"]);
-            if (!preg_match("/^([\(04\)|04|\+61[4,5]|\+61 [4,5]])( ?\d){8}$/", $mobile)) {
+            if (!preg_match("/^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/", $mobile)) {
                 $mobileErr = "* Please provide phone number";
                 $errorFound++;
             }
@@ -100,21 +102,26 @@
             }
         }
 
-        if (empty($_POST["cust"]["address"])) {
-            $addressErr = "* Address is required";
+        if (empty($_POST["cust"]["address1"])) {
+            $address1Err = "* Address is required";
             $errorFound++;
         } else {
-            $address = test_input($_POST["cust"]["address"]);
-            if (!preg_match("/^$/", $address)) {
-                $addressErr = "* addressErr.";
+            $address1 = test_input($_POST["cust"]["address1"]);
+            if (!preg_match("/^(\d+[^\w\s]?[\d{1,10}]*)\s?(\b\w*\b\s?)+$/", $address1)) {
+                $address1Err = "* address1Err.";
                 $errorFound++;
             }
         }
 
-        if (empty($_POST["cust"]["ward"])) {
-            $wardErr = "* Ward is required";
-            $errorFound++;
-        } else {
+        if (!empty($_POST["cust"]["address2"])) {
+            $address2 = test_input($_POST["cust"]["address2"]);
+            if (!preg_match("/^[0-9]$/", $address2)) {
+                $address2Err = "* address2Err.";
+                $errorFound++;
+            }
+        }
+
+        if (!empty($_POST["cust"]["ward"])) {
             $ward = test_input($_POST["cust"]["ward"]);
             if (!preg_match("/^$/", $ward)) {
                 $wardErr = "* wardErr.";
@@ -122,10 +129,7 @@
             }
         }
 
-        if (empty($_POST["cust"]["district"])) {
-            $districtErr = "* District is required";
-            $errorFound++;
-        } else {
+        if (!empty($_POST["cust"]["district"])) {
             $district = test_input($_POST["cust"]["district"]);
             if (!preg_match("/^$/", $district)) {
                 $districtErr = "* districtErr.";
@@ -133,24 +137,28 @@
             }
         }
 
-        if (empty($_POST["cust"]["region"])) {
-            $regionErr = "* Region is required";
+        if (empty($_POST["cust"]["city"])) {
+            $cityErr = "* City is required";
             $errorFound++;
         } else {
-            $region = test_input($_POST["cust"]["region"]);
-            if (!preg_match("/^$/", $region)) {
-                $regionErr = "* regionErr.";
+            $city = test_input($_POST["cust"]["city"]);
+            if (!preg_match("/^$/", $city)) {
+                $cityErr = "* citynErr.";
                 $errorFound++;
             }
         }
 
-        if (empty($_POST["cust"]["country"])) {
-            $countryErr = "* Country is required";
-            $errorFound++;
-        } else {
-            $country = test_input($_POST["cust"]["country"]);
-            if (!preg_match("/^$/", $country)) {
-                $countryErr = "* countryErr.";
+        foreach ($countrieslist as $key => $countryselected) {
+            if ($countryselected == "") {
+                $errorFound++;
+                $countryErr = "* Please select a country";
+            }
+        }
+
+        if (!empty($_POST["cust"]["zip"])) {
+            $zip = test_input($_POST["cust"]["zip"]);
+            if (!preg_match("/^(\d{5}(?:[-\s]\d{4})?)$/", $zip)) {
+                $zipErr = "* Zip Code unknonw";
                 $errorFound++;
             }
         }
@@ -181,11 +189,13 @@
         $mobile_err = $_POST['cust']['mobile'];
         $card_err = $_POST['cust']['card'];
         $expiry_err = $_POST['cust']['expiry'];
-        $address_err = $_POST['cust']['address'];
+        $address1_err = $_POST['cust']['address1'];
+        $address2_err = $_POST['cust']['address1'];
         $ward_err = $_POST['cust']['ward'];
         $district_err = $_POST['cust']['district'];
-        $region_err = $_POST['cust']['region'];
+        $city_err = $_POST['cust']['city'];
         $country_err = $_POST['cust']['country'];
+        $zip_err = $_POST['cust']['zip'];
     }
 
     preShow($_POST);
@@ -318,9 +328,14 @@
                                 <h3>Shopping Infomation</h3>
                             </div>
                             <div class="form-group">
-                                <label for="">Address:</label>
-                                <input type="text" name="cust[address]" id="cust_address" class="form-control" value="<?php echo $address_err; ?>">
-                                <span class="error" style="color: red;"><?php echo $addressErr; ?></span>
+                                <label for="">Address 1:</label>
+                                <input type="text" name="cust[address1]" id="cust_address1" class="form-control" value="<?php echo $address1_err; ?>">
+                                <span class="error" style="color: red;"><?php echo $address1Err; ?></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Address 2:</label>
+                                <input type="text" name="cust[address2]" id="cust_address2" class="form-control" value="<?php echo $address2_err; ?>">
+                                <span class="error" style="color: red;"><?php echo $address2Err; ?></span>
                             </div>
                             <div class="form-group">
                                 <label for="">Ward:</label>
@@ -333,22 +348,30 @@
                                 <span class="error" style="color: red;"><?php echo $districtErr; ?></span>
                             </div>
                             <div class="form-group">
-                                <label for="">Region:</label>
-                                <input type="text" name="cust[region]" id="cust_region" class="form-control" value="<?php echo $region_err; ?>">
-                                <span class="error" style="color: red;"><?php echo $regionErr; ?></span>
+                                <label for="">City:</label>
+                                <input type="text" name="cust[city]" id="cust_city" class="form-control" value="<?php echo $city_err; ?>">
+                                <span class="error" style="color: red;"><?php echo $cityErr; ?></span>
                             </div>
                             <div class="form-group">
                                 <label for="">Country:</label>
-                                <input type="text" name="cust[country]" id="cust_country" class="form-control" value="<?php echo $country_err; ?>">
+                                <select name="cust[country]" id="cust_country" class="custom-select" value="">
+                                    <?php
+                                    foreach ($countrieslist as $key => $countryselected) {
+                                    ?>
+                                        <option value="<?= $key ?>" title="<?= htmlspecialchars($countryselected) ?>"><?= htmlspecialchars($countryselected) ?></option>
+                                    <?php
+                                    }
+                                    ?>
+                                </select>
                                 <span class="error" style="color: red;"><?php echo $countryErr; ?></span>
                             </div>
                             <div class="form-group">
-                                <label for="">Delivery date (expected?):</label>
-                                <input type="hidden" class="form-control">
-                                <span></span>
+                                <label for="">Zip:</label>
+                                <input type="text" name="cust[zip]" id="cust_zip" class="form-control" value="<?php echo $zip_err; ?>">
+                                <span class="error" style="color: red;"><?php echo $zipErr; ?></span>
                             </div>
                             <div class="form-group">
-                                <label for="">Product Name (and amount?):</label>
+                                <label for="">Delivery date (expected?):</label>
                                 <input type="hidden" class="form-control">
                                 <span></span>
                             </div>
@@ -356,12 +379,20 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="container my-3 p-4">
-                            <div class="col-12">
+                            <div class="row">
                                 <h3>Note for Shipper</h3>
                             </div>
                             <div class="form-group">
                                 <label for="">Note:</label>
                                 <input type="text" class="form-control">
+                                <span></span>
+                            </div>
+                            <div class="row">
+                                <h3>Product Information</h3>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Product Name (and amount?):</label>
+                                <input type="hidden" class="form-control">
                                 <span></span>
                             </div>
                             <div>
