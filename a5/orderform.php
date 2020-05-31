@@ -34,6 +34,12 @@
     <?php
     session_start();
 
+    /*
+    if (empty($_SESSION['cart'])) {
+        header('Location: index.php');
+    }
+    */
+
     include 'tools.php';
 
     date_default_timezone_set("Asia/Ho_Chi_Minh");
@@ -107,32 +113,16 @@
             $errorFound++;
         } else {
             $address1 = test_input($_POST["cust"]["address1"]);
-            if (!preg_match("/^(\d+[^\w\s]?[\d{1,10}]*)\s?(\b\w*\b\s?)+$/", $address1)) {
-                $address1Err = "* address1Err.";
+            if (!preg_match("/^(\d+[^\w\s]?[\d]*)\s?(\b\w*\b\s?)+(([\p{P}\p{S}])?(\s?)([\w\s]*))*$/", $address1)) {
+                $address1Err = "* Unavailable Address";
                 $errorFound++;
             }
         }
 
         if (!empty($_POST["cust"]["address2"])) {
             $address2 = test_input($_POST["cust"]["address2"]);
-            if (!preg_match("/^[0-9]$/", $address2)) {
+            if (!preg_match("/^(\d+[^\w\s]?[\d]*)*\s?(\b\w*\b\s?)+(([\p{P}\p{S}])?(\s?)([\w\s]*))*$/", $address2)) {
                 $address2Err = "* address2Err.";
-                $errorFound++;
-            }
-        }
-
-        if (!empty($_POST["cust"]["ward"])) {
-            $ward = test_input($_POST["cust"]["ward"]);
-            if (!preg_match("/^$/", $ward)) {
-                $wardErr = "* wardErr.";
-                $errorFound++;
-            }
-        }
-
-        if (!empty($_POST["cust"]["district"])) {
-            $district = test_input($_POST["cust"]["district"]);
-            if (!preg_match("/^$/", $district)) {
-                $districtErr = "* districtErr.";
                 $errorFound++;
             }
         }
@@ -142,8 +132,16 @@
             $errorFound++;
         } else {
             $city = test_input($_POST["cust"]["city"]);
-            if (!preg_match("/^$/", $city)) {
+            if (!preg_match("/^[A-Za-z\-'., ]{1,100}$/", $city)) {
                 $cityErr = "* citynErr.";
+                $errorFound++;
+            }
+        }
+
+        if (!empty($_POST["cust"]["spr"])) {
+            $spr = test_input($_POST["cust"]["spr"]);
+            if (!preg_match("/^[A-Za-z\-'., ]{1,100}$/", $spr)) {
+                $sprErr = "* SPR.";
                 $errorFound++;
             }
         }
@@ -183,6 +181,10 @@
         }
     }
 
+    if (isset($_POST['session-reset'])) {
+        unset($_SESSION);
+    }
+
     if (isset($_POST['order'])) {
         $name_err = $_POST['cust']['name'];
         $email_err = $_POST['cust']['email'];
@@ -191,9 +193,8 @@
         $expiry_err = $_POST['cust']['expiry'];
         $address1_err = $_POST['cust']['address1'];
         $address2_err = $_POST['cust']['address1'];
-        $ward_err = $_POST['cust']['ward'];
-        $district_err = $_POST['cust']['district'];
         $city_err = $_POST['cust']['city'];
+        $spr_err = $_POST['cust']['spr'];
         $country_err = $_POST['cust']['country'];
         $zip_err = $_POST['cust']['zip'];
     }
@@ -338,19 +339,14 @@
                                 <span class="error" style="color: red;"><?php echo $address2Err; ?></span>
                             </div>
                             <div class="form-group">
-                                <label for="">Ward:</label>
-                                <input type="text" name="cust[ward]" id="cust_ward" class="form-control" value="<?php echo $ward_err; ?>">
-                                <span class="error" style="color: red;"><?php echo $wardErr; ?></span>
-                            </div>
-                            <div class="form-group">
-                                <label for="">District:</label>
-                                <input type="text" name="cust[district]" id="cust_district" class="form-control" value="<?php echo $district_err; ?>">
-                                <span class="error" style="color: red;"><?php echo $districtErr; ?></span>
-                            </div>
-                            <div class="form-group">
                                 <label for="">City:</label>
                                 <input type="text" name="cust[city]" id="cust_city" class="form-control" value="<?php echo $city_err; ?>">
                                 <span class="error" style="color: red;"><?php echo $cityErr; ?></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="">State/Province/Region:</label>
+                                <input type="text" name="cust[spr]" id="cust_spr" class="form-control" value="<?php echo $spr_err; ?>">
+                                <span class="error" style="color: red;"><?php echo $sprErr; ?></span>
                             </div>
                             <div class="form-group">
                                 <label for="">Country:</label>
@@ -383,8 +379,8 @@
                                 <h3>Note for Shipper</h3>
                             </div>
                             <div class="form-group">
-                                <label for="">Note:</label>
-                                <input type="text" class="form-control">
+                                <label for="">Note:</label> <br>
+                                <textarea name="cust[note]" id="cust_note" cols="30" rows="10" class="form-control"></textarea>
                                 <span></span>
                             </div>
                             <div class="row">
@@ -402,6 +398,7 @@
                             </div>
                             <div>
                                 <button class="form-group" type="submit" name="order" value="Submit">Order</button>
+                                <button class="form-group" type="submit" name="session-reset" value="Reset the session">Reset the session</button>
                             </div>
                         </div>
                     </div>
