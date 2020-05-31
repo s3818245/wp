@@ -72,6 +72,10 @@ if (!empty($_SESSION['userdata']['username'])) {
             </div>
         </div>
         ';
+
+        $userlist='<li class="nav-item">
+        <a class="nav-link justified-content-right" href="userlist.php">Userlist</a>
+        </li>';
     } else {
         $login = '
             <li class="nav-item">
@@ -92,12 +96,7 @@ if (!empty($_SESSION['userdata']['username'])) {
                 <li class="nav-item">
                     <a class="nav-link" href="index.php">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#two">sth2</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#three">sth3</a>
-                </li>
+                <?php echo $userlist;?>
             </ul>
         </div>
         <div class="mx-auto order-0">

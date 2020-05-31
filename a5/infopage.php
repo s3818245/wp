@@ -101,6 +101,9 @@
             </div>
         </div>
         ';
+        $userlist='<li class="nav-item">
+        <a class="nav-link justified-content-right" href="userlist.php">Userlist</a>
+        </li>';
     } else {
         $login = '
             <li class="nav-item">
@@ -121,6 +124,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="index.php">Home</a>
                 </li>
+                <?php echo $userlist;?>
                 <!-- <li class="nav-item"> 
                     <a class="nav-link" href="#two">sth2</a>
                 </li>
@@ -194,26 +198,26 @@
                         <div class="row">
                             <div class="col-7">
                                 <form action="cart.php<?php header('Location: cart.php'); ?>" method="post">
-                                    <button type="submit" name="productName" value="<?php echo $id; ?>">Add to cart</button>
+                                    <button class="modify-button btn btn-secondary" type="submit" name="productName" value="<?php echo $id; ?>">Add to cart</button>
                                 </form>
 
                                 <!-- 
-                                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                                    <button type="submit" name="delete" value="<?php echo $id;?>"> Delete item</button>
+                                <form action="php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                                    <button type="submit" name="delete" value="php echo $id;?>"> Delete item</button>
                                 </form>
 
-                                <form action="edit.php<?php header('Location: edit.php');?>" method="get">
-                                    <button type="submit" name="edit" value="<?php echo $id;?>"> Edit item</button>
+                                <form action="edit.phpphp header('Location: edit.php');?>" method="get">
+                                    <button type="submit" name="edit" value="php echo $id;?>"> Edit item</button>
                                 </form>
                                 -->
                                 <?php
                                 if (!empty($_SESSION['userdata']['username'])){
                                     echo '<form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">
-                                    <button type="submit" name="delete" value="'.$id.'"> Delete item</button>
+                                    <button class="modify-button btn btn-secondary" type="submit" name="delete" value="'.$id.'"> Delete item</button>
                                 </form>
 
                                 <form action="edit.php'.header('Location: edit.php').'" method="get">
-                                    <button type="submit" name="edit" value="'.$id.'"> Edit item</button>
+                                    <button class="modify-button btn btn-secondary" type="submit" name="edit" value="'.$id.'"> Edit item</button>
                                 </form>';
                                     }
                                 ?>

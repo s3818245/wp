@@ -100,7 +100,7 @@ if (mysqli_query($conn, $sql)) {
         $addedpro =  '
         <div class="col py-2 d-flex align-items-stretch">
             <div class="card" style="">
-                <a href="addproduct.html">
+                <a href="addproduct.php">
                     <svg class="bi bi-plus-circle" width="10em" height="10em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z"/>
                     <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z"/>
@@ -110,6 +110,9 @@ if (mysqli_query($conn, $sql)) {
             </div>
         </div>
         ';
+        $userlist='<li class="nav-item">
+        <a class="nav-link justified-content-right" href="userlist.php">Userlist</a>
+        </li>';
     } else {
         $login = '
             <li class="nav-item">
@@ -131,6 +134,7 @@ if (mysqli_query($conn, $sql)) {
                 <li class="nav-item active">
                     <a class="nav-link active" href="">Home</a>
                 </li>
+                <?php echo $userlist;?>
                 <!-- <li class="nav-item"> 
                     <a class="nav-link" href="#two">sth2</a>
                 </li>
@@ -204,7 +208,7 @@ if (mysqli_query($conn, $sql)) {
                     <nav class="nav flex-column">
                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>#item-list" method="get">
                             <input type="hidden" name="category" value="">
-                            <button type="submit" class="nav-link btn btn-secondary">All items</button>
+                            <button type="submit" class="cat-button nav-link btn btn-secondary">All items</button>
                         </form>
                         <?php
                         $servername = "sql307.epizy.com";
@@ -227,7 +231,7 @@ if (mysqli_query($conn, $sql)) {
                             while ($row = mysqli_fetch_assoc($result)) {
                                 echo '<form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'#item-list" method="get">
                                 <input type="hidden" name="category" value="'.$row['Category'].'">
-                                <button type="submit" class="nav-link btn btn-secondary">'.$row['Category'].' headphones</button>
+                                <button type="submit" class="cat-button nav-link btn btn-secondary">'.$row['Category'].' headphones</button>
                                 </form>';
                             }
                         } else {

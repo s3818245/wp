@@ -34,7 +34,31 @@
     session_start();
     include 'tools.php';
 
-    $login = array('admin1' => 'nghiepquatsapmat', 'admin2' => 'nlgiaidoancuoi');
+    $servername = "sql307.epizy.com";
+    // $port= 8889;
+    $username = "epiz_25832353";
+    $password = "3IEhY1FThCdC7g4";
+    $dbname = "epiz_25832353_itemData";
+
+    //create connection 
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $login = array();
+    $sql = "SELECT * FROM userData";
+    $result = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $data = array($row['username']=>$row['password']);
+            $login = $login + $data;
+        }
+    } else {
+        echo "0 account available";
+    }
+    // $login = array('admin1' => 'nghiepquatsapmat', 'admin2' => 'nlgiaidoancuoi');
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($_POST["username"])) {
@@ -73,7 +97,7 @@
 
         if (isset($login[$username]) && $login[$username] == $password) {
             $_SESSION['userdata']['username'] = $username;
-            header("location: testadminlogin.php");
+            header("location: index.php");
             exit;
         } else {
             $err_mes = "* Invalid Login Details";

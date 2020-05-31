@@ -74,8 +74,8 @@
     }
     $errorFound = 0;
 
-    preShow($_POST);
-    preShow($_SESSION);
+    // preShow($_POST);
+    // preShow($_SESSION);
     if (isset($_POST['save'])){
         // check image
         if(isset($_FILES['item-image'])){

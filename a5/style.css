@@ -11,3 +11,15 @@
 .availability{
     color: rgb(36, 184, 36);
 }
+
+.cat-button{
+    width: 100%;
+}
+
+footer{
+    color: white;
+    background-color: rgb(128, 128, 128);
+}
+.modify-button{
+    width: 20%;
+}

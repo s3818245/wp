@@ -54,7 +54,7 @@
 
     $errorFound = 0;
 
-    preShow($_POST);
+    // preShow($_POST);
     if (isset($_POST['add'])){
         // check image
         if(isset($_FILES['item-image'])){
