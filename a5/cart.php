@@ -87,7 +87,7 @@ if (!empty($_SESSION['userdata']['username'])) {
                 <li class="nav-item">
                     <a class="nav-link" href="index.php">Home</a>
                 </li>
-                <?php echo $userlist?>
+                <?php echo $userlist;?>
             </ul>
         </div>
         <div class="mx-auto order-0">

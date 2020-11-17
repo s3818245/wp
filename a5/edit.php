@@ -237,7 +237,7 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="index.php">Home</a>
                 </li>
-                <?php echo $userlist?>
+                <?php echo $userlist;?>
                 <!-- <li class="nav-item"> 
                     <a class="nav-link" href="#two">sth2</a>
                 </li>
